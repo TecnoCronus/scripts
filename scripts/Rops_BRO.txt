@@ -45,7 +45,7 @@ prontera,140,175,5	script	Loja de Rops	403,{
 			set $@GetcharId2, getcharid(3,@name$);
 			set @Online, isloggedin($@GetCharId2,@GetCharId);
 			if(@Online != 1) {
-				mes "Jogador n?o existe ou n?o est? online";
+				mes "Jogador não existe ou n?o est? online";
 				close;
 			}
 		mes "[^9f13f8 Vendedor ^000000]";
