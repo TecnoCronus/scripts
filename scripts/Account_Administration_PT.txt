@@ -30,7 +30,7 @@
 	*------------------------------------------------------------------------------------------------------*/
 prontera,146,164,6	script	Controlador de Contas	718,{
 
-L_MainMenu
+L_MainMenu:
 		mes "[Controlador de Contas]";
 		mes "Olá, o que você deseja ?";
 		switch(select("Trocar Minha Senha","Trocar meu Nome","^FF0000Nada^000000","Congelar Minha Conta","descongelar minha conta","Descongelar outra conta")) {
@@ -77,7 +77,7 @@ L_InputUnFree:
 			mes "senha muito pequena";
 			close;
 			}
-			mes "Confirmando: "+@UnFree#+";
+			mes "Confirmando: "+@UnFree$+"";
 			mes " Continuar com essa senha ?";
 			if(select("Sim","Não")==2) goto L_InPutUnfree; 
 			set #Unfree$, @Unfree$;
@@ -155,7 +155,7 @@ L_InputUnFree:
 		{
 			mes "senha incorreta ou você não congelou sua conta";
 			close;
-					s}
+					}
 			set #Freeze_Stats, 0;
 
 			mes "conta descongelada";
@@ -449,13 +449,13 @@ OnInit:
 		set $x_Zeny, 500000;
 		if($CreatTable==1) end;
 		set $CreatTable, 1;
-		query_sql "ALTERTABLE `login` ADD `month_ban` smallint(11) NOT NULL default '0';
-		query_sql "ALTERTABLE `login` ADD `friend_sec1` smallint(11) NOT NULL default '0';
-		query_sql "ALTERTABLE `login` ADD `friend_sec2` smallint(11) NOT NULL default '0';
-		query_sql "ALTERTABLE `login` ADD `friend_sec3` smallint(11) NOT NULL default '0';
-		query_sql "ALTERTABLE `login` ADD `Int_Trys` tinyint(1) NOT NULL default '0';
-		query_sql "ALTERTABLE `global_reg_value` ADD `check_var` smallint(11) NOT NULL default '0';
-		query_sql "ALTERTABLE `global_reg_value` ADD `year` smallint(11) NOT NULL default '0';
+		query_sql "ALTERTABLE `login` ADD `month_ban` smallint(11) NOT NULL default '0'";
+		query_sql "ALTERTABLE `login` ADD `friend_sec1` smallint(11) NOT NULL default '0'";
+		query_sql "ALTERTABLE `login` ADD `friend_sec2` smallint(11) NOT NULL default '0'";
+		query_sql "ALTERTABLE `login` ADD `friend_sec3` smallint(11) NOT NULL default '0'";
+		query_sql "ALTERTABLE `login` ADD `Int_Trys` tinyint(1) NOT NULL default '0'";
+		query_sql "ALTERTABLE `global_reg_value` ADD `check_var` smallint(11) NOT NULL default '0'";
+		query_sql "ALTERTABLE `global_reg_value` ADD `year` smallint(11) NOT NULL default '0'";
 		end;
 
 }
