@@ -94,6 +94,7 @@ commands (script.c) we create the functions this way:
 				|<code>		       |
 				|} 		       |
 				+----------------------+
+
 				+--------------------------+
 				|BUILDIN_DEF(FUNCNAME,args)|
 				+--------------------------+
@@ -236,6 +237,7 @@ the pointer *reg is an string with the name of variable that you need to check.
 
 Example:
                 // Will show an message as in "dispbottom".
+
 	      +---------------------------------------------------------------------------+
               | int cashpoints;								  |
               | cashpoints = pc_readregistry(sd,"#CASHPOINTS",2);			  |

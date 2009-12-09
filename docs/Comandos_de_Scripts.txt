@@ -40,6 +40,7 @@ documento.
 ChangeLog:
 
 1.0.20090825 - Documento totalmente traduzido [TecnoCronus]
+1.1.20091209 - Inserido showevent e Fixados erros [TecnoCronus]
 
 ----------------------------------------------------------------------------------------
 
@@ -111,7 +112,7 @@ Tudo que estiver escrito depois de duas barras // será considerado comentário,
 ou seja, todo o resto da linha após // será ignorado.
 
 
-** Crinando um mapflag:
+** Criando um mapflag:
 
 Para evitar confusão, a partir daqui o botão do seu teclado tab será renomeado
 para %TAB%, ou seja, onde estiver escrito %TAB% você deve apertar o botão tab
@@ -4983,3 +4984,21 @@ este atualiza a parte do cliente também.
 Esse comando vai abrir certo livro em certa página.
 
 ---------------------------------------
+*showevent <status>, <cor>;
+
+Mostra uma marca colorida no mini-map como "viewpoint" e um emoticon no topo do NPC.
+Isto é usado para indicar que um NPC tem uma quest ou evento para um certo jogador.
+
+status pode ser:
+	0 = desativado
+	1 = exclamação
+	2 Interrogação
+
+cores podem ser:
+	0 = amarelo
+	1 = laranja
+	2 = verde
+	3 = azul
+	outros valores mostram uma marca transparte no mini-map
+
+----------------------------------------
