@@ -15,15 +15,15 @@
 	*----------------------------------------- Compatible With: -------------------------------------------*
 	* eAthena SQL		             								       *
 	*------------------------------------------- Description: ---------------------------------------------*
-	* 1.0 Um BroadCast Com Sistema "anti-palavr?o" e "anti-flood".					       *
+	* 1.0 Um BroadCast Com Sistema "anti-palavrão" e "anti-flood".					       *
 	*----------------------------------------- Additional Comments: ---------------------------------------*
 	* 1.0 Funciona SOMENTE em eAthena MySQL.					 		       *
-	* 1.1 As Mensagem podem conter no m?ximo 10 Palavras.						       *
-	* 1.2 -Sobre as Vari?veis, encontram-se da Linha 203 at? a Linha 205, s?o elas: 		       *
-	*    '$times' Corresponde ao n?mero de vezes que o jogador tentou usar palavr?o e ser? impedido de     *
+	* 1.1 As Mensagem podem conter no máximo 10 Palavras.						       *
+	* 1.2 -Sobre as Variáveis, encontram-se da Linha 203 até a Linha 205, são elas: 		       *
+	*    '$times' Corresponde ao número de vezes que o jogador tentou usar palavrão e será impedido de     *
 	*    usar o NPC.									               *
-	*    '$price' Corresponde ao pre?o a ser paga pela mensagem.					       *
-	*    '$Delay' Quantas Mensagens o Jogador poder? mandar por hora.				       *
+	*    '$price' Corresponde ao preço a ser paga pela mensagem.					       *
+	*    '$Delay' Quantas Mensagens o Jogador poderá mandar por hora.				       *
 	*----------------------------------------- Bug Report Link:  ------------------------------------------*
 	*											               *
 	*------------------------------------------------------------------------------------------------------*/
@@ -33,7 +33,7 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 		if(Manner>=$times) {
 			emotion 32;
 			mes "[Tecno^00FF00B^000000^FFFD03R^000000oadCaster] ";
-			mes " ^FF0000 "+ @name$ +" ^000000 Voc? foi banido de usar este NPC, por Usar Linguagem suja al?m do Limite~";
+			mes " ^FF0000 "+ @name$ +" ^000000 Você foi banido de usar este NPC, por Usar Linguagem suja além do Limite~";
 			close;
 		}
 		if(Full==1 && MyDelay != gettime(3)) {
@@ -43,30 +43,30 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 		}
 		if(Full==1) {
 			mes "[Tecno^00FF00B^000000^FFFD03R^000000oadCaster] ";
-			mes "Voc? j? mandou ^0FF0FF "+ $Delay +" ^000000 Mensagens, aguarde a pr?xima Hora para enviar Mensagens";
+			mes "Você já mandou ^0FF0FF "+ $Delay +" ^000000 Mensagens, aguarde a próxima Hora para enviar Mensagens";
 			close;
 		}
 		emotion 21;
 		mes "[Tecno^00FF00B^000000^FFFD03R^000000oadCaster] ";
 		mes "Ol? ^FF0000"+ @name$ +"^000000 Gostaria de mandar uma mensagem?";
 		mes "Essa Mensagem custa "+ $price + " Zenys";
-		mes "Voc? pode mandar ^0FF0FF "+ $Delay +" ^000000 Mensagens por Hora";
+		mes "Você pode mandar ^0FF0FF "+ $Delay +" ^000000 Mensagens por Hora";
 		next;
-		switch(select("Sim","N?o")) {
+		switch(select("Sim","Não")) {
 		case 1:
 			L_Again:
 			mes "[Tecno^00FF00B^000000^FFFD03R^000000oadCaster] ";
 			mes "Ser? aceito no m?ximo uma mensagem com 10 Palavras";
-			mes "Regra Principal: N?o use palavr?es se insistir por "+ $times +" Vezes";
-				mes "voc? n?o poder? enviar mensagens";
+			mes "Regra Principal: N?o use palavrões se insistir por "+ $times +" Vezes";
+			mes "você não poderá enviar mensagens";
 			mes "Quando acabar a mensagem, digite a ultima palavra ^3cbd32 endmsg ^000000";
 			mes "Assim saberei que sua mensagem est? pronta";
 			next;
 			mes "[Tecno^00FF00B^000000^FFFD03R^000000oadCaster] ";
 			mes "Escreva sua mensagem, Por Favor";
-			mes "Palavra por palavra, n?o digite espa?o nem digitos";
+			mes "Palavra por palavra, não digite espa?o nem digitos";
 			mes "A cada palavra digitada aperte enter ou ok";
-			mes "Quando escrever a d?cima palavra, a Mensagem ser? enviada automaticamente";
+			mes "Quando escrever a décima palavra, a Mensagem será enviada automaticamente";
 			mes "Tenha Calma, isso pode levar alguns segundos...";
 			next;
 			L_Input:
@@ -77,15 +77,15 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 			}
 			set @usespace, charisalpha(@msg$,1);
 			if(@usespace==1) {
-				dispbottom "Voc? digitou um d?gito, n?o ? permitido isso, tente novamente, se quiser acabar a mensagem antes das 10 palavras digite: endmsg";
+				dispbottom "Você digitou um dígito, não é permitido isso, tente novamente, se quiser acabar a mensagem antes das 10 palavras digite: endmsg";
 				goto L_Again;
 			}
 			query_sql "SELECT `manners` FROM `mannerdb` WHERE `manners` = '"+ @msg$ +"'", @badword$;
 			if (compare("@msg$","@badword$")) {
 			emotion 23;
 			mes "o.O ^710080 "+ @name$ + " ^000000 voc? est? falando palavr?o...";
-			mes "Se voc? continuar falando palavr?es";
-			mes "voc? n?o poder? enviar mensagens, NUNCA mais";
+			mes "Se você continuar falando palavr?es";
+			mes "você não poderá enviar mensagens, NUNCA mais";
 			set Manner,Manner+1;
 			close;
 			}
@@ -93,7 +93,7 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 			L_NoBadWord:
 			if(Zeny < $price) {
 			mes "[Tecno^00FF00B^000000^FFFD03R^000000oadCaster] ";
-			mes "Voc? n?o tem ^FF8000 "+ $price +" ^000000 Zenys, volte quando tiver";
+			mes "Você não tem ^FF8000 "+ $price +" ^000000 Zenys, volte quando tiver";
 			close;
 			}
 			if(Msg10!="") goto M_SendBC;
@@ -142,8 +142,8 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 			M_SendBC:
 			mes "Confirmando a Mensagem:";
 			mes " "+ Msg1 +" "+ Msg2 +" "+ Msg3 +" "+ Msg4 +" "+ Msg5 +" "+ Msg6 + " "+ Msg7 +" "+ Msg8 +" "+ Msg9 +" "+ Msg10 +" ";
-			mes "Deseja Trocar a Mensagem ou apag?-la?";
-			if(select("Sim","N?o, pode continuar")==1) {
+			mes "Deseja Trocar a Mensagem ou apagá-la?";
+			if(select("Sim","Não, pode continuar")==1) {
 				mes "Certo, irei apagar essa Mensagem...";
 				set Msg1, 0;
 				set Msg2, 0;
@@ -156,7 +156,7 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 				set Msg9, 0;
 				set Msg10, 0;
 				mes "mensagem apagada, deseja enviar outra?";
-				if(select("N?o, quero sair","Sim, Por Favor")==1) close;
+				if(select("Não, quero sair","Sim, Por Favor")==1) close;
 				next;
 				goto L_Again;
 			}
