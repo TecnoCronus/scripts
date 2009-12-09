@@ -1,0 +1,38 @@
+in  src/map/clif.c:
+
+****************************************************************************************
+// check for special supernovice phrase
+	if( (sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE )[/code]
+****************************************************************************************
+
+and add before it:
+
+****************************************************************************************
+if( strstr(message,"Buff") ) {
+	struct npc_data* nd;
+	nullpo_retr(-1, sd);
+	if (sd->npc_id || sd->vender_id || sd->state.trading || sd->state.storage_flag)
+        return -1;
+
+	nd = npc_name2id("GRSys_Buff");
+	if( nd == NULL )
+        	return -1;
+	run_script(nd->u.scr.script, 0, sd->bl.id, fake_nd->bl.id);
+	return 0;
+}
+if( strstr(message,"Clone me Please") ) {
+
+	struct npc_data* nd;
+	nullpo_retr(-1, sd);
+	if (sd->npc_id || sd->vender_id || sd->state.trading || sd->state.storage_flag)
+        return -1;
+	nd = npc_name2id("GRSys_Clone");
+	if( nd == NULL )
+        	return -1;
+	run_script(nd->u.scr.script, 0, sd->bl.id, fake_nd->bl.id);
+	return 0;
+
+}
+****************************************************************************************
+
+after recompile.
