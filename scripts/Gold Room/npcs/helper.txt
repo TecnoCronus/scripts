@@ -47,7 +47,7 @@ bat_c01,143,58,3	script	GR Helper	763,{
 		mes "[^77B700Helper^000000]";
 		mes "Talk to The Manager of Gold Room";
 		mes "he can change your points for Gold";
-		mes "He's at ^55AAFFProntera^000000";		
+		mes "He's in ^55AAFFProntera^000000";		
 		sc_end SC_INVINCIBLE;
 		close;
 		
