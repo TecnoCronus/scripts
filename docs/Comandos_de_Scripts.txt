@@ -125,7 +125,7 @@ Isso vai criar um uma mapflag nesse mapa, essas mapflags estão geralmente dentro
 de arquivos listados em 'conf/mapflag', mas esse comando Top pode ser usado dentro
 de scripts txt
 
-** Criar um permanente invocamente de monstro
+** Criar um invocamente de monstro permanente
 
 <nome do mapa>,<x>,<y>,<xs>,<ys>%TAB%monster%TAB%<nome do monstro>%TAB%<mob id>,<quantidade>,<delay1>,<delay2>,<evento>
 
@@ -151,7 +151,7 @@ desde sua invocação até a morte do monstro. O Tempo é dado em milésimos de segun
 Você pode espificar um nível de monstro custom, indicado o nível custom após o nome.
 Exemplo: "Poring,50" esse monstro terá o nome "Poring" mas com nível 50.
 
-evento é o label a ser chamado quando o monstro morrer, note o jogador que matar
+evento é o rótulo a ser chamado quando o monstro morrer, note o jogador que matar
 o monstro será "atachado ao script", ou seja, como se ele tivesse clicado no
 npc que tem esse comando. O nome do evento deve seguir o seguinte modelo:
 "NOMEDONPC::OnNome", suponhamos que o nome do nosso npc seja "brA" e o nome do
@@ -160,7 +160,7 @@ label seja Ragnarok, então ficaria assim: "brA::Ragnarok".
 
 ** Nomes de NPC
 
-/!\ WARNING: Isto é aplicado para warps, npcs, duplicates e shops /!\
+/!\ ATENÇÃO: Isto é aplicado para warps, npcs, duplicates e shops /!\
 
 Os nomes de NPC são de um tipo especial e formatados desse jeito:
 
@@ -218,7 +218,7 @@ Isso vai definir um npc não clicável e invisível, sendo assim, executados
 somente por Rótulos especiais como: OnPCLoadMapEvent, OnPCLoginEvent entre
 outros.
 
-** Definar um NPC dos tipos loja/loga de cash.
+** Definir um NPC dos tipos loja/loja de cash.
 
 -%TAB%shop%TAB%<Nome do NPC>%TAB%<sprite id>,<itemid>:<preço>{,<itemid>:<preço>...}
 <nome do mapa>,<x>,<y>,<direção>%TAB%shop%TAB%<Nome do NPC>%TAB%<sprite id>,<itemid>:<preço>{,<itemid>:<preço>...}
@@ -618,6 +618,26 @@ Operadores lógicos de "parte" só funcionam com números:
 			mes "Quest 1 completa";
 			close;
 		}
+
+Concatenação
+------------
+
+Algumas vezes será preciso que você retorne o valor de uma função ou inserir o valor de uma
+variável dentro de uma string, para fazer isso você precisa concatenar, no eAthena o jeito
+de se fazer isso é assim:
+
+	+----------------------------+
+	+ mes "Olá "+strcharinfo(0); +
+	+----------------------------+
+
+O Exemplo acima deve mostrar Olá + nome do jogador atachado, esse exemplo é simples é aplicado
+tanto à variáveis quanto à funções, agora veja como fazer uma concatenação entre strings:
+
+	+-----------------------------------------------------+
+	+ mes "Olá "+strcharinfo(0)+", Como posso te ajudar ?";
+	+-----------------------------------------------------+
+
+Você percebeu que deve inserir um sinal de '+' antes e depois da função/variável neste caso.
 
 Rótulos
 -------
@@ -4856,7 +4876,7 @@ debaixo de 'sc_' para conhecer os status.
 
 *petloot <items máximo>;
 
-Este comando vai deixar que o PET junte items do chão, tendo com limite
+Este comando vai deixar que o PET junte items do chão, tendo como limite
 o <item máximos> especificado.
 
 *petskillsupport <id da habilidade>,<nível da habilidade>,<delay>,<porcentagem de hp>,<porcentagem de sp>;
@@ -4900,7 +4920,7 @@ veja a lista de pets disponíveis em 'db\pet_db.txt'.
 
 Exemplo:
 
-    // da um ovo de poring.
+    // dá um ovo de poring.
     makepet 1002;
 
 ---------------------------------------
@@ -4986,7 +5006,7 @@ este atualiza a parte do cliente também.
 Esse comando vai abrir certo livro em certa página.
 
 ---------------------------------------
-*showevent <status>, <cor>;
+*showevent <status>,<cor>;
 
 Mostra uma marca colorida no mini-map como "viewpoint" e um emoticon no topo do NPC.
 Isto é usado para indicar que um NPC tem uma quest ou evento para um certo jogador.
