@@ -41,6 +41,7 @@ ChangeLog:
 
 1.0.20090825 - Documento totalmente traduzido [TecnoCronus]
 1.1.20091209 - Inserido showevent e Fixados erros [TecnoCronus]
+1.2.20091209 - Fixados mais erros [TecnoCronus]
 
 ----------------------------------------------------------------------------------------
 
@@ -178,17 +179,18 @@ ex: Se o nome do seu npc for 'Hunter#hunter1' só será mostrado 'Hunter'.
 
 ** Definir um ponto de warp
 
-<de nome do mapa>,<deX>,<deY>,<direção>%TAB%warp%TAB%<nome do warp>%TAB%<spanx>,<spany>,<to map name>,<paraX>,<paraY>
+<de nome do mapa>,<deX>,<deY>,<direção>%TAB%warp%TAB%<nome do warp>%TAB%<spanx>,<spany>,<para o mapa>,<paraX>,<paraY>
 
 Isso vai criar um NPC de warp que vai teleportar um jogador entre mapas, e todos
 os argumentos são óbvios exceto span x e y que são: Spanx e y vai deixar essas
-coordenadas sensível ao jogador que não andar diretamente sobre ela.
+coordenadas sensíveis ao jogador que andar diretamente sobre ela,ou seja, quando
+o jogador andar dentro dessa àrea o npc será ativado.
 
 Esses NPCs de warp tem um nome, por que, quando você quiser ter uma referência
-depois com 'enablenpc/disablenpc'.
+leia depois com 'enablenpc/disablenpc'.
 
 A Direção para esse tipo NPC é irrelevante, pois de qualquer ângulo que o jogador
-olhar pro npc ele será o mesmo.
+olhar, npc ele será o mesmo.
 
 
 ** Definir um NPC
@@ -436,7 +438,7 @@ Para incluir as aspas "" em uma string você deve usar o prefixo \
 
 Exemplo:
 
-	mes "O Meu nome \"brAthena\" vai ser mostrado entre aspas";
+	mes "O Meu nome \"TecnoCronus\" vai ser mostrado entre aspas";
 
 
 Arrays
