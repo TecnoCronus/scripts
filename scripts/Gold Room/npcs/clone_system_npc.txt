@@ -15,7 +15,7 @@
 -	script	GRSys_Clone	-1,{
 
 	getmapxy(@map$,@x,@y,0);
-	if(@map!="bat_c01") end;
+	if(@map$!="bat_c01") end;
 	if(GR_CanClone == 0) {
 		dispbottom "Hey "+strcharinfo(0)+" you don't did the quest to use clones.";
 		dispbottom "I Cann't clone you now";
