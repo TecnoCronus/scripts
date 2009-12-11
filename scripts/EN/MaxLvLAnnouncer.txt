@@ -26,7 +26,7 @@
 	end;
 
 	OnPCBaseLvUpEvent:
-		if($@Get_x==1) callfunc "Disable";
+		if($@Get_x==1) disablenpc "MaxLvLAn";
 		if(BaseLevel==.@MaxLvl) {
 			if(Rew > 0) end;
 			callfunc "Set_Y",strcharinfo(0);
