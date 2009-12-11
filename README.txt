@@ -18,6 +18,10 @@
 	Os arquivos são separados em pastas, pastas 'EN' guardam arquivos em Inglês enquanto 'PT' em português
 
 
+	Não se esqueça de seguir o trac, para se manter atualizado:
+	http://trac.xp-dev.com/TC_Scripts
+
+
 	Atenciosamente,
 	TecnoCronus
 
