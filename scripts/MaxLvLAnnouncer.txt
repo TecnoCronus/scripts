@@ -1,0 +1,110 @@
+/*	    ___       ___       ___       ___       ___       ___       ___       ___       ___       ___       ___   
+	   /\  \     /\  \     /\  \     /\__\     /\  \     /\  \     /\  \     /\  \     /\__\     /\__\     /\  \  
+	   \:\  \   /::\  \   /::\  \   /:| _|_   /::\  \   /::\  \   /::\  \   /::\  \   /:| _|_   /:/ _/_   /::\  \ 
+	   /::\__\ /::\:\__\ /:/\:\__\ /::|/\__\ /:/\:\__\ /:/\:\__\ /::\:\__\ /:/\:\__\ /::|/\__\ /:/_/\__\ /\:\:\__\
+	  /:/\/__/ \:\:\/  / \:\ \/__/ \/|::/  / \:\/:/  / \:\ \/__/ \;:::/  / \:\/:/  / \/|::/  / \:\/:/  / \:\:\/__/
+	  \/__/     \:\/  /   \:\__\     |:/  /   \::/  /   \:\__\    |:\/__/   \::/  /    |:/  /   \::/  /   \::/  / 
+        	     \/__/     \/__/     \/__/     \/__/     \/__/     \|__|     \/__/     \/__/     \/__/     \/__/ 
+			          
+	*----------------------------------------- eAthena Script ---------------------------------------------*
+	* Maximum Level Announce									       *
+	*----------------------------------------------- By: --------------------------------------------------*
+	* TecnoCronus                                                                                          *
+	*----------------------------------------- Current Version: -------------------------------------------*
+	* 1.0												       *
+	*----------------------------------------- Compatible With: -------------------------------------------*
+	* eAthena		             								       *
+	*------------------------------------------- Description: ---------------------------------------------*
+	* A NPC that announce the 10th firsts persons who got the maximum level				       *
+	*----------------------------------------- Additional Comments: ---------------------------------------*
+	* It give a item as reward, the item ids of reward are keeped at $@Glob_Array_Item array	       *
+	* The index of array will be get randomly.							       *
+	*------------------------------------------------------------------------------------------------------*/
+
+-	script	MaxLvLAn	-1,{
+
+	end;
+
+	OnPCBaseLvUpEvent:
+		if($@Get_x==1) callfunc "Disable";
+		if(BaseLevel==.@MaxLvl) {
+			if(Rew > 0) end;
+			callfunc "Set_Y",strcharinfo(0);
+			callfunc "Get_Rew",strcharinfo(0);
+		}
+		end;
+
+	OnInit:
+		// Set here the maximum level of your server
+		set .@MaxLvl, 99; 
+
+		// Array with the item id rewards
+		setarray $@Global_Array_Item[0],504,505;
+}
+function script Set_Y {
+
+	set $Array,$Array+1;
+	setarray $Rank[$Array], getarg(0);
+	announce getarg(0)+", you was the "+callfunc("Get_P")+" to come into the level "+.@MaxLvl+", you will receive a reward",0;
+	return;
+}
+
+function script Array_Admin {
+
+	if(!$@Array) {
+		set $@Array, 0;
+		return $@Array;
+	} else {
+		set $@Array,$@Array+1;
+		return $@Array;
+	}
+}
+
+function script Get_p {
+	switch($F_P) {
+	default: set $Get_p, "First"; break;
+	case 1: set $Get_p, "Second"; break;
+	case 2: set $Get_p, "Third"; break;
+	case 3: set $Get_p, "fourth"; break;
+	case 4: set $Get_p, "Fifth"; break;
+	case 5: set $Get_p, "Sixth"; break;
+	case 6: set $Get_p, "Seventh"; break;
+	case 7: set $Get_p, "Eighth"; break;
+	case 8: set $Get_p, "Ninth"; break;
+	case 9: set $Get_p, "Tenth"; break;
+	}
+
+	return $Get_p;
+}
+function script Get_Rew {
+
+	getitem $@Glob_Array_Item[callfunc("Rand_Item")],1;
+	set Rew, 1;
+	if($Get_p == "Tenth") disablenpc "MaxLvLAn";
+}
+
+function script Rand_Item {
+
+	set @Rnd_Item, rand(0,getarraysize("$@Glob_Array_Item");
+	return @Rnd_Item;
+}
+
+
+prontera,146,165,6 script MaxLvLRank 718,{
+
+	mes "[Constantin]";
+	mes "Hello, I'm Constantin, I'm the person";
+	mes "Who have acess to all the Rune Midgard Registrys";
+	mes "Are you insterst in somthing ?";
+	if(select("I want see the Top Level Ranking: No, Nothing.")==1) {
+		mes "This rank keep the firsts person who got the";
+		mes "Maximum Level.";
+		next;
+		mes "[Constantin]";
+		for(set @i, 1; @i <= 10; set @i, @i + 1) mes @i+"º"+$Rank[@i]".";
+	} else {
+		mes "Ok, no problems.";
+	}
+
+	close;
+}
