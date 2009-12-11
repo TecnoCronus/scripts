@@ -21,14 +21,12 @@
 	*- 1.1 Em TXT, o Player tem que estar Online na Hora de adicionar Creditos		       		*
 	*- 1.2 Auto detecta, se e TXT ou SQL								       	*
 	*- 2.0 VERSAO 2.0 Adiconado o Sistema Rapido [TecnoCronus]					      	*
-	*- 2.1 "Sistema Rapido" funciona assim, voc? manda uma mensagem em privado para ROP com o Nome do Joga  *
+	*- 2.1 "Sistema Rapido" funciona assim, você manda uma mensagem em privado para ROP com o Nome do Joga  *
 	*-      dor que vai receber os Rops junto com o Numero de Rops que ele vai receber			*
 	*-      Ex.: Player#3000										*
 	*-	Isso Vai Adicionar 3000 Rops para o jogador chamado "Player"					*
-	*- 2.2 O LvL Minimo para Adicionar Rops ? Conforme a Variavel "$@Rop_MinGMLvl" na Linha "94"	       	*
+	*- 2.2 O LvL Minimo para Adicionar Rops é Conforme a Variavel "$@Rop_MinGMLvl" na Linha "94"	       	*
 	*- 3.0 VERSAO 3.0 Atualizado o Sistema Rapido [TecnoCronus]						*
-	*------------------------------------------ Bug Report Link:  ------------------------------------------*
-	*- 											               	*
 	*-------------------------------------------------------------------------------------------------------*/
 
 prontera,140,175,5	script	Loja de Rops	403,{
@@ -39,17 +37,17 @@ prontera,140,175,5	script	Loja de Rops	403,{
 			set @adm$, strcharinfo(0);
 			set .@adm, getcharid(3,@adm$);
 			mes "[^9f13f8 Vendedor ^000000]";
-			mes "Ola Administrador, diga o nome do jogador que voc? deseja adicionar Rops";
+			mes "Olá Administrador, diga o nome do jogador que você deseja adicionar Rops";
 			input @name$;
 			set @GetCharId, getcharid(0,@name$);
 			set $@GetcharId2, getcharid(3,@name$);
 			set @Online, isloggedin($@GetCharId2,@GetCharId);
 			if(@Online != 1) {
-				mes "Jogador não existe ou n?o est? online";
+				mes "Jogador não existe ou não está online";
 				close;
 			}
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Quantos Rops vocedeseja que ^3cbd32 "+@name$+" ^000000 ganhe?";
+		mes "Quantos Rops você deseja que ^3cbd32 "+@name$+" ^000000 ganhe?";
 		mes "Lembrando: Ele deve estar Online";
 		input @Credit;
 		mes "Ok, Adicionando ^FF0000 "+@Credit+" ^000000 Rops em ^3cbd32 "+@name$+" ^000000 ";
@@ -63,12 +61,12 @@ prontera,140,175,5	script	Loja de Rops	403,{
 
 			if(getgmlevel()>=$@Rop_MinGMLvl) {
 				mes "[^9f13f8 Vendedor ^000000]";
-				mes "Ola Administrador, diga o nome do jogador que voce deseja adicionar Rops";
+				mes "Olá Administrador, diga o nome do jogador que você deseja adicionar Rops";
 				input @name2$;
 				set @name3$, @name2$;
 				set @name2, getcharid(3,@name2$);
 				if (@name2 <= 0 || !@name2) {
-					mes "Essa Conta nao existe senhor.";
+					mes "Essa Conta não existe senhor.";
 					close;
 				}
 			set @SQLname, @name2;
@@ -76,12 +74,12 @@ prontera,140,175,5	script	Loja de Rops	403,{
 			mes "Essa pessoa tem "+@rops+" Rops";
 			mes "Deseja Prosseguir?";
 			if(select ("Sim","nao") == 2) close;
-			mes "Quanto Cr?ditos "+@name3$+" deve receber?";
+			mes "Quanto Créditos "+@name3$+" deve receber?";
 			input @Cred;
 			mes "Confirmando: "+@name3$+" receberá "+@Cred+" Rops, Deseja Continuar?";
-			if(select ("Sim","nao") == 2) close;
+			if(select ("Sim","Não") == 2) close;
 			query_sql "UPDATE login SET rops = rops + "+@Cred+" WHERE account_id = "+@SQLname+"";
-			mes "Creditos adicionado com Sucesso";
+			mes "Créditos adicionado com Sucesso";
 			close;
 			}
 		callfunc "Sell";
@@ -94,8 +92,8 @@ prontera,140,175,5	script	Loja de Rops	403,{
 				if(!#RopPoint) set #RopPoint, 0;
 				set #RopPoint, #RopPoint+@Credit;
 				mes "[^9f13f8 Sistema de Rops ^000000]";
-				mes "Meus parab?ns ^5F80C2"+strcharinfo(0)+"^000000 !!!!";
-				mes "Voc? recebeu "+@credit+" Rops";
+				mes "Meus parabéns ^5F80C2"+strcharinfo(0)+"^000000 !!!!";
+				mes "Você recebeu "+@credit+" Rops";
 				close;
 
 			OnInit:
@@ -118,22 +116,22 @@ function	script	Sell	{
 	set @Login, getcharid(3);
 	if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 	mes "[^9f13f8 Vendedor ^000000]";
-	if($@UseMySQL != 1) { mes "Voc? tem "+#RopPoint+" Rop(s)"; } else { mes "Voc? tem "+@rops+" Rop(s)"; }
+	if($@UseMySQL != 1) { mes "Você tem "+#RopPoint+" Rop(s)"; } else { mes "Você tem "+@rops+" Rop(s)"; }
 	mes "Deseja trocar seus Rops por?";
 	mes "Lembre-se: R significa ^55A0FFRops^000000";
 	goto pag_1;
 	pag_1:
-switch(select("Boneca de Alice[1] 8R","Lend?rias Asas de Anjo 5R","Bandana do Mec?nico 5R","Boneca de Lady Solace 4R","?culos[1] 5R","Chap?u de Gradua??o em Magia 5R","Chap?u de Gradua??o Habilidosa 5R","Chap?u de Deviling 4R","Manteau de Diabolus[1] 7R","Armadura de Diablos[1] 10R","Anel de Diablos[1] 4R","Manto de Diablos[1] 10R","Elmo de Diablos[1] 5R","M?scara do Senhor das Trevas 5R" ,"Proxima p?gina")) {
+switch(select("Boneca de Alice[1] 8R","Lendárias Asas de Anjo 5R","Bandana do Mecânico 5R","Boneca de Lady Solace 4R","Óculos[1] 5R","Chapéu de Graduação em Magia 5R","Chapéu de Graduaçãoo Habilidosa 5R","Chapéu de Deviling 4R","Manteau de Diabolus[1] 7R","Armadura de Diablos[1] 10R","Anel de Diablos[1] 4R","Manto de Diablos[1] 10R","Elmo de Diablos[1] 5R","Máscara do Senhor das Trevas 5R" ,"Proxima página")) {
 	case 1:
 		set @price, 8;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Uma Boneca de Alice [1] (+10% de dano em Human?ides +1 de For) ?";
-		switch(select(	"Sim.","N?o")){
+		mes "Uma Boneca de Alice [1] (+10% de dano em Humanóides +1 de For) ?";
+		switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 8R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 8R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -152,13 +150,13 @@ switch(select("Boneca de Alice[1] 8R","Lend?rias Asas de Anjo 5R","Bandana do Me
 		set @price, 5;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Lend?rias Asas de Anjo (+3% Vel Atq -3% Tempo de conjura??o +1 Int + 1 Agi) ?";
+		mes "Lendárias Asas de Anjo (+3% Vel Atq -3% Tempo de conjuração +1 Int + 1 Agi) ?";
 		
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 5R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 5R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -176,13 +174,13 @@ switch(select(	"Sim.","N?o")){
 		set @price, 5;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Bandana do Mec?nico (+2Sor +2Vit, Reduz em 10% o dano de Ataques F?sicos ? Dist?ncia) ?";
+		mes "Bandana do Mecânico (+2Sor +2Vit, Reduz em 10% o dano de Ataques Físicos à Distância) ?";
 
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 5R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 5R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -201,11 +199,11 @@ switch(select(	"Sim.","N?o")){
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
 		mes "Boneca de Lady Solace (+3 Dex e chance de usar lv3 Grand Cross ao receber dano) ?";
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 4R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 4R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -222,12 +220,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 5;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "?culos Escuros[1] (+5% de Resist?ncia contra Cegueira) ?";
-switch(select(	"Sim.","N?o")){
+		mes "Óculos Escuros[1] (+5% de Resistência contra Cegueira) ?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voce tem 5R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 5R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -244,12 +242,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 5;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Chap?u de Gradua??o em Magia (+2Int +2Dex, Ao conjurar magias concede 2% de chance de usar Suffragium nv1) ?";
-switch(select(	"Sim.","N?o")){
+		mes "chapéu de Graduação em Magia (+2Int +2Dex, Ao conjurar magias concede 2% de chance de usar Suffragium nv1) ?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voce tem 5R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 5R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -266,12 +264,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 5;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Chap?u de Gradua??o Habilidosa (+1Int +2Dex +1Vit e Reduz em 5% o intervalo na conjura??o de Habilidades) !?";
-switch(select(	"Sim.","N?o")){
+		mes "Chapéu de Graduação Habilidosa (+1Int +2Dex +1Vit e Reduz em 5% o intervalo na conjuração de Habilidades) !?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voce tem 5R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 5R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -288,12 +286,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 4;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Chap?u de Deviling(+1 de For Crit+3, ao refinar aumenta o Crit)?";
-switch(select(	"Sim.","N?o")){
+		mes "chapéu de Deviling(+1 de For Crit+3, ao refinar aumenta o Crit)?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voce tem 7k de R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 7k de R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -310,12 +308,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 7;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Manteau de Diabolus[1] (Reduz o dano Neutro em 5%. HP M?x +6% quando equipado junto com as Botas de Diabolus) ?";
-switch(select(	"Sim.","N?o")){
+		mes "Manteau de Diabolus[1] (Reduz o dano Neutro em 5%. HP Máx +6% quando equipado junto com as Botas de Diabolus) ?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 7R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 7R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -332,12 +330,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 10;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Armadura de Diabolus[1] (+2 For +1 Dex Max HP +150 +5% Resist contra Atordoamento e Petrifica??o) ?";
-switch(select(	"Sim.","N?o")){
+		mes "Armadura de Diabolus[1] (+2 For +1 Dex Max HP +150 +5% Resist contra Atordoamento e Petrificação) ?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 10R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 10R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -355,11 +353,11 @@ switch(select(	"Sim.","N?o")){
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
 		mes "Anel de Diablos[1](Max HP & SP +100 e aumenta em 5% a da skill Cura) ?";
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 4R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 4R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -377,11 +375,11 @@ switch(select(	"Sim.","N?o")){
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
 		mes "Manto de Diablos[1] (Max SP +150 DefM+5) ?";
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 10R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 10R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -398,12 +396,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 5;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+ @Login +"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Elmo de Diablos[1] (+20% Resist contra Petrifica??o, Congelamento e Atordoamento)?";
-switch(select(	"Sim.","N?o")){
+		mes "Elmo de Diablos[1] (+20% Resist contra Petrificação, Congelamento e Atordoamento)?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 5R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 5R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -420,12 +418,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 5;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "M?scara do Senhor das Trevas[1] (+2 For)?";
-switch(select(	"Sim.","N?o")){
+		mes "Máscara do Senhor das Trevas[1] (+2 For)?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 2R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 2R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -442,17 +440,17 @@ switch(select(	"Sim.","N?o")){
 		goto pag_2;
 	}
 	pag_2:
-	switch(select("M?scara do Ifrit 8R","Brysinggamen 8R","Elmo de Valkiria 6R","Sleipnir 10R","Mascara de Fugitivo 4R")) {
+	switch(select("Máscara do Ifrit 8R","Brysinggamen 8R","Elmo de Valkiria 6R","Sleipnir 10R","Mascara de Fugitivo 4R")) {
 	case 1:
 		set @price, 8;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Uma M?scara do Ifrit (For+1, Int+1,DefM+5. Aumenta resist Fogo em 10%. Reduz a resist ?gua em 10%.Permite o uso Chama Reveladora Chance de conjurar Chuva de Meteoros Nv.3 quando receber dano f?sico. Chance de conjurar Lan?as de Fogo Nv.3 sempre que causar dano f?sico)?";
-switch(select(	"Sim.","N?o")){
+		mes "Uma Máscara do Ifrit (For+1, Int+1,DefM+5. Aumenta resist Fogo em 10%. Reduz a resist água em 10%.Permite o uso Chama Reveladora Chance de conjurar Chuva de Meteoros Nv.3 quando receber dano físico. Chance de conjurar LaNãas de Fogo Nv.3 sempre que causar dano físico)?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 8R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 8R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -470,11 +468,11 @@ switch(select(	"Sim.","N?o")){
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
 		mes "Uma Brysinggamen (+6AGI,FOR,VIT,INT +10LUK +5 DefM) ?";
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 8R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 8R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -492,11 +490,11 @@ switch(select(	"Sim.","N?o")){
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
 		mes "Um Elmo de Valkiria[1] (+5 DefM +1 Todos Status se usando conjunto completo da Valkiria) ?";
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 6R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 6R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -513,12 +511,12 @@ switch(select(	"Sim.","N?o")){
 		set @price, 10;
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
-		mes "Uma Sleipnir (Aumenta Velocidade de Movimento HP/SP Max+20% +10 DefM Recupera??o de Sp+15% )?";
-switch(select(	"Sim.","N?o")){
+		mes "Uma Sleipnir (Aumenta Velocidade de Movimento HP/SP Max+20% +10 DefM Recuperação de Sp+15% )?";
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 10R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 10R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -536,11 +534,11 @@ switch(select(	"Sim.","N?o")){
 		if($@UseMySQL == 1) query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
 		mes "[^9f13f8 Vendedor ^000000]";
 		mes "Uma Mascara de Fugitivo (+5 Atq e se usado por Arruaceiros Permite o Uso de Malandragem)?";
-switch(select(	"Sim.","N?o")){
+switch(select(	"Sim.","Não")){
 	case 1:
 		mes "Ok, Vamos Trocar";
-		mes "Vou checar se voc? tem 4R";
-		mes "Se nao tiver nao falo mais com voce";
+		mes "Vou checar se você tem 4R";
+		mes "Se nao tiver nao falo mais com você";
 		if(#RopPoint< @price && $@UseMySql == 0) close;
 		if ($@UseMySql == 1 && @rops < @price) close;
 		if($@UseMySQL == 1) query_sql "UPDATE login SET rops = rops - "+ @price +" WHERE account_id = "+ @Login+"";
@@ -562,7 +560,7 @@ switch(select(	"Sim.","N?o")){
 end;
 	OnWhisperGlobal:
 		if (getgmlevel() < $@Rop_MinGMLvl) {
-			dispbottom "Tsc, Tsc, Voce nao e GM, entao me deixe em paz";
+			dispbottom "Tsc, Tsc, você nao e GM, entao me deixe em paz";
 			end;
 		}
 
