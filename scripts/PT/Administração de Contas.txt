@@ -49,7 +49,7 @@ L_MainMenu:
 			input @NewName$;
 			set @charid, getcharid(0);
 			query_sql "SELECT `name` FROM `char` WHERE `name` = `"+@NewName$+"`",@check$;
-			if(getstrlen(@check)<2) {
+			if(getstrlen(@check$)<2) {
 			mes "esse nome já existe";
 			close;
 			}
