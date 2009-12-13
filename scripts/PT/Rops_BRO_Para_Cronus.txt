@@ -100,7 +100,7 @@ prontera,140,175,5	script	Loja de Rops	403,{
 			OnInit:
 				set $@Rop_MinGMLvl, 60;
 				set .@AutoD, query_sql("select version()");
-				if(.@AutoD < 0) { set $@UseMySQL,0; debugshow "Sistema Rops trabalhando em TXT"; } else { set $@UseMySQL,1; debugshow "Sistema Rops trabalhando em SQL(Ver."+@AutoD+")"; }
+				if(.@AutoD < 0) { set $@UseMySQL,0; debugmes "Sistema Rops trabalhando em TXT"; } else { set $@UseMySQL,1; debugmes "Sistema Rops trabalhando em SQL(Ver."+@AutoD+")"; }
 				end;
 			
 	}
