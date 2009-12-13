@@ -81,11 +81,12 @@ function script Get_Rew {
 	getitem $@Glob_Array_Item[callfunc("Rand_Item")],1;
 	set Rew, 1;
 	if($Get_p == "Tenth") disablenpc "MaxLvLAn";
+	return;
 }
 
 function script Rand_Item {
 
-	set @Rnd_Item, rand(0,getarraysize("$@Glob_Array_Item");
+	set @Rnd_Item, rand(0,(getarraysize("$@Glob_Array_Item")-1));
 	return @Rnd_Item;
 }
 
