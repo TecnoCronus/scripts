@@ -6,6 +6,7 @@
 	if(@m$ == "YourMap") {
 		set dies, dies + 1;
 		if(dies == 2) {
+			atcommand "@alive";
 			warp "SavePoint",0,0;
 			set dies, 0;
 			}
