@@ -10,7 +10,7 @@
 
 	OnInit:
 		// Array com as mensagem, adicione no máximo 127
-		set .mesarray$[0],"Vote diaramente no nosso servidor " ,"Ajude nosso servidor seja Vip ";
+		set .mesarray$[0],"Vote diaramente no nosso servidor ","Ajude nosso servidor seja Vip ";
 		setnpctimer 0;
 		initnpctimer;
 }
