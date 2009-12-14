@@ -62,16 +62,16 @@ function script Array_Admin {
 
 function script Get_p {
 	switch($F_P) {
-	default: set $Get_p, "First"; break;
-	case 1: set $Get_p, "Second"; break;
-	case 2: set $Get_p, "Third"; break;
-	case 3: set $Get_p, "fourth"; break;
-	case 4: set $Get_p, "Fifth"; break;
-	case 5: set $Get_p, "Sixth"; break;
-	case 6: set $Get_p, "Seventh"; break;
-	case 7: set $Get_p, "Eighth"; break;
-	case 8: set $Get_p, "Ninth"; break;
-	case 9: set $Get_p, "Tenth"; break;
+	case 1: set $Get_p, "First"; break;
+	case 2: set $Get_p, "Second"; break;
+	case 3: set $Get_p, "Third"; break;
+	case 4: set $Get_p, "fourth"; break;
+	case 5: set $Get_p, "Fifth"; break;
+	case 6: set $Get_p, "Sixth"; break;
+	case 7: set $Get_p, "Seventh"; break;
+	case 8: set $Get_p, "Eighth"; break;
+	case 9: set $Get_p, "Ninth"; break;
+	case 10: set $Get_p, "Tenth"; break;
 	}
 
 	return $Get_p;
