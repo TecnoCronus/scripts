@@ -4,8 +4,8 @@
 	remind to let credits to me.
 	The Files are separated in folders, 'EN' Folders keeps files in english while 'PT' in portuguese
 
-	Remind: keep updated, follow the trac:
-	http://trac.xp-dev.com/TC_Scripts
+	Remind: keep updated, follow the Timeline:
+	http://trac.xp-dev.com/TC_Scripts/timeline
 
 	Regards,
 	TecnoCronus
@@ -18,8 +18,8 @@
 	Os arquivos são separados em pastas, pastas 'EN' guardam arquivos em Inglês enquanto 'PT' em português
 
 
-	Não se esqueça de seguir o trac, para se manter atualizado:
-	http://trac.xp-dev.com/TC_Scripts
+	Não se esqueça de seguir o timeline, para se manter atualizado:
+	http://trac.xp-dev.com/TC_Scripts/timeline
 
 
 	Atenciosamente,
