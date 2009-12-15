@@ -17,7 +17,7 @@
 	*------------------------------------------- Description: ---------------------------------------------*
 	* Um NPC que anuncia as 10 primeiras pessoas à chegar ao nível máximo				       *
 	*----------------------------------------- Additional Comments: ---------------------------------------*
-	* Você precisar pr os ids dos item dentro do array $@Glob_Array_Item array, o  item será escolhido     *
+	* Você precisar pr os ids dos item dentro do array .Global_Array_Item array, o  item será escolhido     *
 	* randômicamente.							       			       *
 	*------------------------------------------------------------------------------------------------------*/
 
@@ -39,7 +39,7 @@
 		set .@MaxLvl, 99; 
 
 		// Array com os ids do items
-		setarray $@Global_Array_Item[0],504,505;
+		setarray .Global_Array_Item[0],504,505;
 }
 function script Set_Y {
 
@@ -62,30 +62,31 @@ function script Array_Admin {
 
 function script Get_p {
 	switch($F_P) {
-	default: set $Get_p, "Primeiro"; break;
-	case 1: set $Get_p, "Segundo"; break;
-	case 2: set $Get_p, "Terceiro"; break;
-	case 3: set $Get_p, "Quarto"; break;
-	case 4: set $Get_p, "Quinto"; break;
-	case 5: set $Get_p, "Sexto"; break;
-	case 6: set $Get_p, "Sétimo"; break;
-	case 7: set $Get_p, "Oitavo"; break;
-	case 8: set $Get_p, "Nono"; break;
-	case 9: set $Get_p, "Décimo"; break;
+	default: set $Get_p$, "Primeiro"; break;
+	case 1: set $Get_p$, "Segundo"; break;
+	case 2: set $Get_p$, "Terceiro"; break;
+	case 3: set $Get_p$, "Quarto"; break;
+	case 4: set $Get_p$, "Quinto"; break;
+	case 5: set $Get_p$, "Sexto"; break;
+	case 6: set $Get_p$, "Sétimo"; break;
+	case 7: set $Get_p$, "Oitavo"; break;
+	case 8: set $Get_p$, "Nono"; break;
+	case 9: set $Get_p$, "Décimo"; break;
 	}
 
-	return $Get_p;
+	return $Get_p$;
 }
 function script Get_Rew {
 
-	getitem $@Glob_Array_Item[callfunc("Rand_Item")],1;
+	getitem .Global_Array_Item[callfunc("Rand_Item")],1;
 	set Rew, 1;
-	if($Get_p == "Tenth") disablenpc "MaxLvLAn";
+	if($Get_p$ == "Décimo") disablenpc "MaxLvLAn";
+	return;
 }
 
 function script Rand_Item {
 
-	set @Rnd_Item, rand(0,getarraysize("$@Glob_Array_Item");
+	set @Rnd_Item, rand(0,(getarraysize(".Global_Array_Item")-1));
 	return @Rnd_Item;
 }
 
@@ -101,7 +102,7 @@ prontera,146,165,6 script MaxLvLRank 718,{
 		mes "que atingiram o nível máximo.";
 		next;
 		mes "[Constantin]";
-		for(set @i, 1; @i <= 10; set @i, @i + 1) mes @i+"º"+$Rank[@i]".";
+		for(set @i, 1; $Rank[@i]; set @i, @i + 1) mes @i+"º"+$Rank[@i]".";
 	} else {
 		mes "Ok, sem problemas.";
 	}
