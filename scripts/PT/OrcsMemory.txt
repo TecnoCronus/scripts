@@ -765,7 +765,7 @@ OnMyMobDead:
 	end;
 
 OnTimer10:
-	instance_announce 0, "Voz de algum lugar: Tolo ... Você realmente acha que o altar cairia como aquele?",bc_map,"0xff4444";
+	instance_announce 0, "Voz de algum lugar: Tolo ... Você realmente acha que o altar cairía como aquilo?",bc_map,"0xff4444";
 	end;
 
 OnTimer4010:
