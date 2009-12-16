@@ -27,15 +27,17 @@
 
 	OnPCBaseLvUpEvent:
 
-
-		set .numMaxLevel, .numMaxLevel + 1;
-
 		if(.numMaxLevel == 10)
 			disablenpc "MaxLvLAn";
 		else
 			if(BaseLevel==.MaxLvl) {
+				// Check if the player for some reason, reached to Maximum level again
 				if(Rew > 0) end;
 
+				// Array index, start at 1
+				set .numMaxLevel, .numMaxLevel + 1;
+
+				// Keep the player name on array
 				setarray $Rank$[.numMaxLevel], strcharinfo(0);
 
 				announce strcharinfo(0)+", you are the "+.places$[.numMaxLevel]+" person to reach the level "+.MaxLvl+", you will receive a reward",0;
@@ -72,7 +74,7 @@ prontera,146,165,6 script MaxLvLRank 718,{
 		mes "Maximum Level.";
 		next;
 		mes "[Constantin]";
-		for(set @i, 0; .$Rank$[@i]; set @i, @i + 1) mes @i+"º"+$Rank$[@i]".";
+		for(set @i, 0; $Rank$[@i]; set @i, @i + 1) mes @i+"º"+$Rank$[@i]".";
 	} else {
 		mes "Ok, no problems.";
 	}
