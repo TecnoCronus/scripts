@@ -561,7 +561,11 @@ switch(select(	"Sim.","Não")){
 end;
 	OnWhisperGlobal:
 		if (getgmlevel() < $@Rop_MinGMLvl) {
-			dispbottom "Tsc, Tsc, você nao e GM, entao me deixe em paz";
+			if($@UseMySQL == 1) {
+				query_sql "SELECT rops FROM login WHERE account_id = "+@Login+"", @rops;
+				dispbottom "você tem "+@rops+" pontos de rops";
+			} else
+				dispbottom "você tem "+#RopPoint+" pontos de rops";
 			end;
 		}
 
