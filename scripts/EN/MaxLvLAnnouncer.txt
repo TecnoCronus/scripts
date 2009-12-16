@@ -38,7 +38,7 @@
 
 				setarray $Rank$[.numMaxLevel], strcharinfo(0);
 
-				announce strcharinfo(0)+", you are the "+.places$[.@numMaxLevel]+" person to reach the level "+.MaxLvl+", you will receive a reward",0;
+				announce strcharinfo(0)+", you are the "+.places$[.numMaxLevel]+" person to reach the level "+.MaxLvl+", you will receive a reward",0;
 
 				//give prize
 				set .@Rnd_Item, rand(0,(getarraysize(".Global_Array_Item")-1));
