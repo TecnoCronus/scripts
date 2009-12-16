@@ -34,8 +34,8 @@
 				// Check if the player for some reason, reached to Maximum level again
 				if(Rew > 0) end;
 
-				// Array index, start at 1
-				set .numMaxLevel, .numMaxLevel + 1;
+				// Array index, start at 0
+				set .numMaxLevel, getarraysize($Rank$);
 
 				// Keep the player name on array
 				setarray $Rank$[.numMaxLevel], strcharinfo(0);
@@ -45,9 +45,14 @@
 				//give prize
 				set @Rnd_Item, rand(0,(getarraysize(".Global_Array_Item")-1));
 				getitem .Global_Array_Item[@Rnd_Item],1;
+
+				// set this variable, to don't take rewards again
 				set Rew, 1;
 
-				if(.numMaxLevel == 10) // SHould be 10 now because the array index start in 1
+				// Keep the last array index
+				set .numMaxLevel,.numMaxLevel+1;
+
+				if(.numMaxLevel == 9) // Should be 9 now because the array index start in 0 (Thanks to ToastOfDoom)
 					disablenpc "MaxLvLAn";
 			}
 		end;
