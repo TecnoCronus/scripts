@@ -1,3 +1,15 @@
+Index: npc.c
+===================================================================
+--- npc.c	(revision 2839)
++++ npc.c	(working copy)
+@@ -3046,6 +3046,8 @@
+ 		map[m].flag.nostorage=state;
+ 	else if (!strcmpi(w3,"noguildstorage"))
+ 		map[m].flag.noguildstorage=state;
++	else if (!strcmpi(w3,"nowhisp"))
++		map[m].flag.nowhisp=state;
+ 	else
+ 		ShowError("npc_parse_mapflag: unrecognized mapflag '%s' (file '%s', line '%d').\n", w3, filepath, strline(buffer,start-buffer));
 Index: db/const.txt
 ===================================================================
 --- db/const.txt	(revision 2839)
