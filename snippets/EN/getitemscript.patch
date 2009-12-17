@@ -25,6 +25,6 @@ Index: script.c
  	BUILDIN_DEF(checkquest, "i*"),
  	BUILDIN_DEF(changequest, "ii"),
  	BUILDIN_DEF(showevent, "ii"),
-+	BUILDIN_DEF(getitemscript,"i"),
++	BUILDIN_DEF(getitemscript,"s"),
  	{NULL,NULL,NULL},
  };
