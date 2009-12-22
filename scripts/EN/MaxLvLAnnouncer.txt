@@ -29,13 +29,9 @@
 
 		if(.numMaxLevel == 10)
 			disablenpc "MaxLvLAn";
-		else
-			if(BaseLevel==.MaxLvl) {
+		else if (BaseLevel==.MaxLvl) {
 				// Check if the player for some reason, reached to Maximum level again
 				if(Rew > 0) end;
-
-				// Array index, start at 0
-				set .numMaxLevel, getarraysize($Rank$);
 
 				// Keep the player name on array
 				setarray $Rank$[.numMaxLevel], strcharinfo(0);
