@@ -9,7 +9,7 @@ prontera,154,198,5	script	magician_warper	805,{
 		mes "Please man... this guy taught me some tricks";
 		mes "i can get you places faster...";
 		next;
-		menu "What did he teach you?",-;
+		select ("What did he teach you?");
 		mes "[Poor Magic Man]";
 		mes "He taught me how to warp people";
 		mes "So i could warp you to the third dungeon of thor";
