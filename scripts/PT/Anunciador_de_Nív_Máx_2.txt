@@ -17,8 +17,10 @@
 	*------------------------------------------- Description: ---------------------------------------------*
 	* Um NPC que anuncia as 10 primeiras pessoas à chegar ao nível máximo				       *
 	*----------------------------------------- Additional Comments: ---------------------------------------*
-	* Você precisar pr os ids dos item dentro do array .Global_Array_Item array, o  item será escolhido     *
+	* Você precisar pr os ids dos item dentro do array .Global_Array_Item array, o  item será escolhido    *
 	* randômicamente.							       			       *
+	*----------------------------------------------- changelog --------------------------------------------*
+	* http://trac.xp-dev.com/TC_Scripts/log/scripts/PT/Anunciador_de_Nív_Máx_2.txt	 		       *
 	*------------------------------------------------------------------------------------------------------*/
 
 -	script	MaxLvLAn	-1,{
@@ -29,13 +31,9 @@
 
 		if(.numMaxLevel == 10)
 			disablenpc "MaxLvLAn";
-		else
-			if(BaseLevel==.MaxLvl) {
+		else if(BaseLevel==.MaxLvl) {
 				// Check if the player for some reason, reached to Maximum level again
 				if(Rew > 0) end;
-
-				// Array index, start at 1
-				set .numMaxLevel, .numMaxLevel + 1;
 
 				// Keep the player name on array
 				setarray $Rank$[.numMaxLevel], strcharinfo(0);
@@ -47,7 +45,10 @@
 				getitem .Global_Array_Item[@Rnd_Item],1;
 				set Rew, 1;
 
-				if(.numMaxLevel == 10) // SHould be 10 now because the array index start in 1
+				// Array index, start at 1
+				set .numMaxLevel, .numMaxLevel + 1;
+
+				if(.numMaxLevel == 9)
 					disablenpc "MaxLvLAn";
 			}
 		end;
@@ -73,7 +74,7 @@ prontera,146,165,6 script MaxLvLRank 718,{
 		mes "que atingiram o nível máximo.";
 		next;
 		mes "[Constantin]";
-		for(set @i, 1; $Rank$[@i]; set @i, @i + 1) mes @i+"º"+$Rank$[@i]".";
+		for(set @i, 0; $Rank$[@i]; set @i, @i + 1) mes @i+"º"+$Rank$[@i]".";
 	} else {
 		mes "Ok, sem problemas.";
 	}
