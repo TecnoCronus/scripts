@@ -55,7 +55,7 @@ Index: atcommand.c
  	{ "delitem",           60,60,     atcommand_delitem },
  	{ "charcommands",       1,1,      atcommand_commands },
  	{ "font",               1,1,      atcommand_font },
-+	{ "setiteminf",         1,1,      atcommand_setiteminf },
++	{ "setiteminf",         99,99,      atcommand_setiteminf },
  };
  
  
