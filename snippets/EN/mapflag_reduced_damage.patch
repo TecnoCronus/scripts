@@ -18,7 +18,7 @@ Index: db/const.txt
  mf_nochat	43
  mf_noexppenalty	44
  mf_guildlock	45
-+mf_damage_recuded	46
++mf_damage_reduced	46
  
  cell_walkable	0
  cell_shootable	1
