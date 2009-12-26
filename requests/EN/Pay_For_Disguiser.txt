@@ -23,7 +23,7 @@ prontera,174,215,6	script	Maya	408,{
 		close;
 
 
-	} else {
+	}
 
 		if(!Agitcheck() || !Agitcheck2()) {
 
@@ -70,8 +70,6 @@ prontera,174,215,6	script	Maya	408,{
 		}
 
 	mes "I'm sorry but I can't work while WOE is on";
-
-	}
 
 	close;
 
