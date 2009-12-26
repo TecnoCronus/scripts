@@ -139,6 +139,7 @@
 
 	OnEvent:
 		initnpctimer;
+		end;
 
 	OnTimer60000:
 
