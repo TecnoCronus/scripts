@@ -143,7 +143,7 @@
 
 	OnTimer60000:
 
-		if(getmapmobs ($FaMum) > 0) {
+		if(getmapmobs ($AmMap$) > $FaMum) {
 
 			announce "O Tempo está passando e ainda há monstros invasores em "+$AmMap$,bc_all,0x00FF00;
 			setnpctimer 0;

@@ -140,7 +140,7 @@
 
 	OnTimer60000:
 
-		if(getmapmobs ($FaMum) > 0) {
+		if(getmapmobs ($AmMap$) > $FaMum) {
 
 			announce "The time is passing and there's still invaders left in "+$AmMap$,bc_all,0x00FF00;
 			setnpctimer 0;
