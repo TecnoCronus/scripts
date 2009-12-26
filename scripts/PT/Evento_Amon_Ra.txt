@@ -20,6 +20,7 @@
 	*- Um NPC de Evento, todo dia 15 do mês o Evento começa							*
 	*- Quem Matar Faraó, Osíris e o Anubis Verdadeiro, ganhará um Item à sua escolha, quem matar Múmias 	*
 	*- e falsos Anubis ganhará Zeny à sua escolha também.							*
+	*- O Evento Começa todo dia 15 do mês									*
 	*-------------------------------------------- Changelog ------------------------------------------------*
 	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/PT/Evento_Amon_Ra.txt				       	*
 	*-------------------------------------------------------------------------------------------------------*/
