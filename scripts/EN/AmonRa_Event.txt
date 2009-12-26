@@ -8,20 +8,18 @@
 
  					           Advanced Scripts
 
-					  (C) Copyright TecnoCronus 25/12/09
+					  (C) Copyright TecnoCronus 08/09/09
 			    	 	
 	*--------------------------------------------Cronus Script ---------------------------------------------*
-	*- Evento Amon Ra			       								*
+	*- Amon Ra Event			       								*
 	*------------------------------------------------ By: --------------------------------------------------*
 	*- TecnoCronus	                                                                                       	*
 	*------------------------------------------ Current Version: -------------------------------------------*
 	*- 1.0												       	*
 	*---------------------------------------- Additional Comments: -----------------------------------------*
-	*- Um NPC de Evento, todo dia 15 do mês o Evento começa							*
-	*- Quem Matar Faraó, Osíris e o Anubis Verdadeiro, ganhará um Item à sua escolha, quem matar Múmias 	*
-	*- e falsos Anubis ganhará Zeny à sua escolha também.							*
+	*- A Event NPC that starts every day 15 of the month							*
 	*-------------------------------------------- Changelog ------------------------------------------------*
-	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/PT/Evento_Amon_Ra.txt				       	*
+	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/EN/AmonRa_Event.txt				       	*
 	*-------------------------------------------------------------------------------------------------------*/
 
 -	script	Guardiao_AmonRA	-1,{
@@ -45,56 +43,55 @@
 
 	OnFaraoKilled:
 		set $FaMum,$FaMum - 1;
-		announce "Obrigado "+strcharinfo(0)+" por ter matado Faraó, você ganhará um "+getitemname(.@item3)+", como recompensa",bc_all,0x00FF00;
+		announce "Thanks "+strcharinfo(0)+" for killing the Pharaoh, you will receive a "+getitemname(.@item3)+", as reward",bc_all,0x00FF00;
 		getitem .@item3,1;
 		end;
 
 	OnOsirisKilled:
 		set $FaMum,$FaMum - 1;
-		announce "Obrigado "+strcharinfo(0)+" por ter matado Osíris, você ganhará um "+getitemname(.@item4)+", como recompensa",bc_all,0x00FF00;
+		announce "Thanks "+strcharinfo(0)+" for killing the Osiris, you'll receive a "+getitemname(.@item4)+", as reward",bc_all,0x00FF00;
 		getitem .@item4,1;
 		end;
 
 	OnMumiaKilled:
 		set $FaMum,$FaMum - 1;
-		dispbottom "Você Matou uma Múmia, continue assim";
+		dispbottom "You killed a Mummy";
 		set Zeny,Zeny + .@Zeny;
 		end;
 
 	OnFalseAnubisKilled:
 		set Zeny,Zeny + .@Zeny;
-		dispbottom "Você Matou um Anubis Falso";
+		dispbottom "You killed a false Anubis";
 		end;
 
 	OnTrueAnubisKilled:
 
-		announce "Parabéns "+strcharinfo(0)+" você salvou a Todos você receberá um "+getitemname(.@item2)+", como recompensa",bc_all,0x00FF00;
+		announce "Congratulations "+strcharinfo(0)+" you saved the world you will receive a "+getitemname(.@item2)+", as reward! Thanks !!!",bc_all,0x00FF00;
 		getitem .@item2,1;
 		killmonsterall "prontera";
-		announce "A Invasão acabou, O Mundo foi salvo por "+strcharinfo(0)+", PARABÉNS",bc_all,0x00FF00;
 		set $OnEvent, 0;
 		end;
 
 	OnInit:
-		// ID do item dado a quem matar o verdadeiro Anubis
+		// Item id of the reward to who kills the true Anubis
 		set .@item2, 504;
 
-		// ID do item dado a quem matar o Faraó
+		// Item id of the reward to who kills the Pharao
 		set .@item3, 504;
 
-		// ID do item dado a quem matar o Osíris
+		// Item id of the reward to who kills Osiris
 		set .@item4, 504;
 
-		// Quantidade de Zeny dada a quem matar múmias e falsos anubis
+		// Zeny to give to who kills mummys and false anubis
 		set .@Zeny, 1;
 
-		// Quantidade de falsos anúbis que serão sumonados
+		// Amount of False anubis to summon
 		set $Fanubis, 30;
 
-		// Quantidade de múmias que serão sumonadas
+		// Amount of Mummys to summon
 		set $MumAmEvent, 60;
 
-		// Nome do Mapa que ocorrerá a invasão
+		// Map name, where the invasion will happen
 		set $AmMap$, "prontera";
 
 		set $FaMum,$MumAmEvent+$MumAmEvent;
@@ -106,7 +103,7 @@
 
 	OnEvent:
 
-		announce "Oh meu Deus, o poderoso Rei das Trevas Anubis foi Despertado",bc_all,0X00FF00;
+		announce "The powerfull darkness's king Anubis was awaken",bc_all,0X00FF00;
 		initnpctimer;
 		end;
 
@@ -115,19 +112,19 @@
 		monster $AmMap$,0,0,"Faraó",1157,1,"Guardiao_AmonRA::OnFaraoKilled";
 		monster $AmMap$,0,0,"Osíris",1038,1,"Guardiao_AmonRA::OnOsirisKilled";
 		monster $AmMap$,0,0,"Múmia",1041,$MumAmEvent,"Guardiao_AmonRA::OnMumiaKilled";
-		announce "Meu Deus !!! Algo Inacreditável Aconteceu: Anubis hipnotizou Faraó e Osíris, e eles estão espalhados e atacando todo mundo em Prontera",bc_all,0x00FF00;
+		announce "Something unbelievable happened: Anubis hypnotized Pharao and Osiris, They are killing everyone in "+$AmMap$,bc_all,0x00FF00;
 		end;
 
 	OnTimmer30000:
 
-		announce "Vamos pessoal, matem TODOS invasores, Lembre-se: Vocês serão recompensados",bc_all,0x00FF00;
+		announce "Let's go !! everybody needs to kill the invaders",bc_all,0x00FF00;
 		end;
 
 	OnTimer60000:
 
-		announce "Amon Rá recompençará à todos que ajudarem a acabar com a invasão",bc_all,0x00FF00;
+		announce "AmonRa will reward everyone who helps to end the invasion",bc_all,0x00FF00;
 		monster $AmMap$,0,0,"Múmia",1041,$MumAmEvent,"Guardiao_AmonRA::OnMumiaKilled";
-		announce "Anubis Aparecerá quando Osiris, Faraó e as Múmias morrem",bc_all,0x00FF00;
+		announce "Anubis will appear when Osiris, Pharao and the Mummys dies",bc_all,0x00FF00;
 		setnpctimer 0;
 		stopnpctimer;
 		donpcevent "Timer_AmonRa2::OnEvent";	
@@ -144,11 +141,11 @@
 
 		if(getmapmobs ($FaMum) > 0) {
 
-			announce "O Tempo está passando e ainda há monstros invasores em "+$AmMap$,bc_all,0x00FF00;
+			announce "The time is passing and there's still invaders left in "+$AmMap$,bc_all,0x00FF00;
 			setnpctimer 0;
 
 		}
-		announce "Amon Rá disse que Anubis se Clonou, há vários deles em "+$AmMap$+", mais somente um é o verdadeiro, quem o matar será recompensado ",bc_all,0x00FF00;
+		announce "AmonRa said that Anubis cloned himself, there are many os falses Anubis in "+$AmMap$+", However, just one is the true ",bc_all,0x00FF00;
 		monster $AmMap$,0,0,"Anubis",1098,$FAnubis,"Guardiao_AmonRA::OnFalseAnubisKilled";
 		monster $AmMap$,0,0,"Anubis",1098,1,"Guardiao_AmonRA::OnTrueAnubisKilled";
 		end;
