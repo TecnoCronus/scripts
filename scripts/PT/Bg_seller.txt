@@ -129,79 +129,29 @@ bat_room,161,150,3	script	Thor#bgroom	414,{
 		setarray .Item_qnt3[0],1,1,1,1,1,1;
 		end;
 
+        function        ChecarMoeda     {
 
-	function	ChecarMoeda	{
+        select("Emblema de Guerra:Emblema de Bravura:Emblema de Valor");
 
-	switch(select("Emblema de Guerra:Emblema de Bravura:Emblema de Valor")) {
-	case 1:
-		if(countitem(7773) > getarg(2)) {
+        setarray .@medalid, 7773, 7828, 7829;
 
-			delitem 7773,getarg(2);
-			getitem getarg(0),getarg(1);
+        if(countitem(.@medalid[@menu-1]) > getarg(2)) {
 
-			mes "Troca concluída, obrigado e volte sempre.";
+                delitem .@medalid[@menu-1],getarg(2);
+                getitem getarg(0),getarg(1);
 
-		} else {
+                mes "Troca concluída, obrigado e volte sempre.";
 
-			mes "Me desculpe mais você não tem a quantidade";
-			mes "Dessa moeda necessária";
-			mes "Deseja escolher outra ou sair ?";
+        } else {
 
-			if(select("Escolher Outra:Sair")==2) close;
+                mes "Me desculpe mais você não tem a quantidade";
+                mes "Dessa moeda necessária";
+ 	
+		close;
+        }
 
-			goto L_Switch;
-
-		}
-
-		break;
-
-	case 2:
-		if(countitem(7828) > getarg(2)) {
-
-			delitem 7828,getarg(2);
-			getitem getarg(0),getarg(1);
-			mes "Troca concluída, obrigado e volte sempre.";
-
-		} else {
-
-			mes "Me desculpe mais você não tem a quantidade";
-			mes "Dessa moeda necessária";
-			mes "Deseja escolher outra ou sair ?";
-
-			if(select("Escolher Outra:Sair")==2) close;
-
-			goto L_Switch;
-
-		}
-
-		break;
-
-	case 3:
-		if(countitem(7829) > getarg(2)) {
-
-			delitem 7829,getarg(2);
-			getitem getarg(0),getarg(1);
-
-			mes "Troca concluída, obrigado e volte sempre.";
-
-		} else {
-			mes "Me desculpe mais você não tem a quantidade";
-			mes "Dessa moeda necessária";
-			mes "Deseja escolher outra ou sair ?";
-
-			if(select("Escolher Outra:Sair")==2) close;
-
-			goto L_Switch;
-		}
-
-		break;
-
-	}
-
-	return;
-
-
-	}
+        return;
+        }
 
 
 	function	index2id	{
