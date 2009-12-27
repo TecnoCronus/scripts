@@ -3,8 +3,7 @@
 
 prontera,150,150,5, script Custom Seller 899,{
 
-	mes "Made my Lunar.";
-	mes "I will sell you customs for 10 Coins.";
+
 	callshop "Custom_Seller",1;
 	npcshopattach "Custom_Seller";
 	end;
