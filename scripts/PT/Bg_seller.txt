@@ -71,7 +71,7 @@ bat_room,161,150,3	script	Thor#bgroom	414,{
 		select("Items Consumíveis (1 Moeda)","+9 Foods(1 Moeda)","+10 Foods(2 Moedas)");
 
 		mes "Escolha um item";
-		mes "Lembrando que tod"+(@menu > 1 ? "as" : "os")+" custam "+(@menu > 2 ? 2 : 1)+" Moed"+(@menu > 2 ? "as": "a");
+		mes "Lembrando que tod"+(@menu == 1 ? "os" : "as")+" custam "+(@menu > 2 ? 2 : 1)+" Moed"+(@menu > 2 ? "as": "a");
 
 		set @tmp$,"";
 		set @menu2, @menu;
