@@ -15,11 +15,9 @@
 	*----------------------------------------- Compatible With: -------------------------------------------*
 	* eAthena SQL		             								       *
 	*------------------------------------------- Description: ---------------------------------------------*
-	* Um NPC que dá buffs.										       *
-	*----------------------------------------- Additional Comments: ---------------------------------------*
-	*												       *
+	* Um NPC que dá buffs.										       *												       *
 	*----------------------------------------- Bug Report Link:  ------------------------------------------*
-	*											               *
+	* http://trac.xp-dev.com/TC_Scripts/log/scripts/PT/Soul_Linker_Buffer.txt			       *
 	*------------------------------------------------------------------------------------------------------*/
 
 prontera,146,163,6	script	Soul Linker	718,{
@@ -28,7 +26,7 @@ prontera,146,163,6	script	Soul Linker	718,{
 	mes "Olá "+strcharinfo(0)+", eu sou o mestre kira";
 	mes "Eu posso abençoar as pessoas";
 	mes "Com os meus buffs de Soul Linker ...";
-	if(Class < 4008 || Class > 4022) {
+	if(Class < 4008 && Class > 4022) {
 		mes "Que pena, meu eu não posso lhe buffar.";
 		next;
 		mes "[Kira]";
@@ -43,13 +41,15 @@ prontera,146,163,6	script	Soul Linker	718,{
 				sc_start sc_spirit,360000;
 				set Zeny, Zeny - .@ReqZeny;
 				mes "Buffado.";
-			} else {
-				mes "Você infezlimente não tem zeny suficiente";
-				mes "Volte quando tiver.";
+				close;
 			}
-		} else {
-			mes "Tudo bem, volte quando você quiser.";
+
+			mes "Você infezlimente não tem zeny suficiente";
+			mes "Volte quando tiver.";
+			close;
+
 		}
+			mes "Tudo bem, volte quando você quiser.";
 	}
 	close;
 
