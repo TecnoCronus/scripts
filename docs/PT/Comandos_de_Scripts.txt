@@ -68,7 +68,7 @@ Texto Descritivo
 
 Para achar um comando específico, use Ctrl+F, (or qualquer atalho que chame
 uma função de pesquisar onde você estiver lendo isso) ponha um * seguido do
-nome do comando, isso deve achar a dexrição do comando para você.
+nome do comando, isso deve achar a descrição do comando para você.
 
 
 Sintaxe
@@ -77,8 +77,8 @@ Sintaxe
 Através deste documento,quando um comando necessitar de um argumento, isto será
 dado em <parênteses angulados>, ou seja "<>".Isso não quer diser que esse argumento
 tem que ser usado, se o argumento for opcional ele virá {entre colchetes}. Você
-verá ambos em alguns comandos. Se o comando, opcionalmente, tiver alguns argumentos
-opcionais, você verá uma lista como essa:
+verá ambos em alguns comandos. Se o comando tiver alguns argumentos opcionais, 
+você verá uma lista como essa:
 
 comando <argumento>,{<argumento>...<argumento>};
 
@@ -121,7 +121,7 @@ do seu teclado e não escrever %TAB%.
 
 Isso vai criar um uma mapflag nesse mapa, essas mapflags estão geralmente dentro
 de arquivos listados em 'conf/mapflag', mas esse comando Top pode ser usado dentro
-de scripts txt
+de scripts fora dos colchetes {}
 
 ** Criar um invocamente de monstro permanente
 
@@ -142,7 +142,7 @@ monstro será invocado numa versão pequena, Mas, isso não é recomando.
 quantidade é a quantidade de monstro sque serão invocados, quando esse comando
 é executado ele é afetado pelo rates de spwan em 'battle_athena.conf'.
 
-Delay1 e Delay2 são os delays de invocação do monstro - o primeiro counta o tempo
+Delay1 e Delay2 são os delays de invocação do monstro - o primeiro conta o tempo
 desde que um monstro foi invocado até a última invocação. o segundo conta o tempo
 desde sua invocação até a morte do monstro. O Tempo é dado em milésimos de segundo.
 
@@ -798,7 +798,7 @@ irá desaparecer e o script será terminado.
     mes "[TecnoCronus]";
     mes "Ok Não vou falar mais com você clique em close para acabar a conversa";
     close;
-    mes "Isso não será mostrado, pois o script á foi encerrado";
+    mes "Isso não será mostrado, pois o script já foi encerrado";
 
 ---------------------------------------
 
@@ -4837,6 +4837,7 @@ Exemplos:
 	set @var, axtoi("FF"); 		// vai definir @var como 255
 	mes axtoi("11"); 		// vai mostrar 17.
 
+*atoi  = Ascii TO Integer
 
 ---------------------------------------
 
@@ -4867,8 +4868,8 @@ completa de bônus em 'db\const.txt'.
 
 *petrecovery <status type>,<delay>;
 
-Este comando vai fazer o PET curar um condição de status especificada.
-a curação vai ocorrer de <Delay> em <delay> segundos, veja 'db\const.txt'
+Este comando vai fazer o PET curar um condição de status específica.
+a cura vai ocorrer de <Delay> em <delay> segundos, veja 'db\const.txt'
 debaixo de 'sc_' para conhecer os status.
 
 
@@ -4905,14 +4906,14 @@ estiverem propriamente definidas.
 
 Este comando abre uma janela de "chocar" do jogador atachado. é usado em script
 de items, mais especificamente na incubadora, vai mostrar uma lista de todos
-os ovos de PET que o jogador tem em seu invetório. Mas é usável em Scrips de
+os ovos de PET que o jogador tem em seu invetório. Mas é usável em Scripts de
 NPC.
 
 ---------------------------------------
 
 *makepet <pet id>;
 
-Este comando cria um ovo de oet e o põe no invetório do char atachado ao script.
+Este comando cria um ovo de pet e o põe no invetório do char atachado ao script.
 
 veja a lista de pets disponíveis em 'db\pet_db.txt'.
 
