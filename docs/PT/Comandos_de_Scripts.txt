@@ -39,9 +39,7 @@ documento.
 
 ChangeLog:
 
-1.0.20090825 - Documento totalmente traduzido [TecnoCronus]
-1.1.20091209 - Inserido showevent e Fixados erros [TecnoCronus]
-1.2.20091209 - Fixados mais erros [TecnoCronus]
+http://trac.xp-dev.com/TC_Scripts/log/scripts/PT/Bg_seller.txt
 
 ----------------------------------------------------------------------------------------
 
@@ -4462,7 +4460,7 @@ Exemplo:
 
 *debugmes "<mensagem>";
 
-Este comando vai enciar a mensagem para o console do servidor (a janela do map-server)
+Este comando vai enviar uma mensagem para o console do servidor (a janela do map-server)
 ninguém dentro do jogo verá essa mensagem.
 
 Exemplo:
