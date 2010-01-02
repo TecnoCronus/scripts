@@ -1,50 +1,20 @@
-
- 	  ___       ___       ___       ___       ___       ___       ___       ___       ___       ___       ___   
-         /\  \     /\  \     /\  \     /\__\     /\  \     /\  \     /\  \     /\  \     /\__\     /\__\     /\  \  
-         \:\  \   /::\  \   /::\  \   /:| _|_   /::\  \   /::\  \   /::\  \   /::\  \   /:| _|_   /:/ _/_   /::\  \ 
-         /::\__\ /::\:\__\ /:/\:\__\ /::|/\__\ /:/\:\__\ /:/\:\__\ /::\:\__\ /:/\:\__\ /::|/\__\ /:/_/\__\ /\:\:\__\
-        /:/\/__/ \:\:\/  / \:\ \/__/ \/|::/  / \:\/:/  / \:\ \/__/ \;:::/  / \:\/:/  / \/|::/  / \:\/:/  / \:\:\/__/
-        \/__/     \:\/  /   \:\__\     |:/  /   \::/  /   \:\__\    |:\/__/   \::/  /    |:/  /   \::/  /   \::/  / 
-        	   \/__/     \/__/     \/__/     \/__/     \/__/     \|__|     \/__/     \/__/     \/__/     \/__/ 
-
- 					           Advanced Scripts
-
-					  (C) Copyright TecnoCronus 25/08/2009
- 
-
-
-Este documento é baseado nos scripts_commands do eAthena, ele é uma tradução e também
-uma versão mais direta, sem exemplos e comentários inúteis, tentando ser o mais breve
-possível. Com o passar do tempo irei atualizando o documento, pondo exemplos, dando
-dicas e atualizando para novos comandos e funções implementadas no emulador do eAthena.
-
-* NOTAs IMPORTANTEs:
-
-(1) Eu não dou nenhuma autorização de por este documento em qualquer outro emulador ao 
-não ser o brAthena sem a minha autorização, se você ver este documento em outro "emulador"
-português ele estará RIPADO.
-
-(2) Se você encontrar algum erro de português e/ou alguma informação incorreta/incompleta,
-por favor poste isso no link abaixo:
-
-http://www.eathena.ws/board/index.php?showtopic=227767
-
-(3) Se você deseja por sua própria versão de um comando ou função poste ele/ela no link
-acima, eu analisarei e se eu concluir que a sua versão é melhor, eu a adicionarei neste
-documento.
-
-(4) Versão Atual: 1.0.20090825
-
-***
-
-ChangeLog:
-
-http://trac.xp-dev.com/TC_Scripts/log/scripts/PT/Bg_seller.txt
-
-----------------------------------------------------------------------------------------
+//===== Cronus Documentos ====================================
+//= Comandos de Script
+//===== Por: =================================================
+//= TecnoCronus
+//===== Versão Atual: ========================================
+//= 1.0.20100102
+//===== Descrição: ===========================================
+//= Este documento é baseado nos scripts_commands do eAthena, 
+//= ele é uma tradução e também uma versão mais direta, sem 
+//= exemplos e comentários inúteis, tentando ser o mais breve
+//= possível
+//===== Comentários Adicionais: ==============================
+//= Traduzido o documento [TecnoCronus]
+//============================================================
 
 Esse Documento é uma referência manual para todos os comandos de scripts e funções
-dispníveis na versão atual do SVN do eAthena. Isso não é um simples tutorial. Quando
+dispníveis na versão atual do SVN do Cronus. Isso não é um simples tutorial. Quando
 as pessoas te diserem para você "Leia a m**** do tutorial", eles querem diser que é
 para você ler isso.
 
@@ -152,8 +122,8 @@ Exemplo: "Poring,50" esse monstro terá o nome "Poring" mas com nível 50.
 evento é o rótulo a ser chamado quando o monstro morrer, note o jogador que matar
 o monstro será "atachado ao script", ou seja, como se ele tivesse clicado no
 npc que tem esse comando. O nome do evento deve seguir o seguinte modelo:
-"NOMEDONPC::OnNome", suponhamos que o nome do nosso npc seja "brA" e o nome do
-label seja Ragnarok, então ficaria assim: "brA::Ragnarok".
+"NOMEDONPC::OnNome", suponhamos que o nome do nosso npc seja "Cronus" e o nome do
+label seja Ragnarok, então ficaria assim: "Cronus::Ragnarok".
 
 
 ** Nomes de NPC
@@ -327,8 +297,8 @@ onde <digt hex> equivale aos digitos hexadecimais.
 
 Exemplo:
 
-	mes "O Número imprimido será 16";
-	mes "aqui está o número: 0x10";//Imprime: aqui está o número 16.
+	show "O Número imprimido será 16";
+	show "aqui está o número: 0x10";//Imprime: aqui está o número 16.
 
 variáveis
 ---------
@@ -436,7 +406,7 @@ Para incluir as aspas "" em uma string você deve usar o prefixo \
 
 Exemplo:
 
-	mes "O Meu nome \"TecnoCronus\" vai ser mostrado entre aspas";
+	show "O Meu nome \"TecnoCronus\" vai ser mostrado entre aspas";
 
 
 Arrays
@@ -485,9 +455,9 @@ setarray @texto$[0],"olá","como você vai ?","eu não te vejo há muito tempo";
 
 o exemplo será igual à fazermos isto:
 
-		mes "Olá";
-		mes "Como você vai ?";
-		mes "eu não te vejo há muito tempo";
+		show "Olá";
+		show "Como você vai ?";
+		show "eu não te vejo há muito tempo";
 
 Resumo do arrays permitidos e escopos de arrays
 ------ -- ------ ---------- - ------- -- ------
@@ -587,11 +557,11 @@ Operadores lógicos de "parte" só funcionam com números:
 
 		& checa se dentro da variável há certo valor.
 		set @options,2|4|16; //(isso é o mesmo que 2+4+16, ou 22)
-		if (@options&1) mes "Opção 1 ativada";
-		if (@options&2) mes "Opção 2 ativada";
-		if (@options&4) mes "Opção 4 ativada";
-		if (@options&8) mes "Opção 8 ativada";
-		if (@options&16) mes "Opção 16 ativada";
+		if (@options&1) show "Opção 1 ativada";
+		if (@options&2) show "Opção 2 ativada";
+		if (@options&4) show "Opção 4 ativada";
+		if (@options&8) show "Opção 8 ativada";
+		if (@options&16) show "Opção 16 ativada";
 	
 		essa checagem acima deve mostrar "Opção 2 ativada"
 						 "Opção 4 ativada"
@@ -606,14 +576,14 @@ Operadores lógicos de "parte" só funcionam com números:
 		if( inProgress&2 == 0 ){
 			// Isso vai definir que o jogador está na quest 2
 			set inProgress,inProgress^2;
-			mes "Quest 2: procure alguém e mate";
+			show "Quest 2: procure alguém e mate";
 			close;
 		}
 		//depois de um tempo ele matou alguém e  ganhou a variável isComplete
 		if( inProgress&1 && isComplete ){
 			// isso vai  desgrupar o pedaço da quest 1 (inProgress tinha esse pedaço definido como 1)
 			set inProgress,inProgress^1;
-			mes "Quest 1 completa";
+			show "Quest 1 completa";
 			close;
 		}
 
@@ -621,18 +591,18 @@ Concatenação
 ------------
 
 Algumas vezes será preciso que você retorne o valor de uma função ou inserir o valor de uma
-variável dentro de uma string, para fazer isso você precisa concatenar, no eAthena o jeito
+variável dentro de uma string, para fazer isso você precisa concatenar, no Cronus o jeito
 de se fazer isso é assim:
 
 	+----------------------------+
-	+ mes "Olá "+strcharinfo(0); +
+	+ show "Olá "+strcharinfo(0); +
 	+----------------------------+
 
 O Exemplo acima deve mostrar Olá + nome do jogador atachado, esse exemplo é simples é aplicado
 tanto à variáveis quanto à funções, agora veja como fazer uma concatenação entre strings:
 
 	+-----------------------------------------------------+
-	+ mes "Olá "+strcharinfo(0)+", Como posso te ajudar ?";
+	+ show "Olá "+strcharinfo(0)+", Como posso te ajudar ?";
 	+-----------------------------------------------------+
 
 Você percebeu que deve inserir um sinal de '+' antes e depois da função/variável neste caso.
@@ -724,7 +694,7 @@ Exemplo:
 monster "prontera",123,42,"Poringz0rd",2341,23,"Master::OnThisMobDeath";
 
 amatsu,13,152,4	script	Master	767,{
-	mes "Oi";
+	show "Oi";
 	close;
 
 OnThisMobDeath:
@@ -750,6 +720,21 @@ A Partir daqui, nós teremos os comando organizados como segue:
 =======================
 ---------------------------------------
 
+*show "<string>"{,"<second string>"};
+
+Funciona da mesma forma que o comando 'mes'.
+
+    show "Texto que irá aparecer na caixa de diálogo";
+
+Exibe uma mensagem de dialogo no npc, antigamente existia somente uma sintaxe, agora você pode optar pela segunda.
+A primeira sintaxe mostra a string como diálogo no npc, para ambos sexo, a segunda sintaxe exibe a string como diálogo, definido pelo sexo.
+
+    show "Olá, bem-vindo garoto!","Olá, bem-vinda garota!";
+
+Esta segunda sintaxe é opcional, você pode utilizar o condicional 'if' para definir o diálogo segundo sexo.
+
+
+---------------------------------------
 
 *mes "<string>";
 
@@ -758,14 +743,14 @@ especificada no comando, ele não mostra nenhum buttom 'next' ou 'close' a não
 ser que você use esses comandos. Se a string estiver vazia, o comando mostrará
 uma caixa vazia.
 
-    mes "O Texto vai aparecer no quadrado";
+    show "O Texto vai aparecer no quadrado";
 
 Dentro da string você pode por cores, todos os códigos das cores são em RGB e
 começam com um '^', e depois da string que deseja colorir deverá termnar com
 preto (^000000).
 (^FF00FF é considerado invisível)
 
-    mes "Isso é ^FF0000 Vermelho ^000000 e isso ^00FF00 Verde ^000000";
+    show "Isso é ^FF0000 Vermelho ^000000 e isso ^00FF00 Verde ^000000";
 
 ---------------------------------------
 
@@ -778,12 +763,12 @@ quando o jogador clicar em 'next' a janela será "limpada" e mostrará as próxmas
 strngs contidas em mes (se houver próximas).
 
 
-    mes "[TecnoCronus]";
-    mes "Isso Deve aparecer na Tela";
+    show "[TecnoCronus]";
+    show "Isso Deve aparecer na Tela";
     next;
     // Aqui o comando "limpará" a janela e aparecerá as seguintes strings:
-    mes "[TecnoCronus]";
-    mes "Isso deverá aparecer na segunda janela";
+    show "[TecnoCronus]";
+    show "Isso deverá aparecer na segunda janela";
 
 ---------------------------------------
 
@@ -795,10 +780,10 @@ ao script,se não estiver nenhuma janela na tela, ela será criada. Esse comando
 'mes' e terminar o script. Quando o Jogador clicar em 'close' a caixa de janela
 irá desaparecer e o script será terminado.
 
-    mes "[TecnoCronus]";
-    mes "Ok Não vou falar mais com você clique em close para acabar a conversa";
+    show "[TecnoCronus]";
+    show "Ok Não vou falar mais com você clique em close para acabar a conversa";
     close;
-    mes "Isso não será mostrado, pois o script já foi encerrado";
+    show "Isso não será mostrado, pois o script já foi encerrado";
 
 ---------------------------------------
 
@@ -808,8 +793,8 @@ Esse comando é bastante parecido com o comando 'close' a diferença é que a única
 utilidade dele é para fechar a janela de messagem ('mes'), esse comando não
 enecerrará o script.
 
-    mes "[TecnoCronus]";
-    mes "Vou te teleportar agora";
+    show "[TecnoCronus]";
+    show "Vou te teleportar agora";
     close2;
     warp "prontera",50,50;
     end;
@@ -886,21 +871,21 @@ Esse comando faz com que o script "pule" para um rótulo, e é usalmente usado
 com o comando 'if', os rótulos podem ter qualquer nome, mas evite rótulos com
 traço "-", isso às vezes buga:
 
-	mes "Isto será visto normalmente";
+	show "Isto será visto normalmente";
 	goto L_Label;
-	mes "Isso não será visto";
+	show "Isso não será visto";
 
 	L_Label:
-	mes "O Script pulará pra cá";
+	show "O Script pulará pra cá";
 
 exemplo 2:
-	mes "Deixe me ver se você tem zeny suficiente.";
+	show "Deixe me ver se você tem zeny suficiente.";
 	if(Zeny < 10) goto L_Zeny;
-	mes "Sim você tem 10 ou mais zenys !!";
+	show "Sim você tem 10 ou mais zenys !!";
 	close;
 
 	L_Zeny;
-	mes "me desculpe você tem menos de 10 zenys, não posso continuar";	
+	show "me desculpe você tem menos de 10 zenys, não posso continuar";	
 	close;
 
 ---------------------------------------
@@ -912,37 +897,37 @@ o jogador para um rótulo específicado.
 
 Duas opções podem ser direcionadas à um mesmo rótulo, separadas pelo caractere ':'
 
-      mes "[Nagato]";
-      mes "O Que você deseja";
-      mes "senhor "+strcharinfo(0);
+      show "[Nagato]";
+      show "O Que você deseja";
+      show "senhor "+strcharinfo(0);
       menu "Dinheiro:Money",L_Money,"Nada",L_Nada;//Aparecerá 3 opções: Dinheiro, Money e Nada
 						//Sendo que as 2 primeiras irão pro mesmo rótulo.
       L_Money:
-      mes "[Nagato]";
-      mes "Vai trabalhar!";
+      show "[Nagato]";
+      show "Vai trabalhar!";
       close;
 
       L_Nada:
-      mes "[Nagato]";
-      mes "Então vá embora oras !";
+      show "[Nagato]";
+      show "Então vá embora oras !";
       close;
 
 Existe também uma variavel especial @menu, ela contém o numero da opção escolhida.
 
-      mes "[Nagato]";
-      mes "O Que você deseja";
-      mes "senhor "+strcharinfo(0);
+      show "[Nagato]";
+      show "O Que você deseja";
+      show "senhor "+strcharinfo(0);
       menu "Dinheiro:Money",L_Money,"Nada",L_Nada;//Aparecerá 3 opções: Dinheiro, Money e Nada
 						//Sendo que as 2 primeiras irão pro mesmo rótulo.
 
       L_Money:// aqui @menu será 1
-      mes "[Nagato]";
-      mes "Vai trabalhar!";
+      show "[Nagato]";
+      show "Vai trabalhar!";
       close;
 
       L_Nada:// aqui 2.
-      mes "[Nagato]";
-      mes "Então vá embora oras !";
+      show "[Nagato]";
+      show "Então vá embora oras !";
       close;
 
 Você pode espeficar, para o rótulo o valor '-', isso fará com que o script continue,
@@ -950,11 +935,11 @@ não seguindo para nenhum rótulo:
 
 	menu "oi",l_oi,"tchau",-;
 
-	mes "tchau";//se ele escolher tchau o script continua.
+	show "tchau";//se ele escolher tchau o script continua.
 	close;
 
 	l_oi:
-	mes "oi";
+	show "oi";
 	close;
 
 ---------------------------------------
@@ -967,14 +952,14 @@ de uma complexa estruturas de rótulos, essas funções ainda definem a variável @m
 seu uso é empregado, geralmente, para checagem rápida.
 
 Exemplo:
-	mes "Você vai me dar 5000 Zenys ?";
+	show "Você vai me dar 5000 Zenys ?";
 	if(select("Sim","Não")==2) {
-		mes "que pena, eu estou precisando de dinheiro";
+		show "que pena, eu estou precisando de dinheiro";
 		close;
 	}
-	mes "Que deus te abençoe !";
+	show "Que deus te abençoe !";
 	set Zeny, Zeny - 5000;
-	mes "Muito obrigado";
+	show "Muito obrigado";
 	close;
 
 o comando prompt trabalha quase identicalmente ao select, a diferença é que quando
@@ -982,20 +967,21 @@ o jogador clicar em 'cancel' essa função retorna 255.
 
 ---------------------------------------
 
-*input (<variável>{,<mínimo>{,<máximo>}})
+*input (<variável>{,<mínimo>{,<máximo>}});
+*digit (<variável>{,<mínimo>{,<máximo>}});
 
 Esse comando vai criar uma caixa de "inserção" no RID atachado ao script,
 o valor inserido será guardado na variável definida.
 
 Para inserir textos a variável tem que ser do tipo string (pós-fixo $):
 
-	mes "digite seu nome";
+	show "digite seu nome";
 	input @nome$;
 	if(@nome$ == strcharinfo(0)) {
-		mes "Você acertou seu nome";
+		show "Você acertou seu nome";
 		close;
 	} else {
-	mes "Como assim ? você não sabe seu nome ?";
+	show "Como assim ? você não sabe seu nome ?";
 	close;
 	}
 
@@ -1011,13 +997,13 @@ valor for menor que 'min' e 0 de outro jeito (isso se 'mínimo' e 'máximo'
 existirem).
 
 Exemplo:
-	mes "Insira um número maior que 1 e menor que 10";
+	show "Insira um número maior que 1 e menor que 10";
 	input @num;
 	if(@num > 1 && @num < 10) {
-		mes "parabéns você fez o que eu disse !";
+		show "parabéns você fez o que eu disse !";
 		close;
 	}
-	mes "Você não me obedeceu !";
+	show "Você não me obedeceu !";
 	close;
 
 ---------------------------------------
@@ -1032,23 +1018,23 @@ ele te devolve para onde a função foi chamada.
 Exemplo:
 
 prontera,174,215,6	script	Loteria	98,{
-	mes "[Loteria]";
-	mes "Digite um número menor que 100":
+	show "[Loteria]";
+	show "Digite um número menor que 100":
 	input @numero;
 	if(@numero < 0 || @numero > 100) {
-		mes "ERRO !!!";
+		show "ERRO !!!";
 		close;
 	}
 	callfunc ("Sorteio",@numero);
-	mes "parabéns você ganhou !";
+	show "parabéns você ganhou !";
 	set Zeny, Zeny + 5000;
-	mes "você recebeu 5000 Zenys";
+	show "você recebeu 5000 Zenys";
 	close;
 
 function	script	Sorteio	{
 	set @ganhou, rand(100);
 	if(getarg(0) <= @ganhou) return;
-	mes "que pena você perdeu";
+	show "que pena você perdeu";
 	close;
 	}
 }
@@ -1062,15 +1048,15 @@ Esse comando vai chamar um rótulo específico no script que ele é usado ( não
 use para chamar um rótulo de outro script), a diferença de 'goto' é que esse
 comando pode passar argumentos.
 
-		mes "[NPC]";
-		mes "vamos ver se você ganhou";
+		show "[NPC]";
+		show "vamos ver se você ganhou";
 		callsub Check, 100;
-		mes "Ganhou";
+		show "Ganhou";
 		close;
 	Check:
 		set @win, rand(100);
 		if(@win<=getarg(0)) return;
-		mes "Perdeu";
+		show "Perdeu";
 		close;
 
 ---------------------------------------
@@ -1085,19 +1071,19 @@ o primeiro argumento terá índice 0, se nenhum argumento é dado, 0 será retornado
 Exemplo:
 
 	aldebaran,123,145,6%TAB%script%NPC1%TAB%718,{
-		mes "[NPC]";
-		mes "Vamo ver se você ganha";
+		show "[NPC]";
+		show "Vamo ver se você ganha";
 		callfunc "funcNPC",2;
-		mes "você ganhou";
+		show "você ganhou";
 
 	...
 	}
 
 	morocc,123,145,6%TAB%script%NPC2%TAB%718,{
-		mes "[NPC]";
-		mes "Vamo ver se você ganha";
+		show "[NPC]";
+		show "Vamo ver se você ganha";
 		callfunc "funcNPC",3;
-		mes "você ganhou";
+		show "você ganhou";
 
 	...
 	}
@@ -1105,7 +1091,7 @@ Exemplo:
 	function%TAB%script%TAB%funcNPC%TAB%{
 		set @win, rand(getarg(0));
 		if(@win==0) return;
-		mes "Perdeu";
+		show "Perdeu";
 
 Você pode passa múltiplos argumento quando chamar uma função:
 
@@ -1128,10 +1114,10 @@ Quando você usa os commandos 'callsub' ou 'callfunc', esse comando permiti
 que você retorne um valor ou uma variável.
 
 Exemplo:
-	mes "digite um número";
+	show "digite um número";
 	input @n;
 	callfunc "quadrado",@n;
-	mes "o quadrado de "+@n+" é "+@q;
+	show "o quadrado de "+@n+" é "+@q;
 	close;
 
 	function%TAB%script%TAB%quadrado%TAB%{
@@ -1160,11 +1146,11 @@ faz algo.
 Exemplos:
 
 	// Checa se o nome do jogador é "noob"
-	if(strcharinfo(0) == "noob") mes "Sim seu nome é noob";
+	if(strcharinfo(0) == "noob") show "Sim seu nome é noob";
 
 	// Checa se o Jogador tem mais de 10 zenys
 	if(Zeny > 10) {
-		mes "Você tem mais de 10 zenys";
+		show "Você tem mais de 10 zenys";
 		close;
 	}
 	
@@ -1175,9 +1161,9 @@ Exemplos:
 
 	// Checa se o jogador tem nível maior que 10.
 	if(BaseLevel > 10) {
-		mes "Seu nível é maior que 10";
+		show "Seu nível é maior que 10";
 	} else {
-		mes "Seu nível é menor que 10";
+		show "Seu nível é menor que 10";
 	}
 	close;
 
@@ -1192,11 +1178,11 @@ Exemplos:
 
 	set @menu, select("1","2","3");
 	if(@menu == 1) {
-		mes "você escolheu 1";
+		show "você escolheu 1";
 	} else if (@menu == 2) {
-		mes "você escolheu 2";
+		show "você escolheu 2";
 	} else if (@menu == 3) {
-		mes "você escolheu 3";
+		show "você escolheu 3";
 	}
 	close;
 
@@ -1213,11 +1199,11 @@ Esse comando funciona como a junção dos comandos 'if' + 'goto'.
 Exemplo:
 
 	jump_zero(Zeny < 10),L_Zeny;
-	mes "você tem mais de 10 zenys !!!";
+	show "você tem mais de 10 zenys !!!";
 	close;
 
 	L_Zeny;
-	mes "você tem menos que 10 zenys";
+	show "você tem menos que 10 zenys";
 	close;
 
 ---------------------------------------
@@ -1295,7 +1281,7 @@ checa se a condição é verdadeira, vai fazendo isso até a condição se tornar fals
 
 
 Exemplo:
-	mes "Vai fazer uma contagem regressiva de 1 até 10.";
+	show "Vai fazer uma contagem regressiva de 1 até 10.";
 	set .@i, 10;
 	do {
 		mes .@i;
@@ -1477,7 +1463,7 @@ BaseJob, Karma, Manner, bVit, bDex, bAgi, bStr, bInt, bLuk
 Exemplo:
 
     if(readparam(bVit)<=77) goto L_End;
-    mes "Só possoas com mais de 77 de vit leram isso";
+    show "Só possoas com mais de 77 de vit leram isso";
 L_End:
     close;
 
@@ -1498,7 +1484,7 @@ Os tipos podem ser:
 Essa função retornará 0 quando: o char especificado não existe,o char não está
 em nenhuma guilda/grupo
 
-if( getcharid(2) == 0 ) mes "Vejo que você não participa de nenhuma guilda";
+if( getcharid(2) == 0 ) show "Vejo que você não participa de nenhuma guilda";
 
 ---------------------------------------
 
@@ -1508,7 +1494,7 @@ if( getcharid(2) == 0 ) mes "Vejo que você não participa de nenhuma guilda";
 
 Essas funções retornam o id do filho, pai, mãe.
 
-    if (getmotherid()) mes "O id da sua mãe é:"+getmotherid();
+    if (getmotherid()) show "O id da sua mãe é:"+getmotherid();
 
 ---------------------------------------
 
@@ -1524,7 +1510,7 @@ e 0 se não.
 Essas funções retornam o id do companheiro (se ele tiver um/uma), se ele/ela
 não tiver um companheiro/companheira o retorno será 0.
 
-    if (getpartnerid()==0) mes "você não tem uma namorado(a) que pena";
+    if (getpartnerid()==0) show "você não tem uma namorado(a) que pena";
 
 ---------------------------------------
 
@@ -1535,7 +1521,7 @@ Essa função vai retornar o nome do grupo que o jogador atachado ao script está.
 Se ele não estiver em nenhum grupo a string "null" será retornada.
 
 Exemplo:
-	if(getcharid(1) > 0) mes "Você está no grupo "+getpartyname(getcharid(1));
+	if(getcharid(1) > 0) show "Você está no grupo "+getpartyname(getcharid(1));
 
 ---------------------------------------
 
@@ -1636,21 +1622,40 @@ EQI_HEAD_LOW (10) - Baixo da Cabeça
 Usado para checar se tem algum item equipado.
 
         if(getequipid(EQI_HEAD_TOP)==2234) goto L_WearingTiara;
-        mes "Volte quando estiver usando uma Tiara";
+        show "Volte quando estiver usando uma Tiara";
         close;
     L_WearingTiara:
-        mes "Você está usando uma Tiara adorável";
+        show "Você está usando uma Tiara adorável";
         close;
 
 ---------------------------------------
 
 *getequipname(<equpment slot>);
 
-Retorna o nome do item que está no slot especificado.
-        if( getequipname(EQI_HEAD_TOP) != "" )
-	        mes "Você tem um "+getequipname(EQI_HEAD_TOP)+" na sua cabeça";
+Este comando no jAthena/eAthena, tem apenas uma sintaxe, mostra se o item está equipado ou não, caso esteja retorna com o nome do item, caso não,
+retorna com o nom do slot + [Desequipado] já definido na source.
+Aqui no Cronus, foi definido uma nova sintaxe para ele, uma sintaxe opcional baseada no aegis, se o item estiver equipado em um slot de equipamento,
+ele retorna com o nome do equipamento, caso não ele retorna com a string defenida na segunda sintaxe.
+
+Este comando pode ser usado em comparações também, retornando com o valor do seu slot se estiver equipado, ou retornando com 0 se não estiver equipado.
+Veja duas explicações deste comando:
+
+-	script	getequipname#sample_	-1,{
+
+	mes getequipname(1); // Primeira Sintaxe
+	mes getequipname(1,"Não está equipado"); // Segunda sintaxe
+	close;
+}
+
+-	script	getequipname#sample_	-1,{
+
+	if(getequipname(1) == 0)
+		mes "Não está equipado";
 	else
-	        mes "Você não tem nada em sua cabeça";
+		mes "Está equipado.";
+}
+
+Fácil de ser manuseado.
 
 ---------------------------------------
 
@@ -1672,9 +1677,9 @@ Exemplo:
     // Vamos mostrar todos os equipamento quebrados.
         if (getbrokenid(1)==0) goto Skip;
 	for (set @i, 1; getbrokenid(@i); set @i, @i + 1)
-        mes "O Equipamento que você tem no inventório,"+getitemname(getbrokenid(1))+", está quebado";
+        show "O Equipamento que você tem no inventório,"+getitemname(getbrokenid(1))+", está quebado";
     Skip:
-        mes "Você não carrega nada quebrado em seu inventório";
+        show "Você não carrega nada quebrado em seu inventório";
 
 ---------------------------------------
 
@@ -1684,12 +1689,12 @@ Essa função retorna 1 se há algum equipamento no slot de equipamento indicado.
 se não estiver nada no slot, retorna 0.
 
     if (getequipisequiped(EQI_HEAD_TOP)) goto L_equipped;
-        mes "[Refinador]";
-        mes "Você não está usando nenhum chapéu";
+        show "[Refinador]";
+        show "Você não está usando nenhum chapéu";
         close;
     L_equipped:
-        mes "[Refiner]";
-        mes "Esse é um ótimo chapéu para ser refinado...";
+        show "[Refiner]";
+        show "Esse é um ótimo chapéu para ser refinado...";
         close;
 
 
@@ -1702,12 +1707,12 @@ Essa função vai retornar 1 se o equipamento que estiver no slot especificado
 os slot.
 
         if (getequipisenableref(EQI_HEAD_TOP)) goto L_Refine;
-        mes "[Refinador]";
-        mes "Eu não posso refinar este chapéu";
+        show "[Refinador]";
+        show "Eu não posso refinar este chapéu";
         close;
     L_Refine:
-        mes "[Refinador]";
-        mes "Certo, eu posso refinar esse chapéu";
+        show "[Refinador]";
+        show "Certo, eu posso refinar esse chapéu";
         close;
 
 ---------------------------------------
@@ -1721,10 +1726,10 @@ Pode ser usado para checar se você alcançou o limite máximo de refines, que
 é por padrão 10.
 
         if(getequiprefinerycnt(EQI_HEAD_TOP) < 10) goto L_Refine_HeadGear;
-        mes "Não é possível refinar seu equipamento, ele já está no limite";
+        show "Não é possível refinar seu equipamento, ele já está no limite";
         close;
     L_Refine_HeadGear:
-        mes "Ok, Eu vou refinar seu "+getequipname(EQI_HEAD_TOP);
+        show "Ok, Eu vou refinar seu "+getequipname(EQI_HEAD_TOP);
 
 ---------------------------------------
 
@@ -1738,27 +1743,27 @@ slots são os únicos que o jogador pode usar armas.
 Se não tiver um nível de arma de acordo com o banco de dados 0 é retornado.
 
     switch (getequipweaponlv(EQI_HAND_R)) {
-		case 1: mes "Você está usando uma arma de nível 1"; break;
-		case 2: mes "Você está usando uma arma de nível 2"; break;
-		case 3: mes "Você está usando uma arma de nível 3"; break;
-      		case 4: mes "Você está usando uma arma de nível 4"; break;
-		case 5: mes "Você está usando uma arma de nível 5"; break;
-		default: mes "Você não está usando nenhuma arma"; break;
+		case 1: show "Você está usando uma arma de nível 1"; break;
+		case 2: show "Você está usando uma arma de nível 2"; break;
+		case 3: show "Você está usando uma arma de nível 3"; break;
+      		case 4: show "Você está usando uma arma de nível 4"; break;
+		case 5: show "Você está usando uma arma de nível 5"; break;
+		default: show "Você não está usando nenhuma arma"; break;
 
 para mão esquerda, pode ser usado se o jogador está usando escudo.
 
         if(getequipid(EQI_HAND_R)==0) goto L_NothingEquiped;
         switch (getequipweaponlv(EQI_HAND_L)) {
-          case 0: mes "Você está usando um escudo, pois escudos não tem nível"; break;
-          case 1: mes "Você está usando uma arma de nível 1"; break;
-	  case 2: mes "Você está usando uma arma de nível 2"; break;
-	  case 3: mes "Você está usando uma arma de nível 3"; break;
-      	  case 4: mes "Você está usando uma arma de nível 4"; break;
-	  case 5: mes "Você está usando uma arma de nível 5"; break;
+          case 0: show "Você está usando um escudo, pois escudos não tem nível"; break;
+          case 1: show "Você está usando uma arma de nível 1"; break;
+	  case 2: show "Você está usando uma arma de nível 2"; break;
+	  case 3: show "Você está usando uma arma de nível 3"; break;
+      	  case 4: show "Você está usando uma arma de nível 4"; break;
+	  case 5: show "Você está usando uma arma de nível 5"; break;
 		  }
         close;
     L_NothingEquiped:
-        mes "Você não tem nada equipado em sua mão direita";
+        show "Você não tem nada equipado em sua mão direita";
         close;
 
 ---------------------------------------
@@ -1778,7 +1783,7 @@ randômica de sucesso de refinagem
     if (getequippercentrefinery(EQI_HAND_L)<=rand(100)) goto L_Fail;
 
     L_Fail:
-	mes "Falha";
+	show "Falha";
 	close;
 
 ---------------------------------------
@@ -1823,7 +1828,7 @@ os arrays retornados:
 
 Essa função vai retornar o número de cartas inseridas na atual arma que o jogador usa.
 
-    if (cardscnt()==4) mes "Você tem 4 cartas em sua arma ...";
+    if (cardscnt()==4) show "Você tem 4 cartas em sua arma ...";
 
 ---------------------------------------
 
@@ -1831,7 +1836,7 @@ Essa função vai retornar o número de cartas inseridas na atual arma que o jogado
 
 Essa função vai retornar o número de refines da arma atual que o char usa.
 
-    if (getrefine()==10) mes "Wow. Você tem uma arma poderosa.";
+    if (getrefine()==10) show "Wow. Você tem uma arma poderosa.";
 
 ---------------------------------------
 
@@ -1925,12 +1930,12 @@ para os tipos 1 e 2.
 
 Exemplo de como usar:
 
-   	mes "Vamos procurar o jogador chamado TecnoCronus";
+   	show "Vamos procurar o jogador chamado TecnoCronus";
         if (getmapxy(@nomedomapa$,@mapax,@mapay,1,"TecnoCronus")!=0) goto Notfound;
-        mes "Achei-o no mapa "+@nomedomapa$+" na coordenada X:"+@mapax+" e Y:"+@mapay+" !";
+        show "Achei-o no mapa "+@nomedomapa$+" na coordenada X:"+@mapax+" e Y:"+@mapay+" !";
         close;
     Notfound:
-        mes "eu não encontrei-o ele deve estar offline";
+        show "eu não encontrei-o ele deve estar offline";
         close;
    }
 
@@ -1941,8 +1946,8 @@ Exemplo de como usar:
 Esse comando retorna o nível de GM do jogador, caso o jogador não seja GM
 retornará 0, se for retornará o nível de GM
 
-   if (getgmlevel() == 99) mes "Vejo que você é um Administrador do servidor";
-   if (getgmlevel() == 0) mes "Você é um jogador comum";
+   if (getgmlevel() == 99) show "Vejo que você é um Administrador do servidor";
+   if (getgmlevel() == 0) show "Você é um jogador comum";
 
 ---------------------------------------
 
@@ -1973,7 +1978,7 @@ Os tipos são:
 Só retornará números:
 
     if (gettime(4)==6) {
-	mes "Hoje é sábado, eu não trabalho dia de sábado";
+	show "Hoje é sábado, eu não trabalho dia de sábado";
 	close;
 	}
 
@@ -2010,7 +2015,7 @@ Os tipos são:
   7 - Contará todos os jogadores que estiverem no servidor.
 
 	set @meumapa, getusers(8);
-	mes "tem "+@meumapa+" pessoas aki";
+	show "tem "+@meumapa+" pessoas aki";
 
 ---------------------------------------
 
@@ -2019,7 +2024,7 @@ Os tipos são:
 Essa Função retorna o número de jogadores no mapa especificado.
 
 	if(getmapusers("prontera")==0) 
-	mes "Que estranho, não tem ninguém em Prontera agora ...";
+	show "Que estranho, não tem ninguém em Prontera agora ...";
 
 ---------------------------------------
 
@@ -2047,7 +2052,7 @@ Essa função retorna o nome da guilda, procurando pelo id especificado, se o joga
 não estiver em nenhuma guilda, retornara a string "NULL".
 
    // Vai imprimir o nome da guilda que tem o id 10007
-   mes "A Guilda que tem o id 10007 se chama: "+getguildname(10007);
+   show "A Guilda que tem o id 10007 se chama: "+getguildname(10007);
 
 ---------------------------------------
 
@@ -2057,21 +2062,37 @@ Essa função retorna o nome do Líder da Guilda, se a guilda não exister, o comand
 retornará "NULL"
 
 // Vamos usar o mesmo id da guilda, 10007
-    mes "O "+getguildmaster(10007)+" é Líder da Guilda "+getguildname(10007);
+    show "O "+getguildmaster(10007)+" é Líder da Guilda "+getguildname(10007);
 
 Como usar para checar se o jogador é líder da guilda que ele está:
 
         set @GID,getcharid(2);
         if(@GID==0) goto L_NoGuild;
         if(strcharinfo(0)==getguildmaster(@GID)) goto L_GuildMaster;
-        mes "Você não é Líder da guilda que você está";
+        show "Você não é Líder da guilda que você está";
         close;
     L_NoGuild:
-        mes "SVocê não tem guilda";
+        show "SVocê não tem guilda";
         close;
     L_GuildMaster:
-        mes "Bem vindo líder da guilda "+GetGuildName(@GID);
+        show "Bem vindo líder da guilda "+GetGuildName(@GID);
         close;
+
+---------------------------------------
+
+*GetCastleMobRespawnInfo;
+
+Esta função retorna o valor da variável de configuração 'castle_mob_spawn' (definida em \conf\battle\guild.conf). Caso o valor retornado seja '1', o spawn de monstros na GdE, caso um clã seja desfeito, está ativado. Caso contrário, está desativado.
+
+Exemplo de uso:
+
+-	script	SpawnDeMonstros	-1,{
+	set .@CMR, GetCasleMobRespawnInfo();
+	if (.@CMR == 1)
+		show "O spawn de monstros está ativado!";
+	else
+		show "O spawn de monstros está desativado.";
+}
 
 ---------------------------------------
 
@@ -2152,7 +2173,7 @@ estiver no mapa, retornará 0.
 // com o id 10007 que estiver em prontera
 
 	set @quantos,getMapGuildUsers "prontera",10007;
-	mes "Hà "+@quantos+" membros da guilda "+getguildname(10007)+" em Prontera";
+	show "Hà "+@quantos+" membros da guilda "+getguildname(10007)+" em Prontera";
 
 ---------------------------------------
 //
@@ -2169,7 +2190,7 @@ o jogador não tiver a habilidade 0 é retornado.
 
 Exemplo:
 
-        if (getskilllv(28)==10) mes "você tem cura no nível 10!!";
+        if (getskilllv(28)==10) show "você tem cura no nível 10!!";
 
 ---------------------------------------
 
@@ -2201,6 +2222,32 @@ Os tipos válidos são:
  3 - Nível de amigável do pet. 1000 é totalmente fiel.
  4 - Nível de esfomiado do pet. 100 ele está quase morrendo de fome :)
  5 - Flag de renome do pet. se 0 quer diser que ele não foi renomeado ainda.
+
+---------------------------------------
+
+*healhomun <porcentagem_hp/porcentagem_sp>;
+
+Semelhante ao comando que restaura o HP/SP do seu Personagem, mais simplesmente ele restaura o do seu homunculo ao invés de curar seu personagem.
+Veja o exemplo abaixo:
+
+prontera,179,148,4	script	Curador de Homunculos#1	48,{
+
+	show "[Curador de Homunculos]";
+	show "Olá "+strcharinfo(0)+", gostária que eu cura-se seu homunculo?";
+	next;
+	switch(select("Sim.:Não.")){
+		case 1:
+			show "[Curador de Homunculos]";
+			show "Hehe... muito bem, seu amiguinho está melhor agora!";
+			healhomun 100,100; //100%hp,100%sp
+			break;
+		case 2:
+			show "[Curador de Homunculos]";
+			show "Hehe... não fique preocupado, eu não cobro nada v.V.";
+			break;
+	}
+	close;
+}
 
 ---------------------------------------
 
@@ -2292,7 +2339,7 @@ Exemplo:
 			mes .@item[.@i] + " (" + getitemname(.@item[.@i]) + ") " + .@rate[.@i]/100 + ((.@rate[.@i]%100 < 10) ? ".0":".") + .@rate[.@i]%100 + "%";
 		}
 	} else {
-		mes "ID de monstro desconhecido.";
+		show "ID de monstro desconhecido.";
 	}
 	close;
 
@@ -2310,13 +2357,13 @@ o mapa como "this", o mapa do RID será usado, se o mapa não for achado retorna -
 Essa função vai retornar o comprimento da string dada.
 
 Exemplo:
-	mes "digite um nome com no máximo 10 caracteres";
+	show "digite um nome com no máximo 10 caracteres";
 	input @n$;
 	if(getstrlen(@n$) > 10) {
-		mes "Você pôs mais que 10 caracteres";
+		show "Você pôs mais que 10 caracteres";
 		close;
 	}
-	mes "ok, podemos continuar";
+	show "ok, podemos continuar";
 
 ---------------------------------------
 
@@ -2328,7 +2375,7 @@ esse comando é usado para checar a quatidade de pontos de habilidades (var Skill
 Exemplo:
 
 	set @skillPoints, skillPointCount();
-	mes "Você tem "+@skillPoints+" Pontos de Habilidade!";
+	show "Você tem "+@skillPoints+" Pontos de Habilidade!";
 
 ---------------------------------------
 
@@ -2340,10 +2387,10 @@ serem aplicados,
 
 
     if (rand(100) > getscrate(Eff_Blind, 50)) goto BlindHimNow;
-	mes "não vou fazer nada";
+	show "não vou fazer nada";
 
 	BlindHimNow:
-	mes "eu vou te cegar agora !!!";
+	show "eu vou te cegar agora !!!";
   
 Veja a lista completa de efeitos em:
 'db/const.txt' debaixo de 'Eff_'.
@@ -2383,7 +2430,7 @@ Essa função aceita o nome em inglês do item.
         getitem 502,10;
         close;
     L_OverWeight:
-        mes "Me desculpe você não pode carregar essa quantidade de maças";
+        show "Me desculpe você não pode carregar essa quantidade de maças";
         close;
 
 ---------------------------------------
@@ -2454,7 +2501,7 @@ a habilidade "MC_PUSHCART"
 
 Essa função retorna 1 se o jogador já tiver um carroça.
 
-    if (checkcart()) mes "Mas você já tem uma carroça";
+    if (checkcart()) show "Mas você já tem uma carroça";
 
 ---------------------------------------
 
@@ -2465,12 +2512,12 @@ Descrição quase idêntica à 'setcart' e 'checkcart' a diferença é que a habilidad
 requerida é 'HT_FALCON'
 
 Exemplo:
-	mes "você quer um falcão ?";
+	show "você quer um falcão ?";
 	if(select("sim","não")==2) {
-		mes "ok então";
+		show "ok então";
 		close;
 	}
-	if (checkfalcon()) mes "mas você já tem um falcão!";
+	if (checkfalcon()) show "mas você já tem um falcão!";
 
 ---------------------------------------
 
@@ -2480,7 +2527,7 @@ Exemplo:
 Comando semelhante à 'setfalcon' e 'checkfalcon' a diferença é que a habilidade
 requerida é KN_RIDING.
 
-    if (checkriding()) mes "Você tem um belo peco-peco";
+    if (checkriding()) show "Você tem um belo peco-peco";
 
 ---------------------------------------
 
@@ -2508,8 +2555,8 @@ se sim retorna 1 e se não retorna 0.
 Essas funções retornam 1 se estiver de dia/noite e 0 se não estiver.
 
  
-    if (isday()== 1) mes "belo dia não ?";
-    if (isnight()== 1) mes "bela noite não";
+    if (isday()== 1) show "belo dia não ?";
+    if (isnight()== 1) show "bela noite não";
 
 ---------------------------------------
 \\
@@ -2661,11 +2708,11 @@ Exemplo:
 
 	set @warp, warppartner "prontera",0,0;
 	if(@warp == 1) {
-		if(Sex == 0) 	mes "seu marido foi teleportado com sucesso";
-		else		mes "sua mulher foi teleportada com sucesso";
+		if(Sex == 0) 	show "seu marido foi teleportado com sucesso";
+		else		show "sua mulher foi teleportada com sucesso";
 		close;
 	}
-	mes "você não está casado ou seu/sua companheiro(a) não está online";
+	show "você não está casado ou seu/sua companheiro(a) não está online";
 	close;
 
 ---------------------------------------
@@ -2727,6 +2774,7 @@ conectados ao servidor.
 ---------------------------------------
 
 *jobchange <número do job>{,<upper flag>};
+*setjob <número do job>{,<upper flag>};
 
 Esse comando vai mudar a classe de emprego do jogador invocado.
 
@@ -2756,8 +2804,8 @@ o emprego.
 
 This command retrieves the name of the given job using the msg_athena entries 550->650.
 
-		mes "[Kid]";
-		mes "I never thought I'd met a "+jobname(Class)+" here of all places.";
+		show "[Kid]";
+		show "I never thought I'd met a "+jobname(Class)+" here of all places.";
 		close;
 
 ---------------------------------------
@@ -2771,12 +2819,12 @@ passar um número de classe que não tem um número de job no sistema eA.
 
 	set @eac, eaclass();
 	if ((@eac&EAJ_BASEMASK) == EAJ_SWORDMAN)
-		mes "Você deve ser um espadachim, cavaleiro, paladino, super espadachim, lord cavalheiro";
-		mes "espadachim bebê, cavalheiro bebê, ou cruzeiro bebê";
+		show "Você deve ser um espadachim, cavaleiro, paladino, super espadachim, lord cavalheiro";
+		show "espadachim bebê, cavalheiro bebê, ou cruzeiro bebê";
 	if (@eac&EAJL_UPPER)
-		mes "Você tem um emprego do tipo renascido.";
+		show "Você tem um emprego do tipo renascido.";
 	if ((@eac&EAJ_UPPERMASK) == EAJ_SWORDMAN)
-		mes "Você deve ser um espadachim ou espadachim bebê ou um super espadachim";
+		show "Você deve ser um espadachim ou espadachim bebê ou um super espadachim";
 
 Para mais detalhes sobre o sistema veja o arquivo 'docs/ea_job_system.txt'.
 
@@ -2792,19 +2840,20 @@ de emprego do eA (EAJ_BARDDANCER), se ele não for dado, o sexo do jogador é pego
 	set @eac, eaclass();
 	// Checa se a classe já é do tipo "renascida"
 	if (@eac&EAJL_UPPER) {
-		mes "Você parece forte.";
+		show "Você parece forte.";
 		close;
 	}
 	set @eac, roclass(@eac|EAJL_UPPER);
 	// Chega se a classe tem uma versão renascida.
 	if (@eac != -1) {
-		mes "Você não pode esperar para se tornar um "+jobname(@eac)+"!";
+		show "Você não pode esperar para se tornar um "+jobname(@eac)+"!";
 		close;
 	}
 
 ---------------------------------------
 
 *changebase <número de id do job>;
+*setbase <número de id do job>;
 
 Esse comando vai mudar a aparência do jogador invocado para o do emprego especificado.
 Esse comando só funciona dentro de item de scripts.
@@ -2821,6 +2870,7 @@ não vai funcionar perfeitamente.
 ---------------------------------------
 
 *changesex;
+*setsex;
 
 Esse comando vai mudar o sexo do jogador atachado ao script, se masculino vira
 feminino e vice-versa, o jogador será kicado do servidor automaticamente, quando
@@ -2918,13 +2968,13 @@ atributo	- Se o item está quebrado ou não 1 se estiver e 0 se não.
 card1,2,3,4 	- Se você quiser um combo de cartas equipado, especifique-as.
 
 Exemplo:
-		mes "Diga o nome do jogador que vai ganhar esse item";
+		show "Diga o nome do jogador que vai ganhar esse item";
 		input @name$;
-		mes "agora diga o id do item";
+		show "agora diga o id do item";
 		input @id;
 		set @cid, getcharid(0,@name$);
 		getitem2 @id,1,0,0,0,0,0,0,0,@cid;
-		mes "item entregue";
+		show "item entregue";
 		close;
 
 ---------------------------------------
@@ -2991,14 +3041,14 @@ Esse comando vai pegar items do jogador. Veja 'getitem2'  para entender os argum
 
 Essa função retornará a quantidade de items que o jogador tem em seu inventório.
 
-    mes "[Devil]";
-    mes "Você tem"+countitem(502)+" maçãs";
+    show "[Devil]";
+    show "Você tem"+countitem(502)+" maçãs";
     close;
 
 Exemplo 2:
 
-    mes "[Devil]";
-    mes "Você tem"+countitem(APPLE)+" maçãs";
+    show "[Devil]";
+    show "Você tem"+countitem(APPLE)+" maçãs";
     close;
     
 ---------------------------------------
@@ -3041,10 +3091,10 @@ de uma caixa de mensagem ou menu exibido na tela.
 
 Exemplo:
 	// Usando em NPC de scripts.
-		mes "Ok Vamos usar endure em você !!";
+		show "Ok Vamos usar endure em você !!";
 		close2;
 		itemskill 8,1;
-		mes "ok você já usou !";
+		show "ok você já usou !";
 		close;
 
 
@@ -3157,7 +3207,7 @@ certo se esse comando funciona em scripts de item.
 
 Exemplo:
 
-    mes "Eu vou abrir seu armazpem depois que você fechar esta janela";
+    show "Eu vou abrir seu armazpem depois que você fechar esta janela";
     close2;
     openstorage;
     end;
@@ -3168,7 +3218,7 @@ Exemplo:
 
 Esse comando vai abrir a caixa de e-mail do jogador
 
-    mes "Clique em close para abrir a caixa de e-mails";
+    show "Clique em close para abrir a caixa de e-mails";
     close2;
     openmail;
     end;
@@ -3179,7 +3229,7 @@ Esse comando vai abrir a caixa de e-mail do jogador
 
 Este comando vai abrir a janela de leilão do jogador atachado ao script.
 
-    mes "Feche esta janela para abrir a janela de leilão";
+    show "Feche esta janela para abrir a janela de leilão";
     close2;
     openauction;
     end;
@@ -3363,7 +3413,7 @@ atachado, ele aceita valores negativos, veja os status em 'statusup'.
 
 Exemplo:
 
-	mes "Eu não gostei de você, vou diminuir 1 ponto de sua força";
+	show "Eu não gostei de você, vou diminuir 1 ponto de sua força";
 	close2;
 	statusup2 bStr,-1;
 	end;
@@ -3600,17 +3650,17 @@ Exemplo:
 
 prontera,174,215,6	script	TecnoCronus	718,{
 
-		mes "[Invocador]";
-		mes "vou invocar um poring quando você";
-		mes "matálo eu falarei com você novamente";
+		show "[Invocador]";
+		show "vou invocar um poring quando você";
+		show "matálo eu falarei com você novamente";
 		close2;
 		getmapxy(@m$,@x,@y,0);
 		monster @m$,@x,@y,"Poring Teste",1002,1,"TecnoCronus::OnQuandoPoringMorrer";
 		end;
 
 		OnQuandoPoringMorrer:
-		mes "[Invocador]";
-		mes "Parabéns você acabou de matar o poring que eu invoquei";
+		show "[Invocador]";
+		show "Parabéns você acabou de matar o poring que eu invoquei";
 		close;
 }
 
@@ -3808,11 +3858,11 @@ rótulo de evento especificado.
 Exemplo:
 
 	alberta,50,50,6%TAB%script%TAB%teste%TAB%98,{
-	mes "você vai ler isso se clicar em mim";
+	show "você vai ler isso se clicar em mim";
 	close;
 
 	OnRotulo_evento:
-	mes "você lerá isso se usar o comando doevent";
+	show "você lerá isso se usar o comando doevent";
 	close;
 	}
 
@@ -3832,7 +3882,7 @@ no NPC especificado é executado. nenhum RID será atachado também.
 
 
     mapa,100,100,1%TAB%script%TAB%NPC%TAB%53,{
-        mes "Ei npc2 copie o que eu faço";
+        show "Ei npc2 copie o que eu faço";
         close2;
         set @emo, rand(1,30);
         donpcevent "NPC2::Emo";
@@ -3842,7 +3892,7 @@ no NPC especificado é executado. nenhum RID será atachado também.
     }
 
     mapa,102,100,1%TAB%script%TAB%NPC2%TAB%53,{
-        mes "ei NPC copie o que eu faço";
+        show "ei NPC copie o que eu faço";
         close2;
         set @emo, rand(1,30);
         donpcevent "NPC::Emo";
@@ -3990,8 +4040,8 @@ Exemplo 1:
     OnTimer10000:
 	stopnpctimer; // Esse comando é de fato não necessário aqui, porque o contador é automaticamente parado devido à não existir eventos
 		      // remanescentes (rótulos remanescentes).
-        mes "[Dev]";
-        mes "Podemos falar agora";
+        show "[Dev]";
+        show "Podemos falar agora";
     }
 
 Exemplo 2:
@@ -4010,15 +4060,15 @@ Exemplo 2:
 
 Example 3:
 
-    mes "[Homen]";
-    mes "Eu estive esperando "+(getnpctimer(0)/1000)+" segundos por você !";
+    show "[Homen]";
+    show "Eu estive esperando "+(getnpctimer(0)/1000)+" segundos por você !";
     // dividimos por 1000 pois o retornado é dado em milésimos de segundos.
     close;
 
 Example 4:
 
-    mes "[Man]";
-    mes "Vou permitir que você tenha 30 segundos mais";
+    show "[Man]";
+    show "Vou permitir que você tenha 30 segundos mais";
     close2;
     setnpctimer (getnpctimer(0)-30000); 
     end;
@@ -4296,14 +4346,14 @@ se a mapflag estiver ativada e 0 se não.
 
 Exemplo:
 
-	mes "[NPC]";
+	show "[NPC]";
 	set @flag, "mf_nowarp";
 	set @warp, getmapflag("prontera",@flag);
 	if(@warp == 1 ) {
-		mes "Não posso te teleportar pra esse lugar";
+		show "Não posso te teleportar pra esse lugar";
 		close;
 	}
-	mes "Ok vou te teleportar agora";
+	show "Ok vou te teleportar agora";
 	close2;
 	warp "prontera",0,0;
 	end;
@@ -4327,6 +4377,7 @@ Exemplo:
 ---------------------------------------
 
 *warpportal <x>,<y>,"<nome do mapa>",<x>,<y>;
+
 
 Cria um portal de warp como se um Noviço fez isso.
 O primeiro x e y são as respectivas coordenas do mapa onde o
@@ -4455,7 +4506,18 @@ Exemplo:
 ======================
 ---------------------------------------
 
-*debugmes "<mensagem>";
+*strsex "<male string>","<female string>";
+
+Este comando diferente da segunda sintaxe do 'mes' ou 'show', ele volta com a string defenida no sexo em mensagens.
+
+    show "Bem-vind"+strsex("o","a")+" à Corporação Kafra.";
+
+Vendo neste exemplo, ele retorna com a string da comparação, ou seja para masculino "Bem-vindo" e para feminino "Bem-vinda".
+Comando muito bom para quem não deseja adicionar uma nova linha para um novo sexo.
+
+---------------------------------------
+
+*debugshow "<mensagem>";
 
 Este comando vai enviar uma mensagem para o console do servidor (a janela do map-server)
 ninguém dentro do jogo verá essa mensagem.
@@ -4467,10 +4529,10 @@ Exemplo:
 		set .@AutoD, query_sql("select version()");
 		if(.@AutoD < 0) { 
 		set $@UseMySQL,0; 
-		debugmes "Sistema Rops trabalhando em TXT"; 
+		debugshow "Sistema Rops trabalhando em TXT"; 
 		} else { 
 		set $@UseMySQL,1; 
-		debugmes "Sistema Rops trabalhando em SQL";
+		debugshow "Sistema Rops trabalhando em SQL";
 		}
 		end;
 
@@ -4479,7 +4541,7 @@ vai enviar uma mensagem pro map-server disendo se o script vai trabalhar em TXT 
 
 ---------------------------------------
 
-*logmes "<mensagem>";
+*logshow "<mensagem>";
 
 Este comando vai escrever uma mensagem dado para o arquivo de log do map-server,
 especificado em 'conf/log_athena.conf'. nas versões TXT, o arquiv de log é 'log/npclog'
@@ -4488,7 +4550,7 @@ ativados, nada acontece.
 
 ---------------------------------------
 
-*globalmes "<mensagem>"{,"<Nome do NPC>"};
+*globalshow "<mensagem>"{,"<Nome do NPC>"};
 
 Este comando vai enviar uma mensagem para a janela de conversão de todos os
 jogadores que estiverem conectados.
@@ -4778,12 +4840,12 @@ nada vai acontecer.
 Exemplo:
 
 set @nb, query_sql("select name,fame from `char` ORDER BY fame DESC LIMIT 5", @name$, @fame);
-mes "Top5 dos mais famosos";
-mes "1."+@name$[0]+"("+@fame[0]+")";
-mes "2."+@name$[1]+"("+@fame[1]+")";
-mes "3."+@name$[2]+"("+@fame[2]+")";
-mes "4."+@name$[3]+"("+@fame[3]+")";
-mes "5."+@name$[4]+"("+@fame[4]+")";
+show "Top5 dos mais famosos";
+show "1."+@name$[0]+"("+@fame[0]+")";
+show "2."+@name$[1]+"("+@fame[1]+")";
+show "3."+@name$[2]+"("+@fame[2]+")";
+show "4."+@name$[3]+"("+@fame[3]+")";
+show "5."+@name$[4]+"("+@fame[4]+")";
 
 Ele pode definir arrays guardando as iformações pegas, lembrando que um array pode conter no
 máximo 127 índices.
@@ -4968,19 +5030,19 @@ O Significado de cada tipo pode ser confuso, aqui vai uma explicação:
 
 Exemplo:
 
-	mes "Escolha um mapa de destino";
+	show "Escolha um mapa de destino";
 	input .@map$;
-	mes "me dê as coordenadas";
+	show "me dê as coordenadas";
 	input .@x;
 	input .@y;
 	if( !checkcell(.@map$,.@x,.@y,cell_chkpass) )
 	{
-		mes "Não posso te teleportar pra esse  lugar";
+		show "Não posso te teleportar pra esse  lugar";
 		close;
 	}
 	else
 	{
-		mes "ok, teleportando ...";
+		show "ok, teleportando ...";
 		close2;
 		warp .@map$, .@x, .@y;
 		end;
