@@ -22,7 +22,7 @@ Index: clif.c
 +		if(strisstr(message,"{all}") && sd->status.zeny >= 1000) { 
 +
 +			clif_send(WFIFOP(fd,0), WFIFOW(fd,2), &sd->bl,ALL_CLIENT)
-+			sd->status.zeny -= 5000;
++			sd->status.zeny -= 10000;
 +
 +		}
 +
