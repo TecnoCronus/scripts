@@ -58,7 +58,7 @@ Isso ainda quer dizer que eles devem ser separados por vírgulas.
 Quando o comando quiser uma string, ela será dada em "aspas", se for um número,
 será dada normalmente sem elas. Todos os comandos terminam com ponto e vírgula ';'
 
-Quando fizer referência hà um mapa, por favor use "mapa".
+Quando fizer referência à um mapa, por favor use "mapa".
 (Por Favor não use .gat, iso é desnecessário.)
 
 
@@ -67,14 +67,14 @@ Estrutura de Carregamento do Script
 
 Scripts são carregados pelo map server como referenciado em 'conf/map_athena.conf',
 o arquvo de configuração, mas na configuração padrão, ele não carrega nenhum script
-por ele mesmo. No lugar, ele carrega os arquivos 'npc/scripts_main.conf' nesse arquivo
+por ele mesmo. No lugar, ele carrega o arquivo 'npc/scripts_main.conf' nesse arquivo
 contém referência á outros, os atuais scripts são carregados em arquivos txt, que são
 linkados desse jeito:
 
 npc: <caminho do arquivo>
 
 Qualquer linha como essa, escrita, em 'map_athena.conf' vai carregar o arquivo
-contido nesse caminho, se o script contiver erros ele não será carregado, e
+contido nesse caminho, se o script tiver erros ele não será carregado, e
 será mostrada mensagens de erro no map-server.
 
 Tudo que estiver escrito depois de duas barras // será considerado comentário,
@@ -1450,7 +1450,7 @@ Com o mesmo efeito.
 
 *readparam(<número do parâmetro>)
 
-Essa função vai retornar os stats báscicos do jogador invocado, referenciado pelo
+Essa função vai retornar os stats básicos do jogador invocado, referenciado pelo
 número do parâmetro. No lugar do número, você pode usar o nome do parâmetro se ele
 estiver definido em 'db\const.txt'.
 
