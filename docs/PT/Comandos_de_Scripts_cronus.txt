@@ -4832,7 +4832,6 @@ Exemplo:
 ---------------------------------------
 
 *query_sql "sua query de MySQL", <array> {,<array>, ...};
-*query_logsql "sua query de MySQL", <array> {,<array>, ...};
 
 Executa uma query de sql, se o seu servidor for do tipo MySQL se não for
 nada vai acontecer.
