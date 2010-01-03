@@ -246,7 +246,7 @@ Esse comando vai duplicar um NPC do tipo warp/shop/cashshop/NPC referenciado ao 
 um NPC warp duplicado, herda a localização do NPC Original.
 Shop/cashop herda a lista de items.
 NPC Duplicados herdam o código de script.
-o resto (nome, localização, direção, id do psrite, span/trigger area)
+o resto (nome, localização, direção, id do sprite, àrea de spawn/trigger)
 é obtido pela difinição do NPC duplicado.
 
 ** Definir uma função.
@@ -4018,7 +4018,7 @@ Example 3:
 Example 4:
 
     mes "[Man]";
-    mes "Vou permitir que você tenha 30 segundos mais";
+    mes "Vou permitir que você tenha mais 30 segundos";
     close2;
     setnpctimer (getnpctimer(0)-30000); 
     end;
@@ -4243,7 +4243,7 @@ e nas coordenadas especificados, kicando eles da sala. Aquele que estiver espera
 à mais tempo será o primeiro à ser teleportado. Este comando aceita "mapas especicais"
 com "Random" e "SavePoint".
 
-A Lista de chars para teleportar é pega da lista de memebros da sala de conversa.
+A Lista de chars para teleportar é pega da lista de membros da sala de conversa.
 aqueles que não tiverem na sala de conversa não serão considerados, mesmo se
 eles tiverem falando com o NPC em questão. Se o número de pessoas é dado, este
 tanto de pessoas que vão teleportadas.
@@ -4376,9 +4376,7 @@ guerra do empério segunda edição.
 *gvgon "<nome do mapa>";
 *gvgoff "<nome do mapa>";
 
-These commands will turn GVG mode for the specified maps on and off, setting up 
-appropriate map flags. In GVG mode, maps behave as if during the time of WoE, 
-even though WoE itself may or may not actually be in effect. 
+Estes comandos vão por o mapa em modo GVG ou tirá-los desse modo GVG.
 
 ---------------------------------------
 
@@ -4399,14 +4397,14 @@ Retorna 0 se ocorreu um erro.
 
 ---------------------------------------
 
-*guardianinfo("<nome do mapa>", <guardian number>, <tipo>)
+*guardianinfo("<nome do mapa>", <número do guardião>, <tipo>)
 
 Esta função vai retornar várias informações sobre o guardião especificado
 no mapa dado,ou -1 se isso falhar por algum motivo.
 
 os tipos válidos são:
 
- 0 - visibilidade (s o guardião foi instalado ou não)
+ 0 - visibilidade (se o guardião foi instalado ou não)
  1 - hp máx.
  2 - hp atual.
 
@@ -4420,7 +4418,7 @@ os tipos válidos são:
 *npcwalkto <x>,<y>;
 *npcstop;
 
-Estes comandos o NPC em questão se mover pelo mapa.
+Estes comandos faz o NPC em questão se mover pelo mapa.
 
 'npcspeed' vai definir a velocidade que o npc anda. 100 é o padrão. 'npcstop'
 vai fazer o NPC parar de andar.
@@ -4550,7 +4548,7 @@ A Posição determina onde a foto vai ser mostrada
   1 - no ângulo do meio
   2 - no ângulo base direito
   3 - no meio da tela, em uma janela movível sem um título
-  4 - no meio da tela, sem o cabeçário da janela, ainda movívelo
+  4 - no meio da tela, sem o cabeçário da janela, ainda movível
   255 - vai remover o cutin da tela.
 
 Dando uma string vazia e a posição 255, vai remover a foto mostrada anteriormente.
@@ -4563,7 +4561,7 @@ Exemplo:
     // vai remover essa 7ª kafra
     cutin "Kafra_7",255;
 
-    // vai remover todoas as fotos mostradas anteriormente.
+    // vai remover toda as as fotos mostradas anteriormente.
     cutin "",255;
 
 ---------------------------------------
