@@ -15,7 +15,7 @@
 
 Esse Documento é uma referência manual para todos os comandos de scripts e funções
 dispníveis na versão atual do SVN do Cronus. Isso não é um simples tutorial. Quando
-as pessoas te diserem para você "Leia a m**** do tutorial", eles querem diser que é
+as pessoas te diserem para você "Leia a m**** do tutorial", eles querem dizer que é
 para você ler isso.
 
 Esse documento não é lugar para te ensinar programação básica. Esse documento não te
@@ -36,7 +36,7 @@ Texto Descritivo
     Pequeno exemplo se possível. Estará geralmente incompleto. isso é apenas
     uma idéia de como isso funciona em prática.
 
-Para achar um comando específico, use Ctrl+F, (or qualquer atalho que chame
+Para achar um comando específico, use Ctrl+F, (ou qualquer atalho que chame
 uma função de pesquisar onde você estiver lendo isso) ponha um * seguido do
 nome do comando, isso deve achar a descrição do comando para você.
 
@@ -45,7 +45,7 @@ Sintaxe
 -------
 
 Através deste documento,quando um comando necessitar de um argumento, isto será
-dado em <parênteses angulados>, ou seja "<>".Isso não quer diser que esse argumento
+dado em <parênteses angulados>, ou seja "<>".Isso não quer dizer que esse argumento
 tem que ser usado, se o argumento for opcional ele virá {entre colchetes}. Você
 verá ambos em alguns comandos. Se o comando tiver alguns argumentos opcionais, 
 você verá uma lista como essa:
@@ -53,9 +53,9 @@ você verá uma lista como essa:
 comando <argumento>,{<argumento>...<argumento>};
 
 
-Isso ainda quer diser que eles devem ser separados por vírgulas.
+Isso ainda quer dizer que eles devem ser separados por vírgulas.
 
-Quando o comandos quiser uma string, ela será dada em "aspas", se for um número,
+Quando o comando quiser uma string, ela será dada em "aspas", se for um número,
 será dada normalmente sem elas. Todos os comandos terminam com ponto e vírgula ';'
 
 Quando fizer referência hà um mapa, por favor use "mapa".
@@ -1187,7 +1187,7 @@ Exemplos:
 	close;
 
 	Esse quarto exemplo, tem uma coisa nova: "else if", isso funciona,
-	basicamente como outro if, isso quer diser "se a condição anterior
+	basicamente como outro if, isso quer dizer "se a condição anterior
 	for falsa e se a próxima condição for verdadeira".
 
 ---------------------------------------
@@ -2217,11 +2217,11 @@ Os tipos válidos são:
 
  0 - ID único do PET que é guardado pelo char-server, isso distingui ele de
      todos os outro pets.
- 1 - Número da classe do pet, vai te diser o tipo de pet('db\pet_db.txt').
+ 1 - Número da classe do pet, vai te dizer o tipo de pet('db\pet_db.txt').
  2 - Nome do pet, retornará "null" se não tiver pet.
  3 - Nível de amigável do pet. 1000 é totalmente fiel.
  4 - Nível de esfomiado do pet. 100 ele está quase morrendo de fome :)
- 5 - Flag de renome do pet. se 0 quer diser que ele não foi renomeado ainda.
+ 5 - Flag de renome do pet. se 0 quer dizer que ele não foi renomeado ainda.
 
 ---------------------------------------
 
