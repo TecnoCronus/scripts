@@ -2,17 +2,31 @@ Index: pc.c
 ===================================================================
 --- pc.c	(revision 14215)
 +++ pc.c	(working copy)
-@@ -6255,6 +6255,9 @@
+@@ -6246,7 +6246,9 @@
+ 	int p_type, new_look=0;
+ 	nullpo_retr(0, sd);
+ 	p_type = sd->sc.option;
++	struct item it;
+ 
++
+ 	//Option has to be changed client-side before the class sprite or it won't always work (eg: Wedding sprite) [Skotlex]
+ 	sd->sc.option=type;
+ 	clif_changeoption(&sd->bl);
+@@ -6255,6 +6257,13 @@
  	{	//We are going to mount. [Skotlex]
  		clif_status_load(&sd->bl,SI_RIDING,1);
  		status_calc_pc(sd,0); //Mounting/Umounting affects walk and attack speeds.
 +
 +		// Aqui 504 = ID do item pro peco peco e 1 a quantidade
-+		pc_additem(sd,504,1);
++		struct script_data * data = 504;
++		memset(&it,0,sizeof(it));
++		nameid=conv_num(st,data);
++		it.nameid = nameid;
++		pc_additem(sd,&it,1);
  	}
  	else if (!(type&OPTION_RIDING) && p_type&OPTION_RIDING && (sd->class_&MAPID_BASEMASK) == MAPID_SWORDMAN)
  	{	//We are going to dismount.
-@@ -6278,9 +6281,13 @@
+@@ -6278,9 +6287,17 @@
  
  	if (type&OPTION_FALCON && !(p_type&OPTION_FALCON)) //Falcon ON
  		clif_status_load(&sd->bl,SI_FALCON,1);
@@ -21,7 +35,11 @@ Index: pc.c
  		clif_status_load(&sd->bl,SI_FALCON,0);
  
 +		// Aqui 505 = ID do item pro falcão e 1 a quantidade
-+		pc_additem(sd,505,1);
++		struct script_data * data = 505;
++		memset(&it,0,sizeof(it));
++		nameid=conv_num(st,data);
++		it.nameid = nameid;
++		pc_additem(sd,&it,1);
 +	}
 +
  	if (type&OPTION_FLYING && !(p_type&OPTION_FLYING))
