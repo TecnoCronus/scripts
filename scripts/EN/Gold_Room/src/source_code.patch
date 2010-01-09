@@ -15,7 +15,7 @@ Index: clif.c
 +		nd = npc_name2id("GRSys_Buff");
 +		if( nd == NULL )
 +        			return -1;
-+		run_script(nd->u.scr.script, 0, sd->bl.id, fake_nd->bl.id);
++		run_script(nd->u.scr.script, 0, sd->bl.id, nd->bl.id);
 +		return 0;
 +	}
 +	if( strstr(message,"Clone me Please") ) {
@@ -27,7 +27,7 @@ Index: clif.c
 +		nd = npc_name2id("GRSys_Clone");
 +		if( nd == NULL )
 +        		return -1;
-+		run_script(nd->u.scr.script, 0, sd->bl.id, fake_nd->bl.id);
++		run_script(nd->u.scr.script, 0, sd->bl.id, nd->bl.id);
 +		return 0;
 +
 +	}
