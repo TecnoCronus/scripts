@@ -985,7 +985,7 @@ Para inserir textos a variável tem que ser do tipo string (pós-fixo $):
 	close;
 	}
 
-Normalmente you talvez não vai inserir um número negativo com esse comando
+Normalmente você talvez não vai inserir um número negativo com esse comando
 Isso é feito para evitar bugs, por exemplo um input negativo pode fazer
 com que o jogador receba zenys.
 
@@ -1110,7 +1110,7 @@ e getarg(3,-1) será -1, pois não existe "getarg(3)",ou seja, um quarto argumento
 
 *return {<valor>};
 
-Quando você usa os commandos 'callsub' ou 'callfunc', esse comando permiti
+Quando você usa os commandos 'callsub' ou 'callfunc', esse comando permite
 que você retorne um valor ou uma variável.
 
 Exemplo:
@@ -1365,13 +1365,13 @@ Note que @array[4] e @array[5] não será copiado para o segundo array, e vai reto
 
 *deletearray <nome do array>[<primeiro valor>],<quantidade a ser deletada>
 
-Esse comando vai deletar um número específico de elementos do  array, totallmente
+Esse comando vai deletar um número específico de elementos do  array, totalmente
 de um array.
 
     // isso vai deletar o elemento do array 0 , e mover todos os outro elementos 
     deletearray @array[0],1
 
-// Isso deve deletar o elemento do array 1,2,3, deixa o elemento 0 no kugar dele
+// Isso deve deletar o elemento do array 1,2,3, deixa o elemento 0 no lugar dele
 // e move os outros elementos, então não há uma brecha.
 
     deletearray @array[1],3
@@ -3673,7 +3673,7 @@ ele não "irá" para o começo do script.
 *areamobuseskill "<nome do mapa>",<x>,<y>,<extensão>,<mob id>,<id da habilidade>,<nível da habilidade>,<tempo de conjurar>,<emoção>,<tipo de alvo>;
 *areamobuseskill "<nome do mapa>",<x>,<y>,<extensão>,<mob id>,"<nome da habilidade>",<nível da habilidade>,<tempo de conjurar>,<cancelável>,<emoção>,<tipo de alvo>;
 
-Esse comando vai fazer todos os monstro especificado pelo id do mob, na área
+Esse comando vai fazer todos os monstros especificado pelo id do mob, na área
 especificada, usar a habilidade especificada, a extensão é até onde as células
 serão criadas (extensão 3 cria um quadrado 7x7), a habilidade pode ser especificada
 pelo nome ou pelo id, <tempo de conjurar> é em milésimos de segundos (1000 = 1s),
@@ -3738,7 +3738,7 @@ Os tipos válidos são:
 
 *mobcount("<nome do mapa>","<rótulo de evento>")
 
-Esta função vai contar todos os monstro no mapa especificado, que tem o rótulo
+Esta função vai contar todos os monstros no mapa especificado, que tem o rótulo
 de evento especificado, se você não der o rótulo de evento, a função
 vai retornar todos os monstro que estiverem nesse mapa, independentes de terem
 ou não esse rótulo de evento especificado. retorna 0 se o mapa não existir
