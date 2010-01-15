@@ -73,7 +73,7 @@ prontera,146,165,6 script MaxLvLRank 718,{
 		show "que atingiram o nível máximo.";
 		next;
 		show "[Constantin]";
-		for(set @i, 1; $Rank$[@i]; set @i, @i + 1) mes @i+"º"+$Rank$[@i]".";
+		for(set @i, 1; $Rank$[@i]; set @i, @i + 1) mes @i+"º"+$Rank$[@i]+".";
 	} else {
 		show "Ok, sem problemas.";
 	}
