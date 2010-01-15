@@ -1468,7 +1468,7 @@ Essa função vai retornar os stats básicos do jogador invocado, referenciado pelo
 número do parâmetro. No lugar do número, você pode usar o nome do parâmetro se ele
 estiver definido em 'db\const.txt'.
 
-Por referência, Essa variáveis são definidas:
+Por referência, Essas variáveis são definidas:
 
 StatusPoint, BaseLevel, SkillPoint, Class, Upper, Zeny, Sex, Weight, MaxWeight,
 JobLevel, BaseExp, JobExp, NextBaseExp, NextJobExp, Hp, MaxHp, Sp, MaxSp,
@@ -2335,7 +2335,7 @@ Exemplo:
 *getscrate(<tipo de efeito>,<taxa base>{,<target ID number>})
 
 Esa função vai retornar a chance de efeito de status afetada ao char atachado
-ao script, em porcentagem, a 'taxa base' is a chance-base de esse efeitos
+ao script, em porcentagem, a 'taxa base' é uma base da chance de esse efeitos
 serem aplicados,
 
 
