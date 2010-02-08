@@ -14,14 +14,14 @@
 //============================================================
 
 Esse Documento é uma referência manual para todos os comandos de scripts e funções
-dispníveis na versão atual do SVN do Cronus. Isso não é um simples tutorial. Quando
+disponíveis na versão atual do SVN do Cronus. Isso não é um simples tutorial. Quando
 as pessoas te diserem para você "Leia a m**** do tutorial", eles querem dizer que é
 para você ler isso.
 
 Esse documento não é lugar para te ensinar programação básica. Esse documento não te
 ensinará programação básica por ele mesmo. Isso é mais um referencial para quem tem
 uma vaga idéia sobre o que eles querem fazer e quais ferramentas ele deve utilizar para isso.
-Nós estamos tentando fazer desse documento o mais simple possível, mas se você não entender
+Nós estamos tentando fazer desse documento o mais simples possível, mas se você não entender
 isso, leia um bom livro de programação.
 
 Estrutura
@@ -59,7 +59,7 @@ Quando o comando quiser uma string, ela será dada em "aspas", se for um número,
 será dada normalmente sem elas. Todos os comandos terminam com ponto e vírgula ';'
 
 Quando fizer referência à um mapa, por favor use "mapa".
-(Por Favor não use .gat, iso é desnecessário.)
+(Por Favor não use .gat, isso é desnecessário.)
 
 
 Estrutura de Carregamento do Script
@@ -75,7 +75,7 @@ npc: <caminho do arquivo>
 
 Qualquer linha como essa, escrita, em 'map_athena.conf' vai carregar o arquivo
 contido nesse caminho, se o script tiver erros ele não será carregado, e
-será mostrada mensagens de erro no map-server.
+serão mostrada mensagens de erro no map-server.
 
 Tudo que estiver escrito depois de duas barras // será considerado comentário,
 ou seja, todo o resto da linha após // será ignorado.
@@ -107,16 +107,16 @@ identificação do monstro", todos esse ids são listados em 'mob_db.txt'.
 
 Se você adicionar 20000 ao id do monstro, ele será invocado como uma 'versão
 gigante' (o tamanho do monstro será aumentado) e se você adicionar 1000, o
-monstro será invocado numa versão pequena, Mas, isso não é recomando.
+monstro será invocado numa versão pequena, Mas, isso não é recomendado.
 
-quantidade é a quantidade de monstro sque serão invocados, quando esse comando
+quantidade é a quantidade de monstros que serão invocados, quando esse comando
 é executado ele é afetado pelo rates de spwan em 'battle_athena.conf'.
 
 Delay1 e Delay2 são os delays de invocação do monstro - o primeiro conta o tempo
 desde que um monstro foi invocado até a última invocação. o segundo conta o tempo
 desde sua invocação até a morte do monstro. O Tempo é dado em milésimos de segundo.
 
-Você pode espificar um nível de monstro custom, indicado o nível custom após o nome.
+Você pode especificar um nível de monstro custom, indicado o nível custom após o nome.
 Exemplo: "Poring,50" esse monstro terá o nome "Poring" mas com nível 50.
 
 evento é o rótulo a ser chamado quando o monstro morrer, note o jogador que matar
@@ -5076,6 +5076,6 @@ cores podem ser:
 	1 = laranja
 	2 = verde
 	3 = azul
-	outros valores mostram uma marca transparte no mini-map
+	outros valores mostram uma marca transparente no mini-map
 
 ----------------------------------------
