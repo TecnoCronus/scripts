@@ -40,7 +40,7 @@
 
 			}
 
-			set bcdelay, gettimetick(2) + .@delay;
+			set bcdelay, gettimetick(2) + (.@delay*60);
 	
 			show "Obrigada por usar nossos serviços !!!";
 			show "Tenha um"+(isday() == 1 ? "" : "a")+" bo"+(isday() == 1 ? "m" : "a")+" "+(isday() == 1 ? "dia" : "noite")+" senho"+(Sex > 0 ? "r" : "ra")+" "+strcharinfo(0);
@@ -57,4 +57,12 @@
 
 	cutin "",255;
 	end;
+
+	OnInit:
+
+//	Quantidade de Zeny Necessária
+	set .@Zeny, 1000000;
+
+//	Tempo do Delay, em minutos	
+	set .@Delay, 3;
 }
