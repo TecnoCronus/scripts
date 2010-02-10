@@ -18,7 +18,7 @@
 	} else {
 
 		show "Por Favor, digite a mensagem que você deseja anunciar:";
-		input @mes$;
+		digit @mes$;
 		show "^FF0000Confirmando:^000000";
 		mes @mes$;
 		next;
