@@ -1,0 +1,31 @@
+Index: script.c
+===================================================================
+--- script.c	(revision 2873)
++++ script.c	(working copy)
+@@ -4838,6 +4838,26 @@
+ 	return 0;
+ }
+ 
++/*==========================================
++ * Attachall "{NPC NAME}::<event label>"; // [TecnoCronus]
++ *------------------------------------------*/
++BUILDIN_FUNC(attachall)
++{
++	struct map_session_data* pl_sd;
++	struct s_mapiterator* iter;
++	const char* event = script_getstr(st,2);
++
++	iter = mapit_getallusers();
++	check_event(st, event);
++	for( pl_sd = (TBL_PC*)mapit_first(iter); mapit_exists(iter); pl_sd = (TBL_PC*)mapit_next(iter) )
++	{
++		npc_event_do(event);
++
++	}
++	mapit_free(iter);
++	return 0;
++}
++
+ /// Returns the size of the array.
+ /// Assumes that everything before the starting index exists.
+ /// ex: getarraysize(arr[3])
