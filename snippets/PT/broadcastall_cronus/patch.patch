@@ -8,7 +8,7 @@ Index: atcommand.c
  
 +/*=========================================
 + * Invoca o npc do atcommand
-+ *-----------------------------------------
++ *-----------------------------------------*/
 +int atcommand_broadall(const int fd, struct map_session_data* sd, const char* command, const char* message)
 +{
 +    struct npc_data* nd;
