@@ -15,7 +15,7 @@ Index: script.c
 +	if(!i_data)
 +		script_pushint(st,0);
 +	else
-+		script_pushstr(st,(int)&i_data->script);
++		script_pushstr(st,i_data->script);
 +	return 0;
 +}
  
