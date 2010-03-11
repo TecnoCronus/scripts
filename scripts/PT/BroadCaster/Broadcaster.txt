@@ -81,10 +81,10 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 				goto L_Again;
 			}
 			query_sql "SELECT `manners` FROM `mannerdb` WHERE `manners` = '"+ @msg$ +"'", @badword$;
-			if (compare("@msg$","@badword$")) {
+			if (getstrlen("@badword$") > 0) {
 			emotion 23;
-			mes "o.O ^710080 "+ @name$ + " ^000000 voc? est? falando palavr?o...";
-			mes "Se você continuar falando palavr?es";
+			mes "^710080 "+ @name$ + " ^000000 você não pode usar este tipo de linguagem.";
+			mes "Se você continuar falando palavrões";
 			mes "você não poderá enviar mensagens, NUNCA mais";
 			set Manner,Manner+1;
 			close;
@@ -96,65 +96,65 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 			mes "Você não tem ^FF8000 "+ $price +" ^000000 Zenys, volte quando tiver";
 			close;
 			}
-			if(Msg10!="") goto M_SendBC;
-			if (!getarraysize(Msg1)) {
-			set Msg1, @msg$;
+			if(@Msg10!="") goto M_SendBC;
+			if (!getarraysize(@Msg1)) {
+			set @Msg1, @Msg$;
 			goto M_Check;
 			}
-			if (!getarraysize(Msg2)) {
+			if (!getarraysize(@Msg2)) {
 			set Msg2, @msg$;
 			goto M_Check;
 			}
-			if (!getarraysize(Msg3)) {
-			set Msg3, @msg$;
+			if (!getarraysize(@Msg3)) {
+			set @Msg3, @msg$;
 			goto M_Check;
 			}
-			if (!getarraysize(Msg4)) {
-			set Msg4, @msg$;
+			if (!getarraysize(@Msg4)) {
+			set @Msg4, @msg$;
 			goto M_Check;
 			}
-			if (!getarraysize(Msg5)) {
-			set Msg5, @msg$;
+			if (!getarraysize(@Msg5)) {
+			set @Msg5, @msg$;
 			goto M_Check;
 			}
-			if (!getarraysize(Msg6)) {
-			set Msg6, @msg$;
+			if (!getarraysize(@Msg6)) {
+			set @Msg6, @msg$;
 			goto M_Check;
 			}
-			if (!getarraysize(Msg7)) {
-				set Msg7, @msg$;
+			if (!getarraysize(@Msg7)) {
+				set @Msg7, @msg$;
 				goto M_Check;
 			}
-			if (!getarraysize(Msg8)) {
-				set Msg8, @msg$;
+			if (!getarraysize(@Msg8)) {
+				set @Msg8, @msg$;
 				goto M_Check;
 			}
-			if (!getarraysize(Msg9)) {
-				set Msg9, @msg$;
+			if (!getarraysize(@Msg9)) {
+				set @Msg9, @msg$;
 				goto M_Check;
 			}
-			if (!getarraysize(Msg10)) {
-				set Msg10, @msg$;
+			if (!getarraysize(@Msg10)) {
+				set @Msg10, @msg$;
 				set @done, 1;
 			}
 			M_Check:
 			if(@done!=1) goto L_Input;
 			M_SendBC:
 			mes "Confirmando a Mensagem:";
-			mes " "+ Msg1 +" "+ Msg2 +" "+ Msg3 +" "+ Msg4 +" "+ Msg5 +" "+ Msg6 + " "+ Msg7 +" "+ Msg8 +" "+ Msg9 +" "+ Msg10 +" ";
+			mes " "+ @Msg1 +" "+ @Msg2 +" "+ @Msg3 +" "+ @Msg4 +" "+ @Msg5 +" "+ @Msg6 + " "+ @Msg7 +" "+ @Msg8 +" "+ @Msg9 +" "+ @Msg10 +" ";
 			mes "Deseja Trocar a Mensagem ou apagá-la?";
 			if(select("Sim","Não, pode continuar")==1) {
 				mes "Certo, irei apagar essa Mensagem...";
-				set Msg1, 0;
-				set Msg2, 0;
-				set Msg3, 0;
-				set Msg4, 0;
-				set Msg5, 0;
-				set Msg6, 0;
-				set Msg7, 0;
-				set Msg8, 0;
-				set Msg9, 0;
-				set Msg10, 0;
+				set @Msg1, 0;
+				set @Msg2, 0;
+				set @Msg3, 0;
+				set @Msg4, 0;
+				set @Msg5, 0;
+				set @Msg6, 0;
+				set @Msg7, 0;
+				set @Msg8, 0;
+				set @Msg9, 0;
+				set @Msg10, 0;
 				mes "mensagem apagada, deseja enviar outra?";
 				if(select("Não, quero sair","Sim, Por Favor")==1) close;
 				next;
@@ -167,7 +167,7 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 			set Zeny,Zeny-$price;
 			set MsgSent, MsgSent+1;
 			if(MsgSent==$Delay) set Full, 1;
-			Announce "Mensagem de "+ strcharinfo(0) +": "+ Msg1 +" "+ Msg2 +" "+ Msg3 +" "+ Msg4 +" "+ Msg5 +" "+ Msg6 + " "+ Msg7 +" "+ Msg8 +" "+ Msg9 +" "+ Msg10 +" ",0;
+			Announce "Mensagem de "+ strcharinfo(0) +": "+ @Msg1 +" "+ @Msg2 +" "+ @Msg3 +" "+ @Msg4 +" "+ @Msg5 +" "+ @Msg6 + " "+ @Msg7 +" "+ @Msg8 +" "+ @Msg9 +" "+ @Msg10 +" ",0;
 			mes "Mensagem enviada";
 			emotion 21;
 			close;
@@ -181,7 +181,7 @@ prontera,159,187,6	script	TecnoBRoadcaster	806,{
 
 OnInit:
 //					******************************
-//					***   PRIMEIRA INICIA??O   ***
+//					***   PRIMEIRA INICIAÇÃO   ***
 //					******************************
 	set $MainDetection, query_sql("select version()");
 	if($MainDetection < 0) {
