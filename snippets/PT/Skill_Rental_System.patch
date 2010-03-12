@@ -33,8 +33,8 @@ Index: map/script.c
  	return 0;
  }
 +/*==========================================
-+ * rentskill <skill id>,<nivel>;    [TecnoCronus]
-+ * rentskill "<skill name>",<nível>;
++ * rentskill <skill id>,<nivel>,<segundos>;    [TecnoCronus]
++ * rentskill "<skill name>",<nível>,<segundos>;
 + *------------------------------------------*/
 +BUILDIN_FUNC(rentskill)
 +{
@@ -50,7 +50,7 @@ Index: map/script.c
 +	flag = 0;
 +	level = script_getnum(st,3);
 +	pc_skill(sd, id, level, flag);
-+	seconds = script_getnum(st,3);
++	seconds = script_getnum(st,4);
 +	sd->status.skill[id].skill_rental_timer = (unsigned int)(time(NULL) + seconds);
 +
 +	pc_skill_rental_add(sd, seconds);
@@ -64,7 +64,7 @@ Index: map/script.c
  	BUILDIN_DEF(changequest, "ii"),
  	BUILDIN_DEF(showevent, "ii"),
  	BUILDIN_DEF(GetCastleMobRespawnInfo, ""),
-+	BUILDIN_DEF(rentskill,"vi"),
++	BUILDIN_DEF(rentskill,"vii"),
  	{NULL,NULL,NULL},
  };
 Index: map/skill.c
