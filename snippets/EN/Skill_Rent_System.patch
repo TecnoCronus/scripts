@@ -72,7 +72,7 @@ Index: map/skill.c
 ===================================================================
 --- map/skill.c	(revision 14261)
 +++ map/skill.c	(working copy)
-@@ -6721,7 +6721,74 @@
+@@ -6721,7 +6721,73 @@
  	return 0;
  #undef skill_failed
  }
@@ -123,9 +123,8 @@ Index: map/skill.c
 +	int i;
 +
 +	for( i = 0; i < MAX_SKILL; i++ )
-+	{ // Check for Rentals on Storage
-+		if( sd->status.storage.items[i].nameid == 0 )
-+			continue;
++	{
++
 +		if( sd->status.skill[i].skill_rental_timer == 0 )
 +			continue;
 +

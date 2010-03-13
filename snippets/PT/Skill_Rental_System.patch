@@ -71,7 +71,7 @@ Index: map/skill.c
 ===================================================================
 --- map/skill.c	(revision 2889)
 +++ map/skill.c	(working copy)
-@@ -9647,6 +9647,75 @@
+@@ -9647,6 +9647,73 @@
  	}
  }
  /*==========================================
@@ -121,9 +121,7 @@ Index: map/skill.c
 +	int i;
 +
 +	for( i = 0; i < MAX_SKILL; i++ )
-+	{ // Check for Rentals on Storage
-+		if( sd->status.storage.items[i].nameid == 0 )
-+			continue;
++	{
 +		if( sd->status.skill[i].skill_rental_timer == 0 )
 +			continue;
 +
