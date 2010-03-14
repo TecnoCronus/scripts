@@ -521,7 +521,6 @@ Index: src/map/storage.c
  
 +	
 +
-+
  	if(sd->state.storage_flag)
  		return 1; //Already open?
  	
@@ -536,6 +535,7 @@ Index: src/map/storage.c
 +
 +		if(nd == NULL) return 1;
 +		run_script(nd->u.scr.script, 0, sd->bl.id, nd->bl.id);
++		return 1;
 +	}
  	
  	sd->state.storage_flag = 1;
