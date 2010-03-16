@@ -168,7 +168,7 @@ Index: src/map/battle.c
  				damage += damage*sd->weapon_atk_rate[sd->weapontype1]/100;;
  		}
  	}
-+	if(sd->gmlevel != 1) damage += (rand()%battle_config.vip_plus_damage);
++	if(sd->gmlevel == 1) damage += (rand()%battle_config.vip_plus_damage);
 +
  	return damage;
  }
