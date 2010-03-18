@@ -10,6 +10,26 @@ Index: common/mmo.h
  };
  
  struct global_reg {
+Index: map/pc.c
+===================================================================
+--- map/pc.c	(revision 2889)
++++ map/pc.c	(working copy)
+@@ -1094,6 +1094,7 @@
+ 
+ #ifndef TXT_ONLY
+ 	pc_inventory_rentals(sd);
++	skill_rentals(sd);
+ #endif
+ 	return 1;
+ }
+@@ -8056,6 +8057,7 @@
+ 	add_timer_func_list(pc_invincible_timer, "pc_invincible_timer");
+ 	add_timer_func_list(pc_eventtimer, "pc_eventtimer");
+ 	add_timer_func_list(pc_inventory_rental_end, "pc_inventory_rental_end");
++	add_timer_func_list(skill_rental_end, "skill_rental_end");
+ 	add_timer_func_list(pc_calc_pvprank_timer, "pc_calc_pvprank_timer");
+ 	add_timer_func_list(pc_autosave, "pc_autosave");
+ 	add_timer_func_list(pc_spiritball_timer, "pc_spiritball_timer");
 Index: map/pc.h
 ===================================================================
 --- map/pc.h	(revision 2889)
@@ -100,7 +120,7 @@ Index: map/skill.c
 +		sd->skill_rental_time = add_timer(gettick() + min(tick,3600000), skill_rental_end, sd->bl.id, 0);
 +}
 +
-+static int skill_rental_end(int tid, unsigned int tick, int id, intptr data)
++int skill_rental_end(int tid, unsigned int tick, int id, intptr data)
 +{
 +	struct map_session_data *sd = map_id2sd(id);
 +	if( sd == NULL )
@@ -154,10 +174,27 @@ Index: map/skill.h
  const char*	skill_get_desc( int id ); 	// [Skotlex]
  
 +
-+static int skill_rental_end(int tid, unsigned int tick, int id, intptr data); // [TecnoCronus]
++int skill_rental_end(int tid, unsigned int tick, int id, intptr data); // [TecnoCronus]
 +void skill_rentals(struct map_session_data *sd);
 +void pc_skill_rental_add(struct map_session_data *sd, int seconds);
 +
  int skill_name2id(const char* name);
  
  int skill_isammotype(struct map_session_data *sd, int skill);
+Index: map/unit.c
+===================================================================
+--- map/unit.c	(revision 2889)
++++ map/unit.c	(working copy)
+@@ -1989,6 +1989,12 @@
+ 				
+ 			if( sd->duel_invite > 0 )
+ 				duel_reject(sd->duel_invite, sd);
++
++			// Skill Rental System
++			if( sd->rental_timer != INVALID_TIMER ) {
++				delete_timer(sd->skill_rental_time, skill_rental_end);
++				sd->skill_rental_time = -1;
++			}
+ 		
+ 			// Notify friends that this char logged out. [Skotlex]
+ 			map_foreachpc(clif_friendslist_toggle_sub, sd->status.account_id, sd->status.char_id, 0);

@@ -1,6 +1,6 @@
 Index: common/mmo.h
 ===================================================================
---- common/mmo.h	(revision 14261)
+--- common/mmo.h	(revision 14262)
 +++ common/mmo.h	(working copy)
 @@ -201,6 +201,7 @@
  
@@ -10,9 +10,29 @@ Index: common/mmo.h
  };
  
  struct global_reg {
+Index: map/pc.c
+===================================================================
+--- map/pc.c	(revision 14262)
++++ map/pc.c	(working copy)
+@@ -1094,6 +1094,7 @@
+ 
+ #ifndef TXT_ONLY
+ 	pc_inventory_rentals(sd);
++	skill_rentals(sd);
+ #endif
+ 	return 1;
+ }
+@@ -8059,6 +8060,7 @@
+ 	add_timer_func_list(pc_spiritball_timer, "pc_spiritball_timer");
+ 	add_timer_func_list(pc_follow_timer, "pc_follow_timer");
+ 	add_timer_func_list(pc_endautobonus, "pc_endautobonus");
++	add_timer_func_list(skill_rental_end, "skill_rental_end");
+ 
+ 	add_timer(gettick() + autosave_interval, pc_autosave, 0, 0);
+ 
 Index: map/pc.h
 ===================================================================
---- map/pc.h	(revision 14261)
+--- map/pc.h	(revision 14262)
 +++ map/pc.h	(working copy)
 @@ -392,6 +392,9 @@
  	const char* debug_file;
@@ -26,7 +46,7 @@ Index: map/pc.h
  
 Index: map/script.c
 ===================================================================
---- map/script.c	(revision 14261)
+--- map/script.c	(revision 14262)
 +++ map/script.c	(working copy)
 @@ -5057,7 +5057,32 @@
  
@@ -70,7 +90,7 @@ Index: map/script.c
  };
 Index: map/skill.c
 ===================================================================
---- map/skill.c	(revision 14261)
+--- map/skill.c	(revision 14262)
 +++ map/skill.c	(working copy)
 @@ -6721,7 +6721,73 @@
  	return 0;
@@ -102,7 +122,7 @@ Index: map/skill.c
 +		sd->skill_rental_time = add_timer(gettick() + min(tick,3600000), skill_rental_end, sd->bl.id, 0);
 +}
 +
-+static int skill_rental_end(int tid, unsigned int tick, int id, intptr data)
++int skill_rental_end(int tid, unsigned int tick, int id, intptr data)
 +{
 +	struct map_session_data *sd = map_id2sd(id);
 +	if( sd == NULL )
@@ -148,17 +168,34 @@ Index: map/skill.c
  {
 Index: map/skill.h
 ===================================================================
---- map/skill.h	(revision 14261)
+--- map/skill.h	(revision 14262)
 +++ map/skill.h	(working copy)
 @@ -250,6 +250,11 @@
  const char*	skill_get_name( int id ); 	// [Skotlex]
  const char*	skill_get_desc( int id ); 	// [Skotlex]
  
 +// Skill Rental System - Function Declarations [TecnoCronus]
-+static int skill_rental_end(int tid, unsigned int tick, int id, intptr data);
++int skill_rental_end(int tid, unsigned int tick, int id, intptr data);
 +void skill_rentals(struct map_session_data *sd);
 +void pc_skill_rental_add(struct map_session_data *sd, int seconds);
 +
  int skill_name2id(const char* name);
  
  int skill_isammotype(struct map_session_data *sd, int skill);
+Index: map/unit.c
+===================================================================
+--- map/unit.c	(revision 14262)
++++ map/unit.c	(working copy)
+@@ -1983,6 +1983,12 @@
+ 			pc_delautobonus(sd,sd->autobonus,ARRAYLENGTH(sd->autobonus),false);
+ 			pc_delautobonus(sd,sd->autobonus2,ARRAYLENGTH(sd->autobonus),false);
+ 			pc_delautobonus(sd,sd->autobonus3,ARRAYLENGTH(sd->autobonus),false);
++
++			// Skill Rental System
++			if( sd->rental_timer != INVALID_TIMER ) {
++				delete_timer(sd->skill_rental_time, skill_rental_end);
++				sd->skill_rental_time = -1;
++			}
+ 			
+ 			if( sd->followtimer != -1 )
+ 				pc_stop_following(sd);
