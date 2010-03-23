@@ -291,7 +291,7 @@ Index: src/map/clif.c
 +		return;
 +
 +	} else {
-+		pc_percentheal (sd,battle_config.vip_heal_hp,battle_config.vip_heal_sp);
++		status_percent_heal (&sd->bl,battle_config.vip_heal_hp,battle_config.vip_heal_sp);
 +		sd->status.zeny -= battle_config.vip_heal_zeny;
 +	}
 +
