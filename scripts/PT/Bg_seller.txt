@@ -25,11 +25,6 @@
 
 bat_room,161,150,3	script	Thor#bgroom	414,{
 
-	function ChecarMoeda;
-	function index2id;
-	function index2id2;
-	function index2qnt;
-
 	mes "[Thor]";
 	mes "Olá ^FF0000"+strcharinfo(0)+"^000000, cansad"+(sex > 0 ? "o" : "a")+" de gastar items";
 	mes "Consumíveis nas partidas de battleground ?";
