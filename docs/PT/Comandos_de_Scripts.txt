@@ -20,26 +20,16 @@ dicas e atualizando para novos comandos e funções implementadas no emulador do e
 
 * NOTAs IMPORTANTEs:
 
-(1) Eu não dou nenhuma autorização de por este documento em qualquer outro emulador ao 
-não ser o brAthena sem a minha autorização, se você ver este documento em outro "emulador"
-português ele estará RIPADO.
-
-(2) Se você encontrar algum erro de português e/ou alguma informação incorreta/incompleta,
+(1) Se você encontrar algum erro de português e/ou alguma informação incorreta/incompleta,
 por favor poste isso no link abaixo:
 
 http://www.eathena.ws/board/index.php?showtopic=227767
 
-(3) Se você deseja por sua própria versão de um comando ou função poste ele/ela no link
+(2) Se você deseja por sua própria versão de um comando ou função poste ele/ela no link
 acima, eu analisarei e se eu concluir que a sua versão é melhor, eu a adicionarei neste
 documento.
 
-(4) Versão Atual: 1.0.20090825
-
-***
-
-ChangeLog:
-
-http://trac.xp-dev.com/TC_Scripts/log/scripts/PT/Bg_seller.txt
+(3) Versão Atual: 1.0.20090825
 
 ----------------------------------------------------------------------------------------
 
