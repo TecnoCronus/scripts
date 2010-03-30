@@ -494,7 +494,7 @@ Index: src/map/status.c
  			val3 = 0;
  			val4 = 0;
 -			max_stat = battle_config.max_parameter; //Cap to 99 (default)
-+			max_stat = (sd->gmlevel == 1 && battle_config.vip_max_parameter > 0) 1 battle_config.vip_max_parameter : battle_config.max_parameter;
++			max_stat = (sd->gmlevel == 1 && battle_config.vip_max_parameter > 0) ? battle_config.vip_max_parameter : battle_config.max_parameter;
  			stat = (psce->val3 >>16)&0xFF; stat = min(stat, max_stat - status->str ); val3 |= cap_value(stat,0,0xFF)<<16;
  			stat = (psce->val3 >> 8)&0xFF; stat = min(stat, max_stat - status->agi ); val3 |= cap_value(stat,0,0xFF)<<8;
  			stat = (psce->val3 >> 0)&0xFF; stat = min(stat, max_stat - status->vit ); val3 |= cap_value(stat,0,0xFF);
