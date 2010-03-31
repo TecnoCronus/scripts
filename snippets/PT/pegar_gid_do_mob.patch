@@ -6,7 +6,7 @@ Index: script.c
  	int class_        = script_getnum(st,6);
  	int amount        = script_getnum(st,7);
  	const char* event = "";
-+	int mob_gid;
++	uint32 mob_gid;
  
  	struct map_session_data* sd;
  	int m;
