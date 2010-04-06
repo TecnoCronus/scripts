@@ -1,8 +1,8 @@
 function	script	addvip	{
 
 	set Vip_Tick,(gettimetick(2))+(getarg(0)*24*60*60*1000);
+	set LevelTick, getgmlevel();
 	atcommand "@adjgmlvl "+getarg(1);
-	set LevelTick, getarg(1);
 	end;
 }
 
