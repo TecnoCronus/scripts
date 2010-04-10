@@ -1,4 +1,4 @@
-	script	smartvip_buff	-1,{
+-	script	smartvip_buff	-1,{
 
 	end;
 
