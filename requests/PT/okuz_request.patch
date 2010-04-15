@@ -9,7 +9,7 @@ Index: status.c
 +	if(type != SC_ENDURE)
  	return tick<=0?0:tick;
 +
-+	tick = 10 + 10*[sd->status.skill[8].lv/2-1]
++	tick = 10 + 10*[sd->status.skill[8].lv/2-1];
 +	return tick;
  }
  
