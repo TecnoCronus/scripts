@@ -33,6 +33,9 @@
 	while(@menu != 2) {
 		show "[Corporação Kafra]";
 		show "Insira sua Senha para abrir o Amazém";
+		show "Lembrando que é em caso sensitivo";
+		show "Ou seja, se sua senha contém caracteres";
+		show "Em maiúsculo, digite-os em maiúsculo";
 		input @pass$;
 
 		if(@pass$ == #SmartVar_StoragePass$) {

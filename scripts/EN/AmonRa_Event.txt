@@ -103,7 +103,7 @@
 
 	OnEvent:
 
-		announce "The powerfull darkness's king Anubis was awaken",bc_all,0X00FF00;
+		announce "The powerfull darkness king Anubis was awaken",bc_all,0X00FF00;
 		initnpctimer;
 		end;
 

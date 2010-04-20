@@ -43,11 +43,11 @@ prontera,146,163,6	script	Soul Linker	718,{
 				sc_start sc_spirit,360000;
 				set Zeny, Zeny - .@ReqZeny;
 				mes "Done.";
-			} else {
+			} else if(Zeny < .@ReqZeny {
 				mes "You haven't enought money";
 				mes "Come back when you get it.";
 			}
-		} else {
+		} else if(@menu = 2){
 			mes "All right, come back when you wish";
 		}
 	}
