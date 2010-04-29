@@ -103,6 +103,7 @@
 
 	OnEvent:
 
+		set $FaMum,$MumAmEvent+$MumAmEvent;
 		announce "The powerfull darkness king Anubis was awaken",bc_all,0X00FF00;
 		initnpctimer;
 		end;

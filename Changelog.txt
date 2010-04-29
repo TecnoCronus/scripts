@@ -7,6 +7,7 @@ TIMELINE LINK: http://trac.xp-dev.com/TC_Scripts/timeline
 04/29/10
 	* Indeed removed 'Sistema_de_slot_escondido' (scripts/PT).
 	- Fixed a bug in 'Evento_Amon_Ra' (scripts/PT).
+		- also fixed in 'AmonRa_Event' (scripts/EN).
 	- Fixed a 'if-else' error in 'Soul_Linker_Buffer' (scripts/PT).
 04/19/10
 	* Started this changelog at r190, to check the previous changes, check the timeline*.
