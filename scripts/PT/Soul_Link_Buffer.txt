@@ -31,6 +31,7 @@ prontera,146,163,6	script	Soul Linker	718,{
 		next;
 		mes "[Kira]";
 		mes "Tenha um bom dia";
+		close;
 	} else {
 		next;
 		mes "[Kira]";
@@ -48,7 +49,7 @@ prontera,146,163,6	script	Soul Linker	718,{
 			mes "Volte quando tiver.";
 			close;
 
-		}
+		} else if (@menu == 2)
 			mes "Tudo bem, volte quando você quiser.";
 	}
 	close;

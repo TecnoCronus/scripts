@@ -106,6 +106,7 @@
 
 	OnEvent:
 
+		set $FaMum,$MumAmEvent+$MumAmEvent;
 		announce "Oh meu Deus, o poderoso Rei das Trevas Anubis foi Despertado",bc_all,0X00FF00;
 		initnpctimer;
 		end;
