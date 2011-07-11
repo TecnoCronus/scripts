@@ -34,14 +34,14 @@ documento.
 ----------------------------------------------------------------------------------------
 
 Esse Documento é uma referência manual para todos os comandos de scripts e funções
-dispníveis na versão atual do SVN do eAthena. Isso não é um simples tutorial. Quando
-as pessoas te diserem para você "Leia a m**** do tutorial", eles querem dizer que é
+disponíveis na versão atual do SVN do eAthena. Isso não é um simples tutorial. Quando
+as pessoas te disserem para você "Leia a m**** do tutorial", eles querem dizer que é
 para você ler isso.
 
 Esse documento não é lugar para te ensinar programação básica. Esse documento não te
 ensinará programação básica por ele mesmo. Isso é mais um referencial para quem tem
 uma vaga idéia sobre o que eles querem fazer e quais ferramentas ele deve utilizar para isso.
-Nós estamos tentando fazer desse documento o mais simple possível, mas se você não entender
+Nós estamos tentando fazer desse documento o mais simples possível, mas se você não entender
 isso, leia um bom livro de programação.
 
 Estrutura
@@ -113,7 +113,7 @@ Isso vai criar um uma mapflag nesse mapa, essas mapflags estão geralmente dentro
 de arquivos listados em 'conf/mapflag', mas esse comando Top pode ser usado dentro
 de scripts fora dos colchetes {}
 
-** Criar um invocamente de monstro permanente
+** Criar um invocamento de monstro permanente
 
 <nome do mapa>,<x>,<y>,<xs>,<ys>%TAB%monster%TAB%<nome do monstro>%TAB%<mob id>,<quantidade>,<delay1>,<delay2>,<evento>
 
