@@ -1,51 +1,29 @@
+// ============ Documento =============
+// Comandos de Script
+// ============ Versão Atual ==========
+// = 2.0.20110714
+// ============ Por ===================
+// = TecnoCronus
+// ============ Notas =================
+// - Este documento é baseado no scripts_commands do eAthena
+// é uma tradução e uma versão um pouco mais direta desse doc
+// - Se você encontra algum erro e/ou informação incompleta, post
+// no link: http://www.eathena.ws/board/index.php?showtopic=227767
+// - Se você deseja ajudar, com traduções de algum comando ou uma
+// tradução melhor me mande por PM que analisarei e se por, adicionarei
+// créditos para você.
+// ============ Changelog =============
+// 1.0.20090825
+//     - Documento Criado [TecnoCronus]
+// 2.0.20110714
+//     - Atualizado/Adicionado alguns comandos [TecnoCronus]
+// ====================================
 
- 	  ___       ___       ___       ___       ___       ___       ___       ___       ___       ___       ___   
-         /\  \     /\  \     /\  \     /\__\     /\  \     /\  \     /\  \     /\  \     /\__\     /\__\     /\  \  
-         \:\  \   /::\  \   /::\  \   /:| _|_   /::\  \   /::\  \   /::\  \   /::\  \   /:| _|_   /:/ _/_   /::\  \ 
-         /::\__\ /::\:\__\ /:/\:\__\ /::|/\__\ /:/\:\__\ /:/\:\__\ /::\:\__\ /:/\:\__\ /::|/\__\ /:/_/\__\ /\:\:\__\
-        /:/\/__/ \:\:\/  / \:\ \/__/ \/|::/  / \:\/:/  / \:\ \/__/ \;:::/  / \:\/:/  / \/|::/  / \:\/:/  / \:\:\/__/
-        \/__/     \:\/  /   \:\__\     |:/  /   \::/  /   \:\__\    |:\/__/   \::/  /    |:/  /   \::/  /   \::/  / 
-        	   \/__/     \/__/     \/__/     \/__/     \/__/     \|__|     \/__/     \/__/     \/__/     \/__/ 
+Este documentão não ensinará a programar, ele é um referencial para as funções usadas
+em scripts de NPC do emulador (eAthena/Cronus) e sua estruta em geral.
 
- 					           Advanced Scripts
-
-					  (C) Copyright TecnoCronus 25/08/2009
- 
-
-
-Este documento é baseado nos scripts_commands do eAthena, ele é uma tradução e também
-uma versão mais direta, sem exemplos e comentários inúteis, tentando ser o mais breve
-possível. Com o passar do tempo irei atualizando o documento, pondo exemplos, dando
-dicas e atualizando para novos comandos e funções implementadas no emulador do eAthena.
-
-* NOTAs IMPORTANTEs:
-
-(1) Se você encontrar algum erro de português e/ou alguma informação incorreta/incompleta,
-por favor poste isso no link abaixo:
-
-http://www.eathena.ws/board/index.php?showtopic=227767
-
-(2) Se você deseja por sua própria versão de um comando ou função poste ele/ela no link
-acima, eu analisarei e se eu concluir que a sua versão é melhor, eu a adicionarei neste
-documento.
-
-(3) Versão Atual: 1.0.20090825
-
-----------------------------------------------------------------------------------------
-
-Esse Documento é uma referência manual para todos os comandos de scripts e funções
-disponíveis na versão atual do SVN do eAthena. Isso não é um simples tutorial. Quando
-as pessoas te disserem para você "Leia a m**** do tutorial", eles querem dizer que é
-para você ler isso.
-
-Esse documento não é lugar para te ensinar programação básica. Esse documento não te
-ensinará programação básica por ele mesmo. Isso é mais um referencial para quem tem
-uma vaga idéia sobre o que eles querem fazer e quais ferramentas ele deve utilizar para isso.
-Nós estamos tentando fazer desse documento o mais simples possível, mas se você não entender
-isso, leia um bom livro de programação.
-
-Estrutura
----------
+Estrutura do Documento
+--------- -- ---------
 
 Os Comandos e funções são listados em uma ordem não particular:
 
@@ -57,14 +35,13 @@ Texto Descritivo
     uma idéia de como isso funciona em prática.
 
 Para achar um comando específico, use Ctrl+F, (ou qualquer atalho que chame
-uma função de pesquisar onde você estiver lendo isso) ponha um * seguido do
-nome do comando, isso deve achar a descrição do comando para você.
+uma função de pesquisa, dependo do software que você está usando para ler) ponha um * seguido do nome do comando para achar a descrição do comando que você deseja.
 
 
 Sintaxe
 -------
 
-Através deste documento,quando um comando necessitar de um argumento, isto será
+Através deste documento,quando um comando necessitar de um argumento, será
 dado em <parênteses angulados>, ou seja "<>".Isso não quer dizer que esse argumento
 tem que ser usado, se o argumento for opcional ele virá {entre colchetes}. Você
 verá ambos em alguns comandos. Se o comando tiver alguns argumentos opcionais, 
@@ -73,7 +50,7 @@ você verá uma lista como essa:
 comando <argumento>,{<argumento>...<argumento>};
 
 
-Isso ainda quer dizer que eles devem ser separados por vírgulas.
+Eles devem ser separados por vírgulas.
 
 Quando o comando quiser uma string, ela será dada em "aspas", se for um número,
 será dada normalmente sem elas. Todos os comandos terminam com ponto e vírgula ';'
@@ -1399,6 +1376,7 @@ Os tipos possível são:
  0 - Nome do Jogador.
  1 - O Nome do grupo, se ele estiver em um.
  2 - O Nome da guilda, se ele estiver em uma.
+ 3 - O Nome do mapa, se ele estuver em um.
  
 Se o jogador não estiver em nenhuma guilda, ou nenhum grupo, uma string vazia será
 retornada.
@@ -2862,6 +2840,21 @@ Aqui está os tipos de visual existentes:
  9 - sapatos
 
 ---------------------------------------
+
+*pushpc <direção>,<células>;
+
+Este comando vai empurrar o jogador atachado ao npc para a direção dada em quantas
+celúlas for especificadas em <células>. A direção é a mesma das direções do NPC,
+pode ser passadas como número ou como uma constante DIR_* (db/const.txt)
+
+O "pulo" não é restringido por mapflags ou items, só os obstáculos dos mapas pode
+parar o jogador, se não há espaço suficiente para o "empurrão" (ex. por causa de
+uma parade) o jogador é empurrado até o obstáculo.
+
+    // Empurra o jogador em 5 células na direção leste
+    pushpc DIR_EAST, 5;
+
+---------------------------------------
 \\
 4,1.- Comando Relacionados à item.
 \\
@@ -2957,6 +2950,23 @@ Esse comando vai um item em torno do mapa especificado na locação espeficada
  Y        	- Coordenada y
 
 se o mapa "this" for dado, o mapa que o jogador atachado está será usado.
+
+---------------------------------------
+
+*searchitem <nome do array>,"<nome do item>";
+
+
+Este comando vai procura um item, de acordo com o nome do item dado, no array especificado,
+ele retorna o número de item encontrado. Por questões de desempenho o array the resultado
+é limitado em 10 items.
+
+	mes "O Que você está procurando ?";
+	input @name$;
+	set @qty, searchitem(@matches[0],@name$);
+	mes "Encontrei "+@qty+" items:";
+	for (set @i, 0; @i < @qty; set @i, @i+1)
+		//Nome de Exibiçao (ex: "Maça[0]")
+		mes getitemname(@matches[@i])+"["+getitemslots(@matches[@i])+"]";
 
 ---------------------------------------
 
@@ -4032,6 +4042,17 @@ Exemplos:
 	awake "Contador"; // Cancela a pausa do NPC chamado "Contador"
 
 ---------------------------------------
+
+*progressbar "<cor>",<segundos>;
+
+Este comando funciona quase como sleep2, mas mostra um barra de progresso
+em cima da cabeça do jogador atachado ao script (Como a barra de cast)
+quando os segundos dados passam, a barra some, se o se mover enquano a
+barra está sob a cabeça dele a barra some e o script é terminado, a
+cor é dada em RGB, mas atualmente o client ignora a cor e só aparece
+em verde.
+
+---------------------------------------
 //
 5,1.-Fim dos comandos relacionados à tempo
 //
@@ -4836,6 +4857,25 @@ Este comando retorna 1 se as substring estiver contida na string se não retorna 
 
 Essa função retorna 1 se a posição do caracter da string dada é uma letra, 0
 se isso  for um espaço ou dígito.
+
+---------------------------------------
+
+*setfont <fonte>
+
+Este comando define a fonte do jogador anexo ao script para uma das
+fonte salvas em data\.eot usando o ID da fonte. Quando o ID da fonte
+usada atualmente é usada, a fonte padrão é usada de novo.
+
+    0 - Default
+    1 - RixLoveangel
+    2 - RixSquirrel
+    3 - NHCgogo
+    4 - RixDiary
+    5 - RixMiniHeart
+    6 - RixFreshman
+    7 - RixKid
+    8 - RixMagic
+    9 - RixJJangu
 
 ---------------------------------------
 
