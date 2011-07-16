@@ -10,8 +10,8 @@
 // - Se você encontra algum erro e/ou informação incompleta, post
 // no link: http://www.eathena.ws/board/index.php?showtopic=227767
 // - Se você deseja ajudar, com traduções de algum comando ou uma
-// tradução melhor me mande por PM que analisarei e se por, adicionarei
-// créditos para você.
+// tradução melhor me mande por PM que analisarei e se for o caso de
+// adicioná-la, deixarei créditos para você.
 // ============ Changelog =============
 // 1.0.20090825
 //     - Documento Criado [TecnoCronus]
@@ -19,7 +19,7 @@
 //     - Atualizado/Adicionado alguns comandos [TecnoCronus]
 // ====================================
 
-Este documentão não ensinará a programar, ele é um referencial para as funções usadas
+Este documentação não ensinará a programar, ele é um referencial para as funções usadas
 em scripts de NPC do emulador (eAthena/Cronus) e sua estruta em geral.
 
 Estrutura do Documento
@@ -31,11 +31,12 @@ Os Comandos e funções são listados em uma ordem não particular:
 
 Texto Descritivo
 
-    Pequeno exemplo se possível. Estará geralmente incompleto. isso é apenas
-    uma idéia de como isso funciona em prática.
+    Pequeno exemplo se possível. Estará geralmente incompleto. é apenas
+    uma idéia de como funciona na prática.
 
 Para achar um comando específico, use Ctrl+F, (ou qualquer atalho que chame
-uma função de pesquisa, dependo do software que você está usando para ler) ponha um * seguido do nome do comando para achar a descrição do comando que você deseja.
+uma função de pesquisa, dependo do software que você está usando para ler) ponha um 
+* seguido do nome do comando para achar a descrição do comando que você deseja.
 
 
 Sintaxe
@@ -123,7 +124,7 @@ npc que tem esse comando. O nome do evento deve seguir o seguinte modelo:
 label seja Ragnarok, então ficaria assim: "brA::Ragnarok".
 
 
-** Nomes de NPC
+** Nomes de NPC ***
 
 /!\ ATENÇÃO: Isto é aplicado para warps, npcs, duplicates e shops /!\
 
@@ -830,7 +831,7 @@ mes $Poporing123$; // vai mostrar Poporing é legal
 
 ---------------------------------------
 
-*getd("<variable name>")
+*getd("<nome da variável>")
 
 Retorna uma referência da variável, o nome pode ser construído dinâmicamente.
 
