@@ -4,8 +4,7 @@ prontera,150,150,4	script	Caixas de Presente	88,{
 	if(countitem(644) > 0) {
 		mes "Olá você deseja abrir todas caixas de presente que estão em seu inventário ?";
 		if(select("Sim","Não")==1) {
-			set .@count, countitem(644);
-			while(.@count > 0) {
+			while(countitem(644) > 0) {
 				getitem groupranditem(IG_GiftBox),1;
 				delitem 644;
 			}
