@@ -26,7 +26,7 @@
 bat_room,161,150,3	script	Thor#bgroom	414,{
 
 	mes "[Thor]";
-	mes "Olá ^FF0000"+strcharinfo(0)+"^000000, cansad"+(sex > 0 ? "o" : "a")+" de gastar items";
+	mes "Olá ^FF0000"+strcharinfo(0)+"^000000, cansad"+(Sex ? "o":"a")+" de gastar items";
 	mes "Consumíveis nas partidas de battleground ?";
 	mes "Eu tenha uma boa notícia para você";
 	mes "Eu posso vender items consumíveis especiais";
@@ -75,7 +75,7 @@ bat_room,161,150,3	script	Thor#bgroom	414,{
 
 			set @tmp$,@tmp$+getitemname(callfunc("index2id",@menu,@i));
 
-			if(@i < callfunc("index2id2",@menu) set @tmp$,@tmp$+":";
+			if(@i < callfunc("index2id2",@menu)) set @tmp$,@tmp$+":";
 
 		}
 
@@ -126,7 +126,7 @@ bat_room,161,150,3	script	Thor#bgroom	414,{
 		
 }
 
-        function        ChecarMoeda     {
+	function	ChecarMoeda	{
 
         select("Emblema de Guerra:Emblema de Bravura:Emblema de Valor");
 
