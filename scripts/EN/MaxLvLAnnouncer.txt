@@ -13,6 +13,7 @@
 	*----------------------------------------- Current Version: -------------------------------------------*
 	* 1.0												       *
 	*----------------------------------------- Compatible With: -------------------------------------------*
+	* rAthena											       *
 	* eAthena		             								       *
 	*------------------------------------------- Description: ---------------------------------------------*
 	* A NPC that announce the 10th firsts persons who got the maximum level				       *
@@ -41,7 +42,7 @@
 				announce strcharinfo(0)+", you are the "+.places$[.numMaxLevel]+" person to reach the level "+.MaxLvl+", you will receive a reward",0;
 
 				//give prize
-				set @Rnd_Item, rand(0,(getarraysize(".Global_Array_Item")-1));
+				set @Rnd_Item, rand(0,(getarraysize(.Global_Array_Item)-1));
 				getitem .Global_Array_Item[@Rnd_Item],1;
 
 				// set this variable, to don't take rewards again
@@ -77,7 +78,7 @@ prontera,146,165,6 script MaxLvLRank 718,{
 		mes "Maximum Level.";
 		next;
 		mes "[Constantin]";
-		for(set @i, 0; $Rank$[@i]; set @i, @i + 1) mes @i+"º"+$Rank$[@i]+".";
+		for(set @i, 0; @i < getarraysize( $Rank$ ); set @i, @i + 1) mes @i+"º"+$Rank$[@i]+".";
 	} else {
 		mes "Ok, no problems.";
 	}
