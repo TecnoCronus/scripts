@@ -21,7 +21,7 @@
 	* It give a item as reward, the item ids of reward are keeped at $@Glob_Array_Item array	       *
 	* The index of array will be get randomly.							       *
 	*-------------------------------------------- Changelog -----------------------------------------------*
-	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/EN/MaxLvLAnnouncer.txt				       *
+	*- https://xp-dev.com/trac/TC_Scripts/log/tecnocronus_scripts/scripts/EN/MaxLvLAnnouncer.txt	       *
 	*------------------------------------------------------------------------------------------------------*/
 
 -	script	MaxLvLAn	-1,{
