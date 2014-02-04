@@ -30,16 +30,16 @@
 
 	OnPCBaseLvUpEvent:
 
-		if(.numMaxLevel == 10)
+		if($numMaxLevel == 10)
 			disablenpc "MaxLvLAn";
 		else if (BaseLevel==.MaxLvl) {
 				// Check if the player for some reason, reached to Maximum level again
 				if(Rew > 0) end;
 
 				// Keep the player name on array
-				setarray $Rank$[.numMaxLevel], strcharinfo(0);
+				setarray $Rank$[$numMaxLevel], strcharinfo(0);
 
-				announce strcharinfo(0)+", you are the "+.places$[.numMaxLevel]+" person to reach the level "+.MaxLvl+", you will receive a reward",0;
+				announce strcharinfo(0)+", you are the "+.places$[$numMaxLevel]+" person to reach the level "+.MaxLvl+", you will receive a reward",0;
 
 				//give prize
 				set @Rnd_Item, rand(0,(getarraysize(.Global_Array_Item)-1));
@@ -49,9 +49,9 @@
 				set Rew, 1;
 
 				// Keep the last array index
-				set .numMaxLevel,.numMaxLevel+1;
+				set $numMaxLevel,$numMaxLevel+1;
 
-				if(.numMaxLevel == 9) // Should be 9 now because the array index start in 0 (Thanks to ToastOfDoom)
+				if($numMaxLevel == 9) // Should be 9 now because the array index start in 0 (Thanks to ToastOfDoom)
 					disablenpc "MaxLvLAn";
 			}
 		end;
@@ -66,7 +66,7 @@
 		//array lookup for place names
 		setarray .places$[0], "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth";
 
-		if(!.numMaxLevel) set .numMaxLevel, 0;
+		if(!$numMaxLevel) set $numMaxLevel, 0;
 }
 
 prontera,146,165,6 script MaxLvLRank 718,{
@@ -81,7 +81,7 @@ prontera,146,165,6 script MaxLvLRank 718,{
 		next;
 		mes "[Constantin]";
 
-		if(!$Rank$) {
+		if($Rank$ != "") {
 			mes "No one reached the maximum level yet";
 			close;
 		}
