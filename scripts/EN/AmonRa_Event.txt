@@ -68,7 +68,7 @@
 
 		announce "Congratulations "+strcharinfo(0)+" you saved the world you will receive a "+getitemname(.@item2)+", as reward! Thanks !!!",bc_all,0x00FF00;
 		getitem .@item2,1;
-		killmonsterall "prontera";
+		killmonsterall $AmMap$;
 		set $OnEvent, 0;
 		end;
 
@@ -110,9 +110,9 @@
 
 	OnTimer5000:
 
-		monster $AmMap$,0,0,"Faraó",1157,1,"Guardiao_AmonRA::OnFaraoKilled";
-		monster $AmMap$,0,0,"Osíris",1038,1,"Guardiao_AmonRA::OnOsirisKilled";
-		monster $AmMap$,0,0,"Múmia",1041,$MumAmEvent,"Guardiao_AmonRA::OnMumiaKilled";
+		monster $AmMap$,0,0,"Pharao",1157,1,"Guardiao_AmonRA::OnFaraoKilled";
+		monster $AmMap$,0,0,"Osiris",1038,1,"Guardiao_AmonRA::OnOsirisKilled";
+		monster $AmMap$,0,0,"Mummy",1041,$MumAmEvent,"Guardiao_AmonRA::OnMumiaKilled";
 		announce "Something unbelievable happened: Anubis hypnotized Pharao and Osiris, They are killing everyone in "+$AmMap$,bc_all,0x00FF00;
 		end;
 
@@ -124,7 +124,7 @@
 	OnTimer60000:
 
 		announce "AmonRa will reward everyone who helps to end the invasion",bc_all,0x00FF00;
-		monster $AmMap$,0,0,"Múmia",1041,$MumAmEvent,"Guardiao_AmonRA::OnMumiaKilled";
+		monster $AmMap$,0,0,"Mummy",1041,$MumAmEvent,"AmonRA_Guardian::OnMumiaKilled";
 		announce "Anubis will appear when Osiris, Pharao and the Mummys dies",bc_all,0x00FF00;
 		setnpctimer 0;
 		stopnpctimer;
