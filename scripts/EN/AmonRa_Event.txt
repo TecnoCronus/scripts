@@ -94,7 +94,7 @@
 		// Map name, where the invasion will happen
 		set $AmMap$, "prontera";
 
-		set $FaMum,$MumAmEvent+$MumAmEvent;
+		set $FaMum,$MumAmEvent+$Fanubis;
 }
 
 -	script	Timer_AmonRa	-1,{
