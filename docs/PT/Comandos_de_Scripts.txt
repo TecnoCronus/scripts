@@ -118,7 +118,7 @@ Você pode espificar um nível de monstro custom, indicado o nível custom após o n
 Exemplo: "Poring,50" esse monstro terá o nome "Poring" mas com nível 50.
 
 evento é o rótulo a ser chamado quando o monstro morrer, note o jogador que matar
-o monstro será "atachado ao script", ou seja, como se ele tivesse clicado no
+o monstro será "anexado ao script", ou seja, como se ele tivesse clicado no
 npc que tem esse comando. O nome do evento deve seguir o seguinte modelo:
 "NOMEDONPC::OnNome", suponhamos que o nome do nosso npc seja "brA" e o nome do
 label seja Ragnarok, então ficaria assim: "brA::Ragnarok".
@@ -244,15 +244,15 @@ ou sendo invocado por Rótulos especicais.
 Se você estiver escrevendo scripts de NPCs comuns, você não precisa se preocupar
 com isso. Contudo, se você estiver usando funções, se você usa contadores, scripts
 ativados por contagem de tempo, você precisa saber de todos os casos quando a
-execução de um script pode ser feita sem um RID atachado. Isso vai fazer uma boa
+execução de um script pode ser feita sem um RID anexado. Isso vai fazer uma boa
 parte de comandos e funções não-usáveis, desde que eles precisarem de dados vindos
 de um char específico, e esse comandos e funções não "saberão" como funcionar, já
-que não há nenhum RID atachado.
+que não há nenhum RID anexado.
 
 A Não ser que você use o comando 'attachrid' para atachar um char específico no
 começo do script.
 
-Todas vezes que falamos "jogador que invocou","char/jogador atachado ao script"
+Todas vezes que falamos "jogador que invocou","char/jogador anexado ao script"
 nós estamos falando do RID.
 
 Mas sobre GID?
@@ -596,7 +596,7 @@ de se fazer isso é assim:
 	+ mes "Olá "+strcharinfo(0); +
 	+----------------------------+
 
-O Exemplo acima deve mostrar Olá + nome do jogador atachado, esse exemplo é simples é aplicado
+O Exemplo acima deve mostrar Olá + nome do jogador anexado, esse exemplo é simples é aplicado
 tanto à variáveis quanto à funções, agora veja como fazer uma concatenação entre strings:
 
 	+-----------------------------------------------------+
@@ -648,13 +648,13 @@ ser pelo comando de GM @agistart ou pelo comando se script 'agitstart'. OnAgitEn
 será executado toda vez que a WOE termiar. OnAgitInit vai ser executado toda vez
 que um dado de castelo for carregado do char-server pelo map-server.
  
-Nenhum RID vai ser atachado quando esse rótulos de WOE acima forem executados
+Nenhum RID vai ser anexado quando esse rótulos de WOE acima forem executados
 
 OnTouch:
 
 Esse rótulo vai ser executado se uma "àrea de disparo" for definida pelo NPC que
 tem esse rótulo, se essa área não existir, a execução vai começar pelo começo do script
-esse label tem RID atachado.
+esse label tem RID anexado.
 
 OnPCLoginEvent:
 OnPCLogoutEvent:
@@ -739,7 +739,7 @@ preto (^000000).
 
 *next;
 
-Esse comando vai criar um botão 'next' na Janela de menssagem do jogador atachado
+Esse comando vai criar um botão 'next' na Janela de menssagem do jogador anexado
 ao script, se não estiver nenhuma janela na tela, ela será criada, esse comando
 é usado juntamento com o comando 'mes', serve para segmentar o Texto, ou seja,
 quando o jogador clicar em 'next' a janela será "limpada" e mostrará as próxmas
@@ -757,7 +757,7 @@ strngs contidas em mes (se houver próximas).
 
 *close;
 
-Esse comando criará um botão 'close' na janela de mensagem do jogador atachado
+Esse comando criará um botão 'close' na janela de mensagem do jogador anexado
 ao script,se não estiver nenhuma janela na tela, ela será criada. Esse comando
 é muito usado com 'mes', sua utilidade é: Fechar a janela criada pelo comando
 'mes' e terminar o script. Quando o Jogador clicar em 'close' a caixa de janela
@@ -952,7 +952,7 @@ o jogador clicar em 'cancel' essa função retorna 255.
 
 *input (<variável>{,<mínimo>{,<máximo>}})
 
-Esse comando vai criar uma caixa de "inserção" no RID atachado ao script,
+Esse comando vai criar uma caixa de "inserção" no RID anexado ao script,
 o valor inserido será guardado na variável definida.
 
 Para inserir textos a variável tem que ser do tipo string (pós-fixo $):
@@ -1454,7 +1454,7 @@ L_End:
 
 *getcharid(<tipo>{,"<nome do char>"})
 
-Essa função vai retornar um id único do char atachado, ou se um nome for especificado
+Essa função vai retornar um id único do char anexado, ou se um nome for especificado
 o id desse char especificado será retornado.
 
 Os tipos podem ser:
@@ -1499,7 +1499,7 @@ não tiver um companheiro/companheira o retorno será 0.
 
 *getpartyname(<id do grupo>)
 
-Essa função vai retornar o nome do grupo que o jogador atachado ao script está.
+Essa função vai retornar o nome do grupo que o jogador anexado ao script está.
 
 Se ele não estiver em nenhum grupo a string "null" será retornada.
 
@@ -1564,7 +1564,7 @@ valor "null" para o nome e -1 para os outros tipos.
 
 *getlook(<tipo>);
 
-Essa função, retornará o número do visual do RID atachado, veja 'setlook'
+Essa função, retornará o número do visual do RID anexado, veja 'setlook'
 para ver os tipos válidos de tipo.
 
 ---------------------------------------
@@ -2132,7 +2132,7 @@ estiver no mapa, retornará 0.
 *getskilllv(<id da habilidade>)
 *getskilllv("<nome da habilidade>")
 
-Essa função vai retornar o nível de uma habilidade específica do jogador atachado
+Essa função vai retornar o nível de uma habilidade específica do jogador anexado
 ao script. A Lista completas de habilidades é salva em 'db\skill_db.txt'. Se
 o jogador não tiver a habilidade 0 é retornado.
 
@@ -2303,7 +2303,7 @@ Exemplo:
 
 *getscrate(<tipo de efeito>,<taxa base>{,<target ID number>})
 
-Esa função vai retornar a chance de efeito de status afetada ao char atachado
+Esa função vai retornar a chance de efeito de status afetada ao char anexado
 ao script, em porcentagem, a 'taxa base' é uma base da chance de esse efeitos
 serem aplicados,
 
@@ -2326,8 +2326,8 @@ Veja a lista completa de efeitos em:
 
 *playerattached;
 
-Retorna o ID do jogador que está atachado ao script. vai retornar 0, se nenhum
-jogador estiver atachado ao script, ou se o jogador não existir no map-server.
+Retorna o ID do jogador que está anexado ao script. vai retornar 0, se nenhum
+jogador estiver anexado ao script, ou se o jogador não existir no map-server.
 Note que esse id dado é id da conta do jogador.
 
 ---------------------------------------
@@ -2343,7 +2343,7 @@ Você pode até passar o id do char para checar ambos.
 *checkweight("<nome do item>",<quantidade>)
 
 Essa função vai computar e retornar 1 se o peso total de um item não execede
-o peso que o jogador atachado ao script pode carregar.
+o peso que o jogador anexado ao script pode carregar.
 Essa função aceita o nome em inglês do item.
 
     checkweight(502,10) // 10 maças
@@ -2526,7 +2526,7 @@ se não for, veja alista completa de slots no comadno 'getequipid'.
 *detachrid;
 
 Esse comando "atacham" e "desatacham" um jogador ao script, ou seja, "mudam o RID"
-se o jogador for atachado com sucesso 'attachrid' retorna 1.
+se o jogador for anexado com sucesso 'attachrid' retorna 1.
 
 ---------------------------------------
 
@@ -2565,7 +2565,7 @@ Há "nomes de mapas" especiais que você pode usar:
 
 *areawarp "<do mapa>",<x1>,<y1>,<x2>,<y2>,"<para o mapa>",<x3>,<y3>;
 
-Esse comando é similar à 'warp'. Porém, ele não é referenciado ao jogador atachado ao script
+Esse comando é similar à 'warp'. Porém, ele não é referenciado ao jogador anexado ao script
 mas todos os jogadores que estiverem no "quadrado" criado por <x1>,<y1>,<x2>,<y2>
 mapa <"do mapa">, eles serão teleportados para o mapa "<para o mapa>" nas coordenadas
 <x3>,<y3>, sendo que x3 e y3 se forem 0 as coordenadas para o mapa será randômica.
@@ -2583,7 +2583,7 @@ Random:       Todos os membros do grupo serão teleportado para o mapa que eles
 SavePointall  Todos os membros serão teleportados para seus respectivos ponto que
 	      são salvos.
 SavePoint     Todos os membros do grupo serão teleportado para o ponto de salvamento
-	      do jogador atachado ao script.
+	      do jogador anexado ao script.
 Leader	      Todos os membros do grupo serão teleportado para onde o líder está,
 	      o líder deve estar online.
  
@@ -2606,7 +2606,7 @@ Teleporta a guilda especificada pelo id para o mapa especificado nas coordenadas
  
 Exemplo:
 
-// Teleporta a guilda do jogador atachado ao script para Prontera
+// Teleporta a guilda do jogador anexado ao script para Prontera
 // nas coordenadas 174 215
 
 	set Guild_ID, getcharid(2);
@@ -2621,7 +2621,7 @@ Exemplo:
 
 *warppartner("<nome do mapa>",<x>,<y>);
 
-Essa função vai procurar o companheiro(a) do char atachado ao script, retorna
+Essa função vai procurar o companheiro(a) do char anexado ao script, retorna
 1 se o companheiro(a) foi teleportado com sucesso, retorna 0 se o jogador
 não for casado, ou o companheiro(a) não estiver online. E o teleporta para
 o mapa especificado nas coordenadas especificadas.
@@ -2642,7 +2642,7 @@ Exemplo:
 *savepoint "<nome do mapa>",<x>,<y>;
 *save "<nome do mapa>",<x>,<y>;
 
-Esses comandos criam um "ponto de salvamento" para o jogador atachado ao script
+Esses comandos criam um "ponto de salvamento" para o jogador anexado ao script
 ele/ela será salvo no mapa e coordenadas especificados.
 
 Exemplo:
@@ -2734,7 +2734,7 @@ This command retrieves the name of the given job using the msg_athena entries 55
 *eaclass ({<número do job>})
 
 Esse comando retornar o número de emprego do eA correspondendo a classe dada ( se nenhuma é dada, usa
-a classe do jogador atachado ao script) o número de emprego do eA é um sistema de número de classes, mas
+a classe do jogador anexado ao script) o número de emprego do eA é um sistema de número de classes, mas
 esse é um que conjunto que vem com constantes fáceis de ser convertidas. O Comando retorna -1 se você
 passar um número de classe que não tem um número de job no sistema eA.
 
@@ -2791,7 +2791,7 @@ não vai funcionar perfeitamente.
 
 *changesex;
 
-Esse comando vai mudar o sexo do jogador atachado ao script, se masculino vira
+Esse comando vai mudar o sexo do jogador anexado ao script, se masculino vira
 feminino e vice-versa, o jogador será kicado do servidor automaticamente, quando
 ele logar novamente ele já terá mudado de sexo.
 
@@ -2823,7 +2823,7 @@ os dois exemplos tem o mesmo efeito, mais para se tirar terá que usar o comando
 *setlook <tipo de visual>,<pallete>;
 *changelook <tipo de visual>,<pallete>;
 
-'setlook'/'changelook' vai alterar o dado de aparência do jogador atachado ao script,
+'setlook'/'changelook' vai alterar o dado de aparência do jogador anexado ao script,
 Isso é uso principalmente para mudar o pallete usado na cabeça e roupa.
 
 
@@ -2844,7 +2844,7 @@ Aqui está os tipos de visual existentes:
 
 *pushpc <direção>,<células>;
 
-Este comando vai empurrar o jogador atachado ao npc para a direção dada em quantas
+Este comando vai empurrar o jogador anexado ao npc para a direção dada em quantas
 celúlas for especificadas em <células>. A direção é a mesma das direções do NPC,
 pode ser passadas como número ou como uma constante DIR_* (db/const.txt)
 
@@ -2865,7 +2865,7 @@ uma parade) o jogador é empurrado até o obstáculo.
 *getitem "<nome do item>",<quantidade>{,<ID Da Conta>};
 
 Esse comando vai dar uma quantidade de item específica do item especificado
-pelo nome/id, se o ID da conta for omitido, o jogador atachado ao script
+pelo nome/id, se o ID da conta for omitido, o jogador anexado ao script
 receberá o item.
 
 Exemplo:
@@ -2889,7 +2889,7 @@ Você pode usar o nome em inglês do item para especificá-lo:
 *getitem2 <item id>,<quantidade>,<identificável>,<refine>,<atributo>,<card1>,<card2>,<card3>,<card4>{,<ID Da Conta>};
 *getitem2 "<nome do item>",<quantidade>,<identificável>,<refine>,<atributo>,<card1>,<card2>,<card3>,<card4>{,<ID Da Conta>};
 
-Esse comando vai dar uma quantidade específica de item ao char atachado ao script.
+Esse comando vai dar uma quantidade específica de item ao char anexado ao script.
 Se um parâmetro opcional (id da conta) for dado, os item serão entregues à essa
 conta. comando bastante similar à 'getitem'.
 
@@ -2923,7 +2923,7 @@ Retorna 1 se o item foi criado com sucesso ou 0 quando houver falha
 
 Exemplo:
 
-// Vai dar ao jogador atachado uma maça com o nome Aaron, se Aaron estiver online.
+// Vai dar ao jogador anexado uma maça com o nome Aaron, se Aaron estiver online.
 	getnameditem "Apple","Aaron";
 
 ---------------------------------------
@@ -2931,7 +2931,7 @@ Exemplo:
 *rentitem <item id>,<tempo>;
 *rentitem "<nome do item>",<tempo>;
 
-Cria um item alugado no inventório do jogador atachado, o item vai expirar
+Cria um item alugado no inventório do jogador anexado, o item vai expirar
 em <tempo> segundos e vai ser automaticamente deletado, o jogador receberá
 mensagems de que o item vai ser pego antes de ele ser deletado.
 Esse comando não pode tirar o item do jogador se o item tiver a trade mask 123
@@ -2950,7 +2950,7 @@ Esse comando vai um item em torno do mapa especificado na locação espeficada
  X        	- Coordenada x
  Y        	- Coordenada y
 
-se o mapa "this" for dado, o mapa que o jogador atachado está será usado.
+se o mapa "this" for dado, o mapa que o jogador anexado está será usado.
 
 ---------------------------------------
 
@@ -3008,7 +3008,7 @@ Exemplo 2:
 *countitem2("<nome do item>",<identificável>,<refine>,<atributo>,<card1>,<card2>,<card3>,<card4>)
 
 Essa função retorna a quantidade de items especificado pelo id ou nome que o jogador
-atachado tem, veja 'getitem2' para entender os parâmetros necessários.
+anexado tem, veja 'getitem2' para entender os parâmetros necessários.
     
 ---------------------------------------
 
@@ -3028,7 +3028,7 @@ getitem groupranditem(15),1;
 *enable_items;
 *disable_items;
 
-Esse comandos ativam e desativam o uso de item enquanto o jogador estiver atachado
+Esse comandos ativam e desativam o uso de item enquanto o jogador estiver anexado
 ao NPC 'enable_item' ativa e 'desable_item' desativa.
 
 ---------------------------------------
@@ -3100,14 +3100,14 @@ de 'getbrokenid'.
 *successrefitem <slot do equipamento>;
 
 Esse comando vai refinar o item que estiver no slot especificamente, no char
-atachado ao script, +1. Veja a lista completo de slot de equipamentos em
+anexado ao script, +1. Veja a lista completo de slot de equipamentos em
 'getquipid', um efeito de sucesso vai ser mostrado ao cliente.
 
 ---------------------------------------
 
 *failedrefitem <slot do equipamento>;
 
-Esse comando vai falhar em refnar um item no slot especificado do char atachado
+Esse comando vai falhar em refnar um item no slot especificado do char anexado
 O Item vai ser destruído, vai até ser mostrado um efeito de falha no char.
 
 ---------------------------------------
@@ -3115,14 +3115,14 @@ O Item vai ser destruído, vai até ser mostrado um efeito de falha no char.
 *unequip <slot do equipamento>;
 
 Esse comando vai desiquipar o que tiver equipado no slot especificado do
-char atachado, veja a lista completa de equipamentos de slots em 'getequipid'.
+char anexado, veja a lista completa de equipamentos de slots em 'getequipid'.
 
 ---------------------------------------
 
 *clearitem;
 
 Esse comando vai destroir todos os item que estiver no invetório do jogador
-atachado ao script, incluindo os item equipados, não vai mostrar nenhum
+anexado ao script, incluindo os item equipados, não vai mostrar nenhum
 efeito especial.
 
 ---------------------------------------
@@ -3130,7 +3130,7 @@ efeito especial.
 *equip <item id>;
 *autoEquip <item id>,<opção>;
 
-Esses comando são para equipar um item no char atachado ao script.
+Esses comando são para equipar um item no char anexado ao script.
 o item deve estar no inventório dele,a opção do comando 'autoequip'
 são 1 e 0, 1 para equipar o item quando pego e 0 para desequipar.
 
@@ -3178,7 +3178,7 @@ Esse comando vai abrir a caixa de e-mail do jogador
 
 *openauction;
 
-Este comando vai abrir a janela de leilão do jogador atachado ao script.
+Este comando vai abrir a janela de leilão do jogador anexado ao script.
 
     mes "Feche esta janela para abrir a janela de leilão";
     close2;
@@ -3211,7 +3211,7 @@ nome, retorna 1 se foi trocar com sucesso e 0 se não.
 *guildgetexp <quantidade>;
 
 Essa função vai dar uma quantidade especificada de taxa de experiência de guilda,
-para a guilda do jogador atachado ao script, vai falhar se o jogador não estiver
+para a guilda do jogador anexado ao script, vai falhar se o jogador não estiver
 em nenhuma guilda.
 
 ---------------------------------------
@@ -3219,7 +3219,7 @@ em nenhuma guilda.
 *guildskill <id da habilidade>,<nível>
 *guildskill "<nome da habilidade>",<nível>
 
-Essa função dá à guilda do jogador atachado ao script, somente se ele for o líder 
+Essa função dá à guilda do jogador anexado ao script, somente se ele for o líder 
 dela, se não for a função irá falhar.
 
 Exemplo:
@@ -3253,7 +3253,7 @@ Em todos os casos, vai desequipar tudo o que o char estiver usando.
 
 *resetstatus;
 
-Este comando reseta os status do char atachado e devolve todos os pontos de status
+Este comando reseta os status do char anexado e devolve todos os pontos de status
 usados para construir ele previamente.
 
 ---------------------------------------
@@ -3284,7 +3284,7 @@ efeitos causadas por uma habilidade do jogador, o argumento extra quer dizer
 o nível da habilidade.
 
 O id do alvo, se dado, vai causar o efeito de statu, nesse char especificado
-no lugar do jogador atachado ao script.
+no lugar do jogador anexado ao script.
 
 'sc_start2' é perfeitamente equivalente, execeto que 'sc_start', um efeito
 de mudança de status só vai ocorrer com uma chance em porcentagem especificada
@@ -3337,14 +3337,14 @@ nas cooordenadas específicadas do NPC, Veja a lista completa de efeitos em
 *specialeffect2 <effect number>{,<send_target>};
 
 Esse comando é conduzido identicalmente à 'specialeffect', mas o efeito vai ser centralizado
-no sprite do char atachado ao script.
+no sprite do char anexado ao script.
 
 ---------------------------------------
 
 *statusup <status>;
 
 Esse comando vai aumentar um status especificado, vai aumentar +1.
-será aplicado ao jogador atachado.
+será aplicado ao jogador anexado.
 
 status válidos:
 
@@ -3360,7 +3360,7 @@ bLuk -  Sorte
 *statusup2 <status>,<quantidade>;
 
 Esse comando vai mudar o status especificado na quantidade especificado do jogador
-atachado, ele aceita valores negativos, veja os status em 'statusup'.
+anexado, ele aceita valores negativos, veja os status em 'statusup'.
 
 Exemplo:
 
@@ -3379,7 +3379,7 @@ Exemplo:
 
 Estes comandos são usados em scripts de item. Eles provávelmente funcionaram
 em scripts de NPC, mas o bônus não vai durar muito. Esse comando são aplicados
-ao jogador atachado ao script.
+ao jogador anexado ao script.
 
 Você pode achar a lista de todos os bônus possível em 'doc\item_bonus.txt'
 
@@ -3392,7 +3392,7 @@ Você pode achar a lista de todos os bônus possível em 'doc\item_bonus.txt'
 
 Esse comandos são usados em scripts de item. Eles vão funcionar provavelmente
 em scripts de NPC, mas o bônus não irá durar muito, Eles se referem ao char
-atachado ao script.
+anexado ao script.
 
 O Que esse comandos fazem é 'atachar' um script ao jogador que vai ser executado
 quando ele atacar (ou quando for atacado no caso do 'autobonus2').
@@ -3428,7 +3428,7 @@ A Diferença entre o argumento opcional 'outro script' e 'script do bônud' é que,
 a forma que executa quando só ataca ou é atacado e o outro é executado com uma calculação
 de status, o 'outro script' é usado geralmente para mostrar efeitos.
 
-Em todos os casos, quando o script for executado, o jogador atachado será o único
+Em todos os casos, quando o script for executado, o jogador anexado será o único
 que vai ter o bônus.
 
 Exemplo:
@@ -3494,7 +3494,7 @@ undisquise; // Transforma o RID em humano de novo
 
 *marriage("<nome>");
 
-Essa função vai casar dois jogadores, o que estiver atachado ao script e o
+Essa função vai casar dois jogadores, o que estiver anexado ao script e o
 especificado pelo nome. Essa função retorna 1 se voi executada com sucesso
 e 0 se o casamento não pode ser completo, que pode ser que o char não foi
 encontrado ou ele/ela já está casado(a).
@@ -3510,7 +3510,7 @@ no jogador invocador do script.
 
 *divorce()
 
-Essa função vai divorciar o jogador atachado ao script e seu companheiro(a).
+Essa função vai divorciar o jogador anexado ao script e seu companheiro(a).
 retorna 1 se o divórcio foi feito com sucesso ou 0 se não.
 
 Essa função vai destruit os anéis de casamento e mandar uma mensagem para ambos
@@ -3589,7 +3589,7 @@ um parâmetro opcional, esse rótulo de evento segue a seguinte regra:
 		"<nome_do_npc>::<Onnome_do_rótulo>"
 
 Esse rótulo será executado quando esse monstro invocado morrer, o rótulo
-terá atachado o RID do jogador que matou o monstro, ou seja, é como se ele
+terá anexado o RID do jogador que matou o monstro, ou seja, é como se ele
 tivesse clicado no NPC depois de ter matado o monstro, só que ele será
 redirecionado para o rótulo especificado.
 
@@ -3616,7 +3616,7 @@ prontera,174,215,6	script	TecnoCronus	718,{
 }
 
 Esse exemplo acima vai invocar um poring, mas com o nome "Poring Teste", nas coordenadas que o jogador está
-e quando ele morrer o jogador que o matou será atachado ao script e redirecionado para o rótulo especificado
+e quando ele morrer o jogador que o matou será anexado ao script e redirecionado para o rótulo especificado
 ele não "irá" para o começo do script.
 
 ---------------------------------------
@@ -3745,7 +3745,7 @@ será executado, como no comando 'donpcevent'.
 Este comando vai tentar evoluir o homunculus atual do jogador. se o comando
 não funcionar o emoticon /swt será mostrado.
 
-Para evoluir o homunculus, o jogador atachado tem que ter um homunculus.
+Para evoluir o homunculus, o jogador anexado tem que ter um homunculus.
 e este não tem que estar no nível máximo e ter no mínimo 91000/10000
 de intimidade com seu dono.
 
@@ -3826,10 +3826,10 @@ donpcevent "teste:OnRotulo_evento";
 *donpcevent "{NOMEDONPC}::<rótulo de evento>";
 
 Se o rótulo de evento é usado como "::<nome_do_rótulo>", todos os NPC que tiverem
-esse rótulo especificado vão ser executados, mas nenhum RID vai ser atachado.
+esse rótulo especificado vão ser executados, mas nenhum RID vai ser anexado.
 
 De outro jeito, se o rótulo é dado como "<Nome do NPC>"::<nome do rótulo.", o rótulo
-no NPC especificado é executado. nenhum RID será atachado também.
+no NPC especificado é executado. nenhum RID será anexado também.
 
 
     mapa,100,100,1%TAB%script%TAB%NPC%TAB%53,{
@@ -3939,7 +3939,7 @@ Para criar o contador de tempo, use o 'initnpctimer', que vai começar a conta.
 'stopnpctimer' vai pausar o contador, sem limpar o tempo, enquanto que o comando
 'startnpctimer' vai para a pausa e vai continuar a contagem.
 
-Por padrão, contadores não tem nenhum RID atachado, para atachar um RID ao
+Por padrão, contadores não tem nenhum RID anexado, para atachar um RID ao
 contador, você pode usar o parâmetro opcional <attach flag>, quando estiver
 usando 'initnpctimer'/'startnpctimer', ou fazer isso manualmente com o comando
 'attachnpctimer', do mesmo modo, a flag opcional do 'stopnpctimer' deixa que
@@ -3950,11 +3950,11 @@ Normalmente à apenas um contador por NPC, mas como exeção, o quanto que você
 atachar um jogador ao contador, você pode ter mútiplos contadores funcionando
 em um só, porque eles serão salvos no jogador e não no NPC.
 NOTA: você precisa atachar o RID antes do contador para ter um contador com
-o jogador atachado, de outro jeito o contador continua um de NPC.
+o jogador anexado, de outro jeito o contador continua um de NPC.
 
-Se o jogador que estiver atachado ao contador de npc deslogar, o rótulo
+Se o jogador que estiver anexado ao contador de npc deslogar, o rótulo
 de evento "OnTimerQuit:" desse NPC será executado, então você pode limpar
-o tempo apropriadamente (o jogador ainda vai continuar atachado).
+o tempo apropriadamente (o jogador ainda vai continuar anexado).
 
 O comando 'setnpctimer' vai definir explicitamente o contador para um tick
 dado.
@@ -4035,11 +4035,11 @@ Estes comandos são usados para controlar a pausa de um NPC.
 'awake' é usado para cancelar o "sono'. Quando o 'awake' é chamado em um NPC,
 ele vai ser executado como se o tempo de "dormir" acabasse, e assim fazendo
 o script continuar. 'sleep' e 'sleep2' são basicamente os mesmos, a diferença
-é que 'sleep2' vai continuar com o RID atachado, diferente de 'sleep'.
+é que 'sleep2' vai continuar com o RID anexado, diferente de 'sleep'.
 
 Exemplos:
 	sleep 10000; // pausa o script por 10 segundos e desatacha o RID.
-	sleep2 5000; // pausa o script por 5 segundos e continua com o RID atachado.
+	sleep2 5000; // pausa o script por 5 segundos e continua com o RID anexado.
 	awake "Contador"; // Cancela a pausa do NPC chamado "Contador"
 
 ---------------------------------------
@@ -4047,7 +4047,7 @@ Exemplos:
 *progressbar "<cor>",<segundos>;
 
 Este comando funciona quase como sleep2, mas mostra um barra de progresso
-em cima da cabeça do jogador atachado ao script (Como a barra de cast)
+em cima da cabeça do jogador anexado ao script (Como a barra de cast)
 quando os segundos dados passam, a barra some, se o se mover enquano a
 barra está sob a cabeça dele a barra some e o script é terminado, a
 cor é dada em RGB, mas atualmente o client ignora a cor e só aparece
@@ -4075,10 +4075,10 @@ Os valores de <flag> podem ser encontradas em 'db\const.txt':
 - bc_map: A Mensagem é enviada para todos os jogadores que estiverem
 	  no mesmo mapa do NPC que usou o comando.
 - bc_area: Mensagem é enviada para os jogadores da àrea.
-- bc_self: Mensagem é enviada para o RID atachado ao script.
+- bc_self: Mensagem é enviada para o RID anexado ao script.
 
-- bc_npc: A Fonte da difusão é o NPC, não o jogador atachado ao script.
-   (útil quando um jogador não é atachado ou a mensagem deve ser enviada para
+- bc_npc: A Fonte da difusão é o NPC, não o jogador anexado ao script.
+   (útil quando um jogador não é anexado ou a mensagem deve ser enviada para
    aqueles perto do npc)
 
 - bc_yellow: O Padrão é difundir a mensagem em amarelo
@@ -4172,7 +4172,7 @@ Retorna 1 se os item não foram removidos.
 *npcshopattach "<nome>"{,<flag>}
 
 Este comando vai atachar o scrip corrente ao npc de shop dado.
-quando um script é atachado à um shop, os rótulos de evento
+quando um script é anexado à um shop, os rótulos de evento
 "OnBuyItem" e "OnSellItem" desse script serão executados.
 
 O Parâmetro opcional 'flag' é usado para atachar se for 1 e para desatachar
@@ -4234,7 +4234,7 @@ comando será usado.
 
 Os tipos válidos de tipo de informação é:
 
- 0  - Números de usuários atachados
+ 0  - Números de usuários anexados
  1  - Número máximo de usuários permitidos.
  2  - Retorna 1 se o NPC tem um disparo definido 0 se não.
  3  - Retorna 1 se a sala de espera atula estiver desativada.
@@ -4250,7 +4250,7 @@ Os tipos válidos de tipo de informação é:
 *warpwaitingpc "<nome do mapa>",<x>,<y>{,<número de pessoas>};
 
 Este comando vai teleportar a quantidade de char igual ao número de pessoas
-da sala de espera atachado ao NPC que executa esse comando para o mapa especificado
+da sala de espera anexado ao NPC que executa esse comando para o mapa especificado
 e nas coordenadas especificados, kicando eles da sala. Aquele que estiver esperando
 à mais tempo será o primeiro à ser teleportado. Este comando aceita "mapas especicais"
 com "Random" e "SavePoint".
@@ -4524,7 +4524,7 @@ rand(2,10) 	vai resultar em 2,3,4,5,6,7,8,9 or 10
 
 *viewpoint <ação>,<x>,<y>,<número do ponto>,<cor>;
 
-Este comando vai marcar lugar no mini mapa do cliente conectado ao char atachado.
+Este comando vai marcar lugar no mini mapa do cliente conectado ao char anexado.
 Usa as coordenadas X e Y do mini mapa, as cores para marcar são definidas por
 número hexadecimais do sistema RGB (0xRRGGBB).
 
@@ -4588,7 +4588,7 @@ a lista completa de pets pode ser encontrada em 'db\pet_db.txt'.
 *emotion <número da emoçãor>{, alvo};
 
 Este comando mostra um emoticon especificado em cima da cabeça do alvo
-se o alvo for 0 ou omitido o NPC usará o emoticon, se 1 o jogador atachado
+se o alvo for 0 ou omitido o NPC usará o emoticon, se 1 o jogador anexado
 ao script usará o emoticon.
 
 Veja a lista de emoticons em 'db\const.txt' em baixo de 'e_'.
@@ -4614,7 +4614,7 @@ those that actually work may differ greatly between client versions.
 
 Estes dois comando vai mostrar os efeitos visuais para o rid somente ('soundeffect')
 ou múltiplos chars ('soundeffectall'). O Som será centralizado no char com o RID
-atachado ao script. se não no NPC.
+anexado ao script. se não no NPC.
 
 nome do arquivo de efeito é o nome do arquivo .wav no GRF
 
@@ -4630,7 +4630,7 @@ Estes comando vão ativar/desativar o modo PVP no mapa especficiado.
 
 *atcommand "<linha de comando>";
 
-Este comando vai executar o comando dado da linha de comando no RID atachado.
+Este comando vai executar o comando dado da linha de comando no RID anexado.
 o comando será executado como se o jogador fosse do nível de GM 99.
 
 Exemplo:
@@ -4645,11 +4645,11 @@ Exemplo:
 *charcommand <comando>;
 
 Esse comando é bastante parecido com o 'atcommand' a diferença é que ele pode ser
-executado em alguns casos sem um RID atachado.
+executado em alguns casos sem um RID anexado.
 
 Exemplo:
 
-//este comando faz o mesmo do que está à cima mais não precisa de um RID atachado
+//este comando faz o mesmo do que está à cima mais não precisa de um RID anexado
 
 	charCommand "#option 0 0 0 Roy";
 
@@ -4882,7 +4882,7 @@ usada atualmente é usada, a fonte padrão é usada de novo.
 
 *** Comandos relacionados à PET.
 
-Estes comandos só funcionaram se o jogador atachado tiver um PET, eles devem 
+Estes comandos só funcionaram se o jogador anexado tiver um PET, eles devem 
 ser executaods em scripts de PET, eles vão modificar a Inteligência Artifical
 de decisão do PET.
 
@@ -4930,7 +4930,7 @@ estiverem propriamente definidas.
 
 *bpet;
 
-Este comando abre uma janela de "chocar" do jogador atachado. é usado em script
+Este comando abre uma janela de "chocar" do jogador anexado. é usado em script
 de items, mais especificamente na incubadora, vai mostrar uma lista de todos
 os ovos de PET que o jogador tem em seu invetório. Mas é usável em Scripts de
 NPC.
@@ -4939,7 +4939,7 @@ NPC.
 
 *makepet <pet id>;
 
-Este comando cria um ovo de pet e o põe no invetório do char atachado ao script.
+Este comando cria um ovo de pet e o põe no invetório do char anexado ao script.
 
 veja a lista de pets disponíveis em 'db\pet_db.txt'.
 
@@ -4953,7 +4953,7 @@ Exemplo:
 *homshuffle;
 
 Isso vai recaulcular os status dos homunculus de acordos com o nível dele
-o pet usado é do char atachado ao script.
+o pet usado é do char anexado ao script.
 
 ---------------------------------------
 
