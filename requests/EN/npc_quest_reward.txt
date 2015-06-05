@@ -1,4 +1,4 @@
--	script	QuestNPC	SOHEON,{
+prontera,174,215,4	script	QuestNPC	SOHEON,{
 
 	mes "[Quest NPC]";
 	mes "give me these items to receive one reward:"
