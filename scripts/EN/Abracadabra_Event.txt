@@ -86,13 +86,16 @@ prontera,175,215,4	script	Sidhr#AbracadabraEvent	GEFFEN_MAGE_9,{
 			.@i = 1;
 			.@ArraySize = getarraysize(.@AEPlayerGID);
 
-			while(.@AEPlayerGID[.@i] > 0) {
+			while(.@AEPlayerGID[.@i] >= 0) {
 
 				if ($AEOn == 0 || $AEActive == 0) break;
-				.@AENPCAttackID = rid2name .@AEPlayerGID[.@i];
-				getmapxy (.@AEAimMap$,.@AEAimX,.@AEAimY,0,.@AENPCAttackID);
-				unitwalk .@AEPlayerGID[.@i],.@AEAimX-1,.@AEAimY-1;
-				unitskilluseid .@AENPCID,290,10,.@AEPlayerGID[.@i];
+				if (.@AEPlayerGID[.@i] > 0) {
+
+					.@AENPCAttackID = rid2name .@AEPlayerGID[.@i];
+					getmapxy (.@AEAimMap$,.@AEAimX,.@AEAimY,0,.@AENPCAttackID);
+					unitwalk .@AEPlayerGID[.@i],.@AEAimX-1,.@AEAimY-1;
+					unitskilluseid .@AENPCID,290,10,.@AEPlayerGID[.@i];
+				}
 				.@i += 1;
 				if(.@i > .@ArraySize) .@i = 1;
 
@@ -142,6 +145,7 @@ OnPCDieEvent:
 			announce "Abracadabra Event: The winner is :"+.@AEWinnerName$,bc_all,0xF522F5;
 			.@AEWinnerAID = getcharid(3,.@AEWinnerName$);
 			getitem $AERewardID, $AERewardAmount, .@AEWinnerAID;
+			cleararray .@AEPlayerGID[0],0,getarraysize(.@AEPlayerGID);
 			end;			
 
 		}
