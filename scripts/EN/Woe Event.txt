@@ -252,12 +252,13 @@ function	script	WETakeBuffs	{
 
 		dispbottom "IRIS: That's it ! continue this way, until kill the"+$WEPKAmount;
 
-		if (rand(1,100)<=$WEBuffChance) {
+			if (rand(1,100)<=$WEBuffChance) {
 
-			callfunc("WETakeBuffs");
-			dispbottom "SUNNA: Iris is helping you...";
-		}	
+				callfunc("WETakeBuffs");
+				dispbottom "SUNNA: Iris is helping you...";
+			}	
 		
+		}
 
 		end;
 }
