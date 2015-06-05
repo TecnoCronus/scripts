@@ -36,7 +36,6 @@
 
 prontera,168,187,4	script	Iris	4_M_KNIGHT_GOLD,{
 
-OnClick:
 	if($WEventON == 1) {
 
 		@PName$ = strcharinfo(0);
@@ -99,18 +98,18 @@ OnClick:
 				mes "A Legendary ^FF0000 Hat of the SunGod ^000000, which I won gift from the Gods";
 				mes "Now let's start the ritual, you'll receive 50 white potions now";
 				mes "And also my Buffs now and when you kill someone at WOE";
-				IrisTest = 1;
-				close2;
-				callfunc "WETakeBuffs";
-				end;
+	
+			} else {
+
+				mes "All right, now I should tell you anout the reward, it's something very valuable";
+				mes "A Legendary ^FF0000 Hat of the Sun God ^000000, which I won gift from the gods";
+				mes "Now go and complete your mission";
+				mes "Agora vá e Complete sua Missão";
+				mes "Now let's start the ritual, you'll receive 50 white potions now";
+				mes "And also my Buffs now and when you kill someone at WOE";
+
 			}
 
-			mes "All right, now I should tell you anout the reward, it's something very valuable";
-			mes "A Legendary ^FF0000 Hat of the Sun God ^000000, which I won gift from the gods";
-			mes "Now go and complete your mission";
-			mes "Agora vá e Complete sua Missão";
-			mes "Now let's start the ritual, you'll receive 50 white potions now";
-			mes "And also my Buffs now and when you kill someone at WOE";
 			IrisTest = 1;
 			close2;
 			callfunc "WETakeBuffs";
@@ -245,7 +244,8 @@ function	script	WETakeBuffs	{
 				IrisComplet = 1;
 				announce "Iris message: You've complete your mission, came here to get your reward",bc_self,0;
 				sleep2 2000;
-				warp getmapxy(@WEmapname$,@WEmapX,@WEmapY,1,"Iris"),@WEmapX,@WEmapY;
+				getmapxy(@WEmapname$,@WEmapX,@WEmapY,1,"Iris");
+				warp @WEmapname$,@WEmapX,@WEmapY;
 				end;
 
 			}
