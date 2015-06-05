@@ -93,7 +93,7 @@ OnClick:
 			mes "Você se Lembra dela?";
 			next;
 
-			if(select("Sim Mestre","Desculpe-me Mestre, esqueci)==2) {
+			if(select("Sim Mestre","Desculpe-me Mestre, esqueci")==2) {
 
 				mes "^D8202F [Íris] ^000000";
 				mes "Não precisa se desculpar, sua Missão é a seguinte:";
@@ -124,6 +124,7 @@ OnClick:
 			mes "^D8202F [Íris] ^000000";
 			mes "Desculpe-me, ^6E26D7 "+ @PName$ +" ^000000, não preciso de sua ajuda,";
 			mes "Você é muito fraco";
+			close;
 		}
 
 		mes "^D8202F [Íris] ^000000";
