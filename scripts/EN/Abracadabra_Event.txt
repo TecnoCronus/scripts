@@ -74,7 +74,7 @@ prontera,175,215,4	script	Sidhr#AbracadabraEvent	GEFFEN_MAGE_9,{
 		unequip;
 		resetstatus;
 		resetskill;
-		warp .AEMap$,.AEMapX,.AEMapY;
+		warp .AEMap$,0,0;
 		detachrid;		
 
 		if (getmapusers($AEMap$)==$AEPlayerAmount) {
