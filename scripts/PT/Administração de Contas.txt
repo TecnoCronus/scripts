@@ -169,19 +169,24 @@ L_InputUnFree:
 				mes "Diga o Nome de 1 char da conta";
 				input @char$;
 				query_sql "SELECT `account_id` FROM `char` WHERE `name` = `"+@char$+"` DESC LIMIT `1`",@chr$;
-				if(!getarraysize(@chr$)) 
-			{
-				mes "esse char não existe ";
-				close;
-						}
+
+				if(!getarraysize(@chr$)) {
+
+					mes "esse char não existe ";
+					close;
+
+				}
+				
 				mes "Digite a Senha de descongelamento";
 				input @unfree2$;
 				query_sql "SELECT `value` FROM `global_reg_value` WHERE `account_id` = `"+@char$+"` AND `str` = `#Freeze_Stats`",@friendpass$;
-				if(@unfree2$!=@friendpass$)
-		{
-				mes "Senha Incorreta ou a Conta não está Congelada";
-				close;
-					}
+
+				if(@unfree2$!=@friendpass$) {
+
+					mes "Senha Incorreta ou a Conta não está Congelada";
+					close;
+				}
+
 				query_sql "UPDATE `global_reg_value` SET `value` = `0` WHERE `str` = `#Freeze_Stats` AND `account_id` = `"+@chr$+"`";
 				mes "conta descongelada com sucesso !";
 				close;
