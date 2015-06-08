@@ -61,7 +61,7 @@ prontera,168,187,4	script	Iris	4_M_KNIGHT_GOLD,{
 			npctalk "Thank you "+ @PName$ +" now I'm free";
 			sleep2 1500;
 			npctalk "I'll be in heaven, always look at you....";
-			Iriscomplete = 0;
+			IrisComplete = 0;
 			IrisHelper = 0;
 			IrisTest = 0;
 			IrisKill = 0;
@@ -237,7 +237,7 @@ function	script	WETakeBuffs	{
 
 		if (@mapname$ == "prtg_cas01") || (@mapname$ == "prtg_cas02") || (@mapname$ == "prtg_cas03") || (@mapname$ == "prtg_cas04") || (@mapname$ == "prtg_cas05") {
 
-			IrisKill = Iriskill+1;
+			IrisKill = IrisKill+1;
 
 			if(IrisKill==$WEPKAmount) {
 

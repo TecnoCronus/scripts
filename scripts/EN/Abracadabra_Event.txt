@@ -31,7 +31,7 @@
 	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/EN/Woe Event.txt				       	*
 	*-------------------------------------------------------------------------------------------------------*/
 
-prontera,175,215,4	script	Sidhr#AbracadabraEvent	GEFFEN_MAGE_9,{
+prontera,175,215,4	script	Sidhr#AbracadabraEvent	4_M_FARIYKING,{
 
 
 	if ($AEActive == 1) {
@@ -50,7 +50,7 @@ prontera,175,215,4	script	Sidhr#AbracadabraEvent	GEFFEN_MAGE_9,{
 	next;
 	mes "[^993399Sidhr^000000]";
 	mes "Let me check if the event is";
-	mes "active now..."
+	mes "active now...";
 	sleep2 1000;
 
 	if($AEOn == 0) {
@@ -71,7 +71,19 @@ prontera,175,215,4	script	Sidhr#AbracadabraEvent	GEFFEN_MAGE_9,{
 		.@i += 1;
 		AEPlayerIndex = .@i;
 		.@AEPlayerGID[.@i] = getcharid(0);
-		unequip;
+		unequip EQI_HEAD_TOP;
+		unequip EQI_ARMOR;
+		unequip EQI_HAND_L;
+		unequip EQI_HAND_R;
+		unequip EQI_GARMENT;
+		unequip EQI_SHOES;
+		unequip EQI_ACC_L;
+		unequip EQI_ACC_R;
+		unequip EQI_HEAD_MID;
+		unequip EQI_HEAD_LOW;
+		unequip EQI_COSTUME_HEAD_LOW;
+		unequip EQI_COSTUME_HEAD_MID;
+		unequip EQI_COSTUME_HEAD_TOP;
 		resetstatus;
 		resetskill;
 		warp .AEMap$,0,0;
@@ -91,8 +103,8 @@ prontera,175,215,4	script	Sidhr#AbracadabraEvent	GEFFEN_MAGE_9,{
 				if ($AEOn == 0 || $AEActive == 0) break;
 				if (.@AEPlayerGID[.@i] > 0) {
 
-					.@AENPCAttackID = rid2name .@AEPlayerGID[.@i];
-					getmapxy (.@AEAimMap$,.@AEAimX,.@AEAimY,0,.@AENPCAttackID);
+					.@AENPCAttackID$ = rid2name (.@AEPlayerGID[.@i]);
+					getmapxy (.@AEAimMap$,.@AEAimX,.@AEAimY,0,.@AENPCAttackID$);
 					unitwalk .@AEPlayerGID[.@i],.@AEAimX-1,.@AEAimY-1;
 					unitskilluseid .@AENPCID,290,10,.@AEPlayerGID[.@i];
 				}
@@ -141,7 +153,7 @@ OnPCDieEvent:
 
 			}
 
-			.@AEWinnerName$ = rid2name .@AEPlayerGID[.@i2];
+			.@AEWinnerName$ = rid2name (.@AEPlayerGID[.@i2]);
 			announce "Abracadabra Event: The winner is :"+.@AEWinnerName$,bc_all,0xF522F5;
 			.@AEWinnerAID = getcharid(3,.@AEWinnerName$);
 			getitem $AERewardID, $AERewardAmount, .@AEWinnerAID;
@@ -167,7 +179,7 @@ OnInit:
 
 	$AEMap$ = "YOURMAPHERE";
 	$AERewardID = 505;
-	$AERewardAmount, 1;
+	$AERewardAmount = 1;
 
 	setmapflag $AEMap$,mf_nopvp;
 	setmapflag $AEMap$,mf_noskill;
@@ -205,8 +217,8 @@ OnHour23:
 
 	if(rand(1,100) <= $AEStartChance) {	
 
-		$AEon = 1;
-		announce "Abracadabra Event: The event begun ! Run to prontera and talk with Sidhr !"
+		$AEOn = 1;
+		announce "Abracadabra Event: The event begun ! Run to prontera and talk with Sidhr !",bc_all,0x00ff52;
 
 	}
 
