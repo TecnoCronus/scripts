@@ -140,14 +140,14 @@
 
 	OnTimer60000:
 
-		if(getmapmobs ($AmMap$) > $FaMum) {
+		if(mobcount($AmMap$,"all") > $FaMum) {
 
 			announce "The time is passing and there's still invaders left in "+$AmMap$,bc_all,0x00FF00;
 			setnpctimer 0;
 
 		}
 		announce "AmonRa said that Anubis cloned himself, there are many os falses Anubis in "+$AmMap$+", However, just one is the true ",bc_all,0x00FF00;
-		monster $AmMap$,0,0,"Anubis",1098,$FAnubis,"Guardiao_AmonRA::OnFalseAnubisKilled";
+		monster $AmMap$,0,0,"Anubis",1098,$Fanubis,"Guardiao_AmonRA::OnFalseAnubisKilled";
 		monster $AmMap$,0,0,"Anubis",1098,1,"Guardiao_AmonRA::OnTrueAnubisKilled";
 		end;
 
