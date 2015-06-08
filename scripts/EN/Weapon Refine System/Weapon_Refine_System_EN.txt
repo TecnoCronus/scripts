@@ -6,11 +6,10 @@
         \/__/     \:\/  /   \:\__\     |:/  /   \::/  /   \:\__\    |:\/__/   \::/  /    |:/  /   \::/  /   \::/  / 
         	   \/__/     \/__/     \/__/     \/__/     \/__/     \|__|     \/__/     \/__/     \/__/     \/__/ 
 
- 					           Advanced Scripts
 
 					  (C) Copyright TecnoCronus 25/07/2009
 			    	 	
-	*------------------------------------------ eAthena Script ---------------------------------------------*
+	*----------------------------------------- Hercules Script ---------------------------------------------*
 	*- Weapon Refine System			       								*
 	*----------------------------------------------- By: ---------------------------------------------------*
 	*- TecnoCronus                                                                                         	*
@@ -39,9 +38,7 @@
 	*- 64 Anywhere except in GvG Maps (The Player Will Receive EXP in Anywhere except GvG Maps)		*
 	*- You Can Also Change the Rate using the Whisper System sending an message to npc:WRSystem		*
 	*--------------------------------------------- Changelog:  ---------------------------------------------*
-	*- Date			Action										*
-	*-													*
-	*- 25/07/2009		Script Created [TecnoCronus]							*
+	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/EN/Weapon Refine System/Weapon_Refine_System_EN	*
 	*-------------------------------------------------------------------------------------------------------*/
 
 
@@ -183,9 +180,9 @@ function	script	WRSystem	{
 		if(@KilledLvL < ##MinKilledLvL) end;
 		if(##ErsTKSP == 1) {
 			query_sql "SELECT `erased_id` FROM `WeaponRefineSystem` WHERE `erased_id` = `"+killedrid+"`",@Rid;
-			if(@rid == killedrid) goto L_Else;
+			if(@Rid == killedrid) goto L_Else;
 			query_sql "REPLACE INTO `WeaponRefineSystem` (`kill_times`,`killer_id`) VALUES (1,`"+getcharid(0)+"`) WHERE `char_id` = `"+killedrid+"`";
-			set @ktimes, 0;
+			set @Ktimes, 0;
 			query_sql "REPLACE INTO `WeaponRefineSystem` (`erased_id`,`Killer_id2`) VALUES (`"+killedrid+"`,`"+getcharid(0)+"`) WHERE `char_id` = `"+killedrid+"`";
 		} else {
 			L_Else:

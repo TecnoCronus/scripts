@@ -14,10 +14,6 @@
 function	script	GRSys_Chatting	{
 
 	mes "["+getarg(0)+"]";
-	if (isday()==1) 
-		mes "Nice Day no? "+strcharinfo(0);
-	else
-		mes "Nice Night no? "+strcharinfo(0);
 	mes "Do you hear something about";
 	mes "An Room called \"Gold Room\"?";
 	mes "I Was there some days ago.";

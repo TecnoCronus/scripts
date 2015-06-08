@@ -15,7 +15,7 @@ bat_c01,143,58,3	script	GR Helper	763,{
 	if(!GR_CanClone) set GR_CanClone, 0;
 	if(!GR_Cloned) set GR_Cloned, 0;
 	sc_start SC_INVINCIBLE,3600000,0;
-	set @HowMuch,getmapmobs ("bat_c01");
+	set @HowMuch, mobcount("bat_c01","all");
 	set @HowMuch, @HowMuch - $GRSYS_Clones;
 	if(@HowMuch<=0) {
 		monster "bat_c01",0,0,$@GR_MobName$,$@GR_MobId,$@GRAmount,"GRManager::OnMyMobKilled";

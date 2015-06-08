@@ -17,7 +17,7 @@ prontera,146,164,6	script	GRManager	982,{
 	if(!##GRDefault) set ##GRDefault, $@GR_MobDefault;
 	if(!GR_CanClone) set GR_CanClone, 0;
 	if(!GR_Cloned) set GR_Cloned, 0;
-	set @HowMuch,getmapmobs ("bat_c01");
+	set @HowMuch, mobcount ("bat_c01","all");
 	set @HowMuch, @HowMuch - $GRSYS_Clones;
 	if(@HowMuch==0) { 
 		monster "bat_c01",0,0,$@GR_MobName$,$@GR_MobId,$@GRAmount,"GRManager::OnMyMobKilled";
@@ -64,10 +64,10 @@ prontera,146,164,6	script	GRManager	982,{
 		}
 		set ##GRMob,##GRMob-@Mount;
 		getitem 969,@amount;
-		set #GLD_DELAY,(GetTime(7)*12*31*24+GetTime(6)*31*24+GetTime(5)*24+GetTime(3) + 1);
+		set #GLD_DELAY,(gettime(7)*12*31*24+gettime(6)*31*24+gettime(5)*24+gettime(3)+1);
 		mes "[^77B700Manager^000000]";
 		mes "Done, you changed "+@amount+" Point(s) for "+@Mount+" Gold(s)";
-		mes "Call in "+ (#GLD_DELAY - (GetTime(7)*12*31*24+GetTime(6)*31*24+GetTime(5)*24+GetTime(3)) )+" hours later.";
+		mes "Call in "+ (#GLD_DELAY - (gettime(7)*12*31*24+gettime(6)*31*24+gettime(5)*24+gettime(3)) )+" hours later.";
 		close;
 
 	case 3:
@@ -78,10 +78,10 @@ prontera,146,164,6	script	GRManager	982,{
 			mes "More points, so do it.";
 			close;
 		}
-		if (#GLD_DELAY > (GetTime(7)*12*31*24 + GetTime(6)*31*24 + GetTime(5)*24 + GetTime(3)) ) {
+		if (#GLD_DELAY > (gettime(7)*12*31*24 + gettime(6)*31*24 + gettime(5)*24 + gettime(3)) ) {
 			mes "[^77B700Manager^000000]";
 			mes "I Said to you";
-			mes "Call in "+ (#GLD_DELAY - (GetTime(7)*12*31*24+GetTime(6)*31*24+GetTime(5)*24+GetTime(3)) )+" hours later.";
+			mes "Call in "+ (#GLD_DELAY - (gettime(7)*12*31*24+gettime(6)*31*24+gettime(5)*24+gettime(3)) )+" hours later.";
 			close;
 		}
 		if(Zeny < $@GRSys_EnterZeny) {
@@ -177,7 +177,7 @@ prontera,146,164,6	script	GRManager	982,{
 			if(GRSt_Dex) { sc_start SC_INCDEX,$@GRSTTime,10; dispbottom "Your Dex has been increased for some seconds"; }
 			if(GRSt_Luck){ sc_start SC_INCLUK,$@GRSTTime,10; dispbottom "Your Luk has been increased for some seconds"; }
 		}
-		set @HowMuch,getmapmobs ("bat_c01");
+		set @HowMuch,mobcount ("bat_c01","all");
 		set @HowMuch, @HowMuch - $GRSYS_Clones;
 		if(@HowMuch==0) { 
 			monster "bat_c01",0,0,$@GR_MobName$,$@GR_MobId,$@GRAmount,"GRManager::OnMyMobKilled";
