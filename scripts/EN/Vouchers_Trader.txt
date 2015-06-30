@@ -47,6 +47,7 @@
 
 		mes "Which Warmonger voucher you want to ^ff0000GIVE^000000 for the deal ?";
 		select("Warmonger Armor Voucher","Warmonger Garment Voucher","Warmonger Shoes Voucher");
+		@VTMyMenuDel = @menu;
 		callfunc("VTCountVouchers",0,1);
 
 		if(!@VTItem) {
@@ -94,6 +95,7 @@
 
 		mes "Which Balance voucher you want to ^ff0000GIVE^000000 for the deal ?";
 		select("Balance Armor Voucher","Balance Garment Voucher","Balance Shoes Voucher");
+		@VTMyMenuDel = @menu;
 		callfunc("VTCountVouchers",0,2);
 
 		if(!@VTItem) {
@@ -142,6 +144,7 @@
 
 	mes "Which Fortress voucher you want to ^ff0000GIVE^000000 for the deal ?";
 	select("Fortress Armor Voucher","Fortress Garment Voucher","Fortress Shoes Voucher");
+	@VTMyMenuDel = @menu;
 	callfunc("VTCountVouchers",0,3);
 
 	if(!@VTItem) {
