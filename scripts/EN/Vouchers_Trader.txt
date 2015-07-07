@@ -65,13 +65,13 @@
 		if (@VTItem&2 && @VTMyMenuDel==2) delitem .VTWarmongerVouchersItemID[1], 1;
 		if (@VTItem&4 && @VTMyMenuDel==3) delitem .VTWarmongerVouchersItemID[2], 1;
 
-		if (@VTMyMenuGet == 1) getitem .VTBalanceVouchersItemID[1], 1;
-		if (@VTMyMenuGet == 2) getitem .VTBalanceVouchersItemID[2], 1;
-		if (@VTMyMenuGet == 3) getitem .VTBalanceVouchersItemID[3], 1;
+		if (@VTMyMenuGet == 1) getitem .VTBalanceVouchersItemID[0], 1;
+		if (@VTMyMenuGet == 2) getitem .VTBalanceVouchersItemID[1], 1;
+		if (@VTMyMenuGet == 3) getitem .VTBalanceVouchersItemID[2], 1;
 
-		if (@VTMyMenuGet == 4) getitem .VTFortressVouchersItemID[1],1;
-		if (@VTMyMenuGet == 5) getitem .VTFortressVouchersItemID[2],1;
-		if (@VTMyMenuGet == 6) getitem .VTFortressVouchersItemID[3],1;
+		if (@VTMyMenuGet == 4) getitem .VTFortressVouchersItemID[0],1;
+		if (@VTMyMenuGet == 5) getitem .VTFortressVouchersItemID[1],1;
+		if (@VTMyMenuGet == 6) getitem .VTFortressVouchersItemID[2],1;
 
 		mes "Done.";
 		close;
@@ -113,13 +113,13 @@
 		if (@VTItem&2 && @VTMyMenuDel==2) delitem .VTBalanceVouchersItemID[1], 1;
 		if (@VTItem&4 && @VTMyMenuDel==3) delitem .VTBalanceVouchersItemID[2], 1;
 
-		if (@VTMyMenuGet == 1) getitem .VTWarmongerVouchersItemID[1], 1;
-		if (@VTMyMenuGet == 2) getitem .VTWarmongerVouchersItemID[2], 1;
-		if (@VTMyMenuGet == 3) getitem .VTWarmongerVouchersItemID[3], 1;
+		if (@VTMyMenuGet == 1) getitem .VTWarmongerVouchersItemID[0], 1;
+		if (@VTMyMenuGet == 2) getitem .VTWarmongerVouchersItemID[1], 1;
+		if (@VTMyMenuGet == 3) getitem .VTWarmongerVouchersItemID[2], 1;
 
-		if (@VTMyMenuGet == 4) getitem .VTFortressVouchersItemID[1],1;
-		if (@VTMyMenuGet == 5) getitem .VTFortressVouchersItemID[2],1;
-		if (@VTMyMenuGet == 6) getitem .VTFortressVouchersItemID[3],1;
+		if (@VTMyMenuGet == 4) getitem .VTFortressVouchersItemID[0],1;
+		if (@VTMyMenuGet == 5) getitem .VTFortressVouchersItemID[1],1;
+		if (@VTMyMenuGet == 6) getitem .VTFortressVouchersItemID[2],1;
 
 		mes "Done.";
 		close;
@@ -162,13 +162,13 @@
 	if (@VTItem&2 && @VTMyMenuDel==2) delitem .VTFortressVouchersItemID[1], 1;
 	if (@VTItem&4 && @VTMyMenuDel==3) delitem .VTFortressVouchersItemID[2], 1;
 
-	if (@VTMyMenuGet == 1) getitem .VTWarmongerVouchersItemID[1], 1;
-	if (@VTMyMenuGet == 2) getitem .VTWarmongerVouchersItemID[2], 1;
-	if (@VTMyMenuGet == 3) getitem .VTWarmongerVouchersItemID[3], 1;
+	if (@VTMyMenuGet == 1) getitem .VTWarmongerVouchersItemID[0], 1;
+	if (@VTMyMenuGet == 2) getitem .VTWarmongerVouchersItemID[1], 1;
+	if (@VTMyMenuGet == 3) getitem .VTWarmongerVouchersItemID[2], 1;
 
-	if (@VTMyMenuGet == 4) getitem .VTBalanceVouchersItemID[1],1;
-	if (@VTMyMenuGet == 5) getitem .VTBalanceVouchersItemID[2],1;
-	if (@VTMyMenuGet == 6) getitem .VTBalanceVouchersItemID[3],1;
+	if (@VTMyMenuGet == 4) getitem .VTBalanceVouchersItemID[0],1;
+	if (@VTMyMenuGet == 5) getitem .VTBalanceVouchersItemID[1],1;
+	if (@VTMyMenuGet == 6) getitem .VTBalanceVouchersItemID[2],1;
 
 	mes "Done.";
 	close;
