@@ -70,7 +70,7 @@ prontera,175,215,4	script	Sidhr#AbracadabraEvent	4_M_FARIYKING,{
 		AEPlayer = 1;
 		.@i += 1;
 		AEPlayerIndex = .@i;
-		.@AEPlayerGID[.@i] = getcharid(0);
+		.@AEPlayerGID[.@i] = getcharid(3);
 		unequip EQI_HEAD_TOP;
 		unequip EQI_ARMOR;
 		unequip EQI_HAND_L;
@@ -134,7 +134,7 @@ OnPCDieEvent:
 
 	if (@AEMap$ == $AEMap$) {
 
-		.@AEPlayerGID[AEPlayerIndex] = 1;
+		.@AEPlayerGID[AEPlayerIndex] = 0;
 		announce "Abracadabra Event: "+strcharinfo(0)+" just died!",bc_all,0xf25f22;
 		warp "prontera",0,0;
 		detachrid;
