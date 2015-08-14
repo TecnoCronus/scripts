@@ -28,7 +28,7 @@
 	* - The NPC will reset status and skills								*
 	* 											       		*
 	*-------------------------------------------- Changelog ------------------------------------------------*
-	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/EN/Woe Event.txt				       	*
+	*- http://trac.xp-dev.com/TC_Scripts/log/scripts/EN/Abracadabra_Event.txt			       	*
 	*-------------------------------------------------------------------------------------------------------*/
 
 prontera,175,215,4	script	Sidhr#AbracadabraEvent	4_M_FARIYKING,{
